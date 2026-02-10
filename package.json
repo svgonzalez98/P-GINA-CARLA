@@ -1,7 +1,7 @@
 {
-  "name": "david-celi-lupera",
+  "name": "carla-alvarez-manrique",
   "version": "1.0.0",
-  "description": "Estudio Jurídico David Celi Lupera",
+  "description": "Estudio Jurídico Carla Álvarez Manrique",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
