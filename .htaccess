@@ -1,0 +1,36 @@
+RewriteEngine On
+
+# Forzar HTTPS
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# URLs limpias SIN extensión
+RewriteRule ^sobre-mi$ /pages/sobre-mi.html [L]
+RewriteRule ^servicios$ /pages/servicios.html [L]
+RewriteRule ^publicaciones$ /pages/publicaciones.html [L]
+RewriteRule ^politica-privacidad$ /pages/politica-privacidad.html [L]
+
+# TAMBIÉN permitir con .html si alguien lo escribe
+RewriteRule ^sobre-mi\.html$ /pages/sobre-mi.html [L]
+RewriteRule ^servicios\.html$ /pages/servicios.html [L]
+RewriteRule ^publicaciones\.html$ /pages/publicaciones.html [L]
+
+# ============================================
+# CONTROL DE CACHÉ
+# ============================================
+
+# Evitar cache en archivos HTML
+<FilesMatch "\.(html|htm)$">
+  <IfModule mod_headers.c>
+    Header set Cache-Control "no-cache, no-store, must-revalidate"
+    Header set Pragma "no-cache"
+    Header set Expires "0"
+  </IfModule>
+</FilesMatch>
+
+# Permitir cache normal para imágenes y otros recursos (30 días)
+<FilesMatch "\.(jpg|jpeg|png|gif|webp|ico|pdf|svg)$">
+  <IfModule mod_headers.c>
+    Header set Cache-Control "max-age=2592000, public"
+  </IfModule>
+</FilesMatch>

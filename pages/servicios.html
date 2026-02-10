@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Meta Tags -->
+    <meta name="description"
+        content="Servicios de asesoría legal corporativa en Guayaquil: Corporativo, Contratos, Gestión Laboral, Pesquero, Compliance y Marítimo.">
+    <meta name="keywords"
+        content="asesoría legal corporativa, derecho corporativo Guayaquil, compliance Ecuador, derecho marítimo, contratos empresariales">
+    <meta name="author" content="David Celi Lupera">
+
+    <!-- Open Graph / Social Media -->
+    <meta property="og:title" content="Servicios - David Celi Lupera | Asesoría Legal Corporativa">
+    <meta property="og:description"
+        content="Soluciones legales orientadas a la toma de decisiones empresariales seguras y sostenibles">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://davidcelilupera.com/servicios">
+
+    <title>Servicios - David Celi Lupera | Asesoría Legal Corporativa</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/assets/icons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Google Fonts - Fuentes profesionales delgadas -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600&family=Lora:wght@400;500;600&display=swap"
+        rel="stylesheet">
+
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'navy-dark': '#0a1628',
+                        'navy': '#0f2942',
+                        'navy-light': '#1a3a5c',
+                        'navy-lighter': '#2d4a6f',
+                        'blue-corp': '#3b82f6',
+                        'blue-corp-dark': '#2563eb',
+                    },
+                    fontFamily: {
+                        'sans': ['Montserrat', 'sans-serif'],
+                        'serif': ['Lora', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .glass {
+            background: rgba(10, 22, 40, 0.9);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #0a1628;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #3b82f6;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #2563eb;
+        }
+
+        .ultra-light {
+            font-weight: 200;
+        }
+    </style>
+</head>
+
+<body class="bg-navy-dark text-gray-100 font-sans antialiased">
+
+    <!-- PAGE LOADER - Animación de carga -->
+    <div id="pageLoader"
+        class="fixed inset-0 bg-navy-dark z-[200] flex items-center justify-center transition-opacity duration-500">
+        <div class="text-center">
+            <!-- Logo animado -->
+            <img src="/assets/images/David_LOGO_7.png" alt="Loading" class="h-16 lg:h-20 mx-auto mb-6 animate-pulse">
+            <!-- Spinner -->
+            <div
+                class="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-blue-corp border-r-transparent">
+            </div>
+        </div>
+    </div>
+
+    <!-- NAVBAR -->
+    <nav id="navbar" class="fixed w-full top-0 z-50 transition-all duration-300">
+        <div class="container mx-auto px-8 sm:px-6 lg:px-12">
+            <div class="flex items-center justify-between h-20 lg:h-24">
+
+                <!-- Logo -->
+                <a href="/" class="flex items-center space-x-2 sm:space-x-3">
+                    <img src="/assets/images/David_LOGO_7.png" alt="David Celi Lupera Logo"
+                        class="h-8 sm:h-10 lg:h-12 w-auto">
+                </a>
+
+                <!-- Desktop Menu -->
+                <div class="hidden lg:flex items-center space-x-8">
+                    <a href="/"
+                        class="text-gray-300 hover:text-blue-corp transition-colors font-light text-sm tracking-wide">Inicio</a>
+                    <a href="/servicios"
+                        class="text-white hover:text-blue-corp transition-colors font-light text-sm tracking-wide">Servicios</a>
+                    <a href="/sobre-mi"
+                        class="text-gray-300 hover:text-blue-corp transition-colors font-light text-sm tracking-wide">Sobre
+                        mí</a>
+                    <a href="/publicaciones"
+                        class="text-gray-300 hover:text-blue-corp transition-colors font-light text-sm tracking-wide">Publicaciones</a>
+                    <a href="https://wa.me/593998128476?text=Hola,%20necesito%20asesoría%20legal" target="_blank"
+                        class="bg-blue-corp text-white px-6 py-2.5 rounded font-normal text-sm hover:bg-navy-light transition-all">
+                        Contactar
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="lg:hidden text-white focus:outline-none">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden lg:hidden pb-6 space-y-3 bg-navy-dark/95 backdrop-blur-lg rounded-b-lg">
+                <a href="/"
+                    class="block text-gray-300 hover:text-blue-corp transition-colors font-light py-2 px-4">Inicio</a>
+                <a href="/servicios"
+                    class="block text-white hover:text-blue-corp transition-colors font-light py-2 px-4">Servicios</a>
+                <a href="/sobre-mi"
+                    class="block text-gray-300 hover:text-blue-corp transition-colors font-light py-2 px-4">Sobre
+                    mí</a>
+                <a href="/publicaciones"
+                    class="block text-gray-300 hover:text-blue-corp transition-colors font-light py-2 px-4">Publicaciones</a>
+                <a href="https://wa.me/593998128476?text=Hola,%20necesito%20asesoría%20legal" target="_blank"
+                    class="block bg-blue-corp text-white text-center px-6 py-2.5 rounded font-normal text-sm hover:bg-navy-light transition-all">
+                    Contactar
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section
+        class="relative pt-32 pb-20 lg:pt-40 lg:pb-28 bg-gradient-to-br from-navy-dark via-navy to-navy-light overflow-hidden">
+        <!-- Patrón decorativo -->
+        <div class="absolute inset-0 opacity-10">
+            <div
+                class="absolute top-0 right-0 w-96 h-96 border-2 border-blue-corp rounded-full transform translate-x-1/2 -translate-y-1/2">
+            </div>
+            <div
+                class="absolute bottom-0 left-0 w-72 h-72 border-2 border-blue-corp rounded-full transform -translate-x-1/2 translate-y-1/2">
+            </div>
+        </div>
+
+        <div class="container mx-auto px-8 sm:px-6 lg:px-12 relative z-10">
+            <div class="max-w-3xl mx-auto text-center">
+                <!-- Breadcrumb -->
+                <div class="flex items-center justify-center space-x-2 text-sm text-gray-300 mb-6">
+                    <a href="/" class="hover:text-blue-corp transition-colors font-light">Inicio</a>
+                    <i class="fas fa-chevron-right text-xs"></i>
+                    <span class="text-blue-corp font-light">Servicios</span>
+                </div>
+
+                <div class="w-20 h-0.5 bg-blue-corp mx-auto mb-8"></div>
+                <h1 class="text-4xl lg:text-6xl font-sans ultra-light text-white mb-6">
+                    Asesoría Legal Corporativa
+                </h1>
+                <p class="text-xl text-gray-200 leading-relaxed mb-10 font-light">
+                    Soluciones legales orientadas a la toma de decisiones empresariales seguras y sostenibles
+                </p>
+
+                <!-- CTA -->
+                <a href="https://wa.me/593998128476?text=Hola,%20necesito%20asesoría%20legal" target="_blank"
+                    class="inline-block bg-blue-corp text-white px-10 py-4 rounded-lg font-normal hover:bg-blue-corp-dark transition-all text-center shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+                    <i class="fab fa-whatsapp mr-2"></i>
+                    Escribir por WhatsApp
+                </a>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <i class="fas fa-chevron-down text-white text-2xl"></i>
+        </div>
+    </section>
+
+    <!-- NAVEGACIÓN INTERNA (Sticky) -->
+    <div class="sticky top-20 lg:top-24 z-40 glass border-b border-navy-lighter/30 shadow-sm">
+        <div class="container mx-auto px-8 sm:px-6 lg:px-12">
+            <nav class="flex overflow-x-auto space-x-8 py-4 text-sm">
+                <a href="#corporativo"
+                    class="text-gray-300 hover:text-blue-corp whitespace-nowrap transition-colors font-light">Corporativo</a>
+                <a href="#contratos"
+                    class="text-gray-300 hover:text-blue-corp whitespace-nowrap transition-colors font-light">Contratos</a>
+                <a href="#laboral"
+                    class="text-gray-300 hover:text-blue-corp whitespace-nowrap transition-colors font-light">Laboral</a>
+                <a href="#pesquero"
+                    class="text-gray-300 hover:text-blue-corp whitespace-nowrap transition-colors font-light">Pesquero</a>
+                <a href="#compliance"
+                    class="text-gray-300 hover:text-blue-corp whitespace-nowrap transition-colors font-light">Compliance</a>
+                <a href="#maritimo"
+                    class="text-gray-300 hover:text-blue-corp whitespace-nowrap transition-colors font-light">Marítimo</a>
+            </nav>
+        </div>
+    </div>
+
+    <!-- SERVICIOS CONTENT -->
+
+    <!-- 1. CORPORATIVO -->
+    <section id="corporativo" class="py-24 bg-navy scroll-mt-24">
+        <div class="container mx-auto px-8 sm:px-6 lg:px-12">
+            <div class="max-w-4xl mx-auto">
+
+                <!-- Header -->
+                <div class="flex items-center mb-8">
+                    <div
+                        class="w-16 h-16 bg-blue-corp rounded-full flex items-center justify-center mr-6 flex-shrink-0">
+                        <i class="fas fa-building text-white text-2xl"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-4xl font-sans font-normal text-white">Corporativo</h2>
+                        <div class="w-16 h-0.5 bg-blue-corp mt-3"></div>
+                    </div>
+                </div>
+
+                <!-- Descripción -->
+                <p class="text-lg text-gray-300 mb-8 leading-relaxed font-light">
+                    Estructuración y soporte societario para operar con seguridad jurídica y eficiencia corporativa.
+                </p>
+
+                <!-- Subservicios -->
+                <div class="bg-navy-light/40 border border-navy-lighter/60 rounded-xl p-8 mb-8">
+                    <h3 class="text-lg font-normal text-white mb-6">Servicios incluidos:</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-blue-corp mr-3 mt-1 flex-shrink-0"></i>
+                            <span class="text-gray-300 font-light">Constitución de compañías y estructuración
+                                corporativa</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-blue-corp mr-3 mt-1 flex-shrink-0"></i>
+                            <span class="text-gray-300 font-light">Reformas estatutarias</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-blue-corp mr-3 mt-1 flex-shrink-0"></i>
+                            <span class="text-gray-300 font-light">Aumento de capital</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-blue-corp mr-3 mt-1 flex-shrink-0"></i>
+                            <span class="text-gray-300 font-light">Fusiones, transformaciones y reorganizaciones</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-blue-corp mr-3 mt-1 flex-shrink-0"></i>
+                            <span class="text-gray-300 font-light">Actas, resoluciones, nombramientos y cumplimiento
+                                societario</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-blue-corp mr-3 mt-1 flex-shrink-0"></i>
+                            <span class="text-gray-300 font-light">Transferencia/venta de acciones (soporte societario y
+                                contractual)</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-blue-corp mr-3 mt-1 flex-shrink-0"></i>
+                            <span class="text-gray-300 font-light">Trámites y acompañamiento ante Superintendencia de
+                                Compañías,
+                                valores y seguros</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- CTA -->
+                <div class="text-center">
+                    <a href="https://wa.me/593998128476?text=Hola,%20necesito%20información%20sobre%20servicios%20corporativos"
+                        target="_blank"
+                        class="inline-block bg-blue-corp text-white px-8 py-3 rounded-lg font-normal hover:bg-blue-corp-dark transition-all shadow-md hover:shadow-lg">
+                        <i class="fab fa-whatsapp mr-2"></i>
+                        Consultar sobre este servicio
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Separador -->
+    <div class="border-t border-navy-lighter/30"></div>
+
+    <!-- 2. CONTRATOS Y NEGOCIACIÓN ESTRATÉGICA -->
+    <section id="contratos" class="py-24 bg-navy-dark scroll-mt-24">
+        <div class="container mx-auto px-8 sm:px-6 lg:px-12">
+            <div class="max-w-4xl mx-auto">
+
+                <!-- Header -->
+                <div class="flex items-center mb-8">
+                    <div
+                        class="w-16 h-16 bg-blue-corp rounded-full flex items-center justify-center mr-6 flex-shrink-0">
+                        <i class="fas fa-file-contract text-white text-2xl"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-4xl font-sans font-normal text-white">Contratos y Negociación Estratégica</h2>
+                        <div class="w-16 h-0.5 bg-blue-corp mt-3"></div>
+                    </div>
+                </div>
+
+                <!-- Descripción -->
+                <p class="text-lg text-gray-300 mb-8 leading-relaxed font-light">
+                    Redacción y negociación activa de contratos para cerrar acuerdos y reducir riesgos.
+                </p>
+
+                <!-- Subservicios -->
+                <div class="bg-navy-light/40 border border-navy-lighter/60 rounded-xl p-8 mb-8">
+                    <h3 class="text-lg font-normal text-white mb-6">Servicios incluidos:</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-blue-corp mr-3 mt-1 flex-shrink-0"></i>
+                            <span class="text-gray-300 font-light">Contratos de prestación de servicios, suministro y
+                                compraventa</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-blue-corp mr-3 mt-1 flex-shrink-0"></i>
+                            <span class="text-gray-300 font-light">NDAs y acuerdos de confidencialidad</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-blue-corp mr-3 mt-1 flex-shrink-0"></i>
+                            <span class="text-gray-300 font-light">Contratos marco / relación comercial</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-blue-corp mr-3 mt-1 flex-shrink-0"></i>
+                            <span class="text-gray-300 font-light">Acuerdos de exclusividad, distribución,
+                                licencias</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-blue-corp mr-3 mt-1 flex-shrink-0"></i>
+                            <span class="text-gray-300 font-light">Contratos de inversión, joint ventures, alianzas
+                                estratégicas</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-blue-corp mr-3 mt-1 flex-shrink-0"></i>
+                            <span class="text-gray-300 font-light">Revisión de contratos</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-blue-corp mr-3 mt-1 flex-shrink-0"></i>
+                            <span class="text-gray-300 font-light">Acompañamiento en negociaciones contractuales</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- CTA -->
+                <div class="text-center">
+                    <a href="https://wa.me/593998128476?text=Hola,%20necesito%20información%20sobre%20contratos%20y%20negociación"
+                        target="_blank"
+                        class="inline-block bg-blue-corp text-white px-8 py-3 rounded-lg font-normal hover:bg-blue-corp-dark transition-all shadow-md hover:shadow-lg">
+                        <i class="fab fa-whatsapp mr-2"></i>
+                        Consultar sobre este servicio
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Separador -->
+    <div class="border-t border-navy-lighter/30"></div>
+
+    <!-- 3. GESTIÓN LABORAL -->
+    <section id="laboral" class="py-24 bg-navy scroll-mt-24">
+        <div class="container mx-auto px-8 sm:px-6 lg:px-12">
+            <div class="max-w-4xl mx-auto">
+
+                <!-- Header -->
+                <div class="flex items-center mb-8">
+                    <div
+                        class="w-16 h-16 bg-blue-corp rounded-full flex items-center justify-center mr-6 flex-shrink-0">
+                        <i class="fas fa-users text-white text-2xl"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-4xl font-sans font-normal text-white">Gestión Laboral</h2>
+                        <div class="w-16 h-0.5 bg-blue-corp mt-3"></div>
+                    </div>
+                </div>
+
+                <!-- Descripción -->
+                <p class="text-lg text-gray-300 mb-8 leading-relaxed font-light">
+                    Acompañamiento en la gestión de personal desde la contratación hasta la terminación de relaciones
+                    laborales.
+                </p>
+
+                <!-- Subservicios -->
+                <div class="bg-navy-light/40 border border-navy-lighter/60 rounded-xl p-8 mb-8">
+                    <h3 class="text-lg font-normal text-white mb-6">Servicios incluidos:</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-blue-corp mr-3 mt-1 flex-shrink-0"></i>
+                            <span class="text-gray-300 font-light">Contratos laborales (indefinidos, a plazo fijo, por
+                                obra,
+                                ocasionales)</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-blue-corp mr-3 mt-1 flex-shrink-0"></i>
+                            <span class="text-gray-300 font-light">Reglamentos internos de trabajo</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-blue-corp mr-3 mt-1 flex-shrink-0"></i>
+                            <span class="text-gray-300 font-light">Políticas de confidencialidad, uso de recursos y
+                                prohibición
+                                de competencia</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-blue-corp mr-3 mt-1 flex-shrink-0"></i>
+                            <span class="text-gray-300 font-light">Asesoría en despidos, liquidaciones y
+                                finiquitos</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-blue-corp mr-3 mt-1 flex-shrink-0"></i>
+                            <span class="text-gray-300 font-light">Auditorías de cumplimiento laboral</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-blue-corp mr-3 mt-1 flex-shrink-0"></i>
+                            <span class="text-gray-300 font-light">Gestión de reclamos laborales</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- CTA -->
+                <div class="text-center">
+                    <a href="https://wa.me/593998128476?text=Hola,%20necesito%20información%20sobre%20gestión%20laboral"
+                        target="_blank"
+                        class="inline-block bg-blue-corp text-white px-8 py-3 rounded-lg font-normal hover:bg-blue-corp-dark transition-all shadow-md hover:shadow-lg">
+                        <i class="fab fa-whatsapp mr-2"></i>
+                        Consultar sobre este servicio
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Separador -->
+    <div class="border-t border-navy-lighter/30"></div>
+
+    <!-- 4. PESQUERO Y REGULATORIO SECTORIAL -->
+    <section id="pesquero" class="py-24 bg-navy-dark scroll-mt-24">
+        <div class="container mx-auto px-8 sm:px-6 lg:px-12">
+            <div class="max-w-4xl mx-auto">
+
+                <!-- Header -->
+                <div class="flex items-center mb-8">
+                    <div
+                        class="w-16 h-16 bg-blue-corp rounded-full flex items-center justify-center mr-6 flex-shrink-0">
+                        <i class="fas fa-fish text-white text-2xl"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-4xl font-sans font-normal text-white">Pesquero y Regulatorio Sectorial</h2>
+                        <div class="w-16 h-0.5 bg-blue-corp mt-3"></div>
+                    </div>
+                </div>
+
+                <!-- Descripción -->
+                <p class="text-lg text-gray-300 mb-8 leading-relaxed font-light">
+                    Asesoría especializada para empresas del sector pesquero y actividades reguladas.
+                </p>
+
+                <!-- Subservicios -->
+                <div class="bg-navy-light/40 border border-navy-lighter/60 rounded-xl p-8 mb-8">
+                    <h3 class="text-lg font-normal text-white mb-6">Servicios incluidos:</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-blue-corp mr-3 mt-1 flex-shrink-0"></i>
+                            <span class="text-gray-300 font-light">Interpretación y aplicación de normativa
+                                pesquera</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-blue-corp mr-3 mt-1 flex-shrink-0"></i>
+                            <span class="text-gray-300 font-light">Trámites ante autoridades de pesca (permisos,
+                                concesiones,
+                                licencias)</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-blue-corp mr-3 mt-1 flex-shrink-0"></i>
+                            <span class="text-gray-300 font-light">Gestión de procesos administrativos</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-blue-corp mr-3 mt-1 flex-shrink-0"></i>
+                            <span class="text-gray-300 font-light">Auditorías de cumplimiento regulatorio</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-blue-corp mr-3 mt-1 flex-shrink-0"></i>
+                            <span class="text-gray-300 font-light">Gestión y revisión de contratos pesqueros</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-blue-corp mr-3 mt-1 flex-shrink-0"></i>
+                            <span class="text-gray-300 font-light">Asesoría en procesos de compraventa de cuotas y
+                                permisos</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- CTA -->
+                <div class="text-center">
+                    <a href="https://wa.me/593998128476?text=Hola,%20necesito%20información%20sobre%20derecho%20pesquero"
+                        target="_blank"
+                        class="inline-block bg-blue-corp text-white px-8 py-3 rounded-lg font-normal hover:bg-blue-corp-dark transition-all shadow-md hover:shadow-lg">
+                        <i class="fab fa-whatsapp mr-2"></i>
+                        Consultar sobre este servicio
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Separador -->
+    <div class="border-t border-navy-lighter/30"></div>
+
+    <!-- 5. COMPLIANCE -->
+    <section id="compliance" class="py-24 bg-navy scroll-mt-24">
+        <div class="container mx-auto px-8 sm:px-6 lg:px-12">
+            <div class="max-w-4xl mx-auto">
+
+                <!-- Header -->
+                <div class="flex items-center mb-8">
+                    <div
+                        class="w-16 h-16 bg-blue-corp rounded-full flex items-center justify-center mr-6 flex-shrink-0">
+                        <i class="fas fa-shield-alt text-white text-2xl"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-4xl font-sans font-normal text-white">Compliance</h2>
+                        <div class="w-16 h-0.5 bg-blue-corp mt-3"></div>
+                    </div>
+                </div>
+
+                <!-- Descripción -->
+                <p class="text-lg text-gray-300 mb-8 leading-relaxed font-light">
+                    Implementación de sistemas y políticas para prevenir riesgos legales y reputacionales.
+                </p>
+
+                <!-- Subservicios -->
+                <div class="bg-navy-light/40 border border-navy-lighter/60 rounded-xl p-8 mb-8">
+                    <h3 class="text-lg font-normal text-white mb-6">Servicios incluidos:</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-blue-corp mr-3 mt-1 flex-shrink-0"></i>
+                            <span class="text-gray-300 font-light">Diseño e implementación de programas de cumplimiento
+                                normativo</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-blue-corp mr-3 mt-1 flex-shrink-0"></i>
+                            <span class="text-gray-300 font-light">Políticas anticorrupción y prevención de lavado de
+                                activos</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-blue-corp mr-3 mt-1 flex-shrink-0"></i>
+                            <span class="text-gray-300 font-light">Códigos de ética y conducta empresarial</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-blue-corp mr-3 mt-1 flex-shrink-0"></i>
+                            <span class="text-gray-300 font-light">Canales de denuncias</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-blue-corp mr-3 mt-1 flex-shrink-0"></i>
+                            <span class="text-gray-300 font-light">Auditorías de cumplimiento</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-blue-corp mr-3 mt-1 flex-shrink-0"></i>
+                            <span class="text-gray-300 font-light">Due diligence con clientes y proveedores</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-blue-corp mr-3 mt-1 flex-shrink-0"></i>
+                            <span class="text-gray-300 font-light">Capacitaciones en prevención de riesgos
+                                legales</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- CTA -->
+                <div class="text-center">
+                    <a href="https://wa.me/593998128476?text=Hola,%20necesito%20información%20sobre%20compliance"
+                        target="_blank"
+                        class="inline-block bg-blue-corp text-white px-8 py-3 rounded-lg font-normal hover:bg-blue-corp-dark transition-all shadow-md hover:shadow-lg">
+                        <i class="fab fa-whatsapp mr-2"></i>
+                        Consultar sobre este servicio
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Separador -->
+    <div class="border-t border-navy-lighter/30"></div>
+
+    <!-- 6. MARÍTIMO Y PORTUARIO -->
+    <section id="maritimo" class="py-24 bg-navy-dark scroll-mt-24">
+        <div class="container mx-auto px-8 sm:px-6 lg:px-12">
+            <div class="max-w-4xl mx-auto">
+
+                <!-- Header -->
+                <div class="flex items-center mb-8">
+                    <div
+                        class="w-16 h-16 bg-blue-corp rounded-full flex items-center justify-center mr-6 flex-shrink-0">
+                        <i class="fas fa-ship text-white text-2xl"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-4xl font-sans font-normal text-white">Marítimo y Portuario</h2>
+                        <div class="w-16 h-0.5 bg-blue-corp mt-3"></div>
+                    </div>
+                </div>
+
+                <!-- Descripción -->
+                <p class="text-lg text-gray-300 mb-8 leading-relaxed font-light">
+                    Asesoría especializada en operaciones marítimas, portuarias y de transporte internacional.
+                </p>
+
+                <!-- Subservicios -->
+                <div class="bg-navy-light/40 border border-navy-lighter/60 rounded-xl p-8 mb-8">
+                    <h3 class="text-lg font-normal text-white mb-6">Servicios incluidos:</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-blue-corp mr-3 mt-1 flex-shrink-0"></i>
+                            <span class="text-gray-300 font-light">Contratos de transporte marítimo (conocimientos de
+                                embarque,
+                                pólizas de fletamento)</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-blue-corp mr-3 mt-1 flex-shrink-0"></i>
+                            <span class="text-gray-300 font-light">Gestión de averías y reclamos de seguros
+                                marítimos</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-blue-corp mr-3 mt-1 flex-shrink-0"></i>
+                            <span class="text-gray-300 font-light">Constitución, transferencia y registro de
+                                naves</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-blue-corp mr-3 mt-1 flex-shrink-0"></i>
+                            <span class="text-gray-300 font-light">Normativa aduanera y trámites portuarios</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-blue-corp mr-3 mt-1 flex-shrink-0"></i>
+                            <span class="text-gray-300 font-light">Gestión de procesos ante autoridades marítimas y
+                                portuarias</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-blue-corp mr-3 mt-1 flex-shrink-0"></i>
+                            <span class="text-gray-300 font-light">Contratos de concesión y servicios portuarios</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- CTA -->
+                <div class="text-center">
+                    <a href="https://wa.me/593998128476?text=Hola,%20necesito%20información%20sobre%20derecho%20marítimo"
+                        target="_blank"
+                        class="inline-block bg-blue-corp text-white px-8 py-3 rounded-lg font-normal hover:bg-blue-corp-dark transition-all shadow-md hover:shadow-lg">
+                        <i class="fab fa-whatsapp mr-2"></i>
+                        Consultar sobre este servicio
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA FINAL -->
+    <section class="py-16 lg:py-24 bg-navy">
+        <div class="container mx-auto px-8 sm:px-6 lg:px-12">
+            <div class="max-w-4xl mx-auto text-center">
+                <div class="w-16 h-0.5 bg-blue-corp mx-auto mb-8"></div>
+                <h2 class="text-3xl lg:text-5xl font-sans font-light text-white mb-6">
+                    ¿Listo para Resolver tus Necesidades Legales?
+                </h2>
+                <p class="text-base lg:text-lg text-gray-300 mb-10 max-w-2xl mx-auto font-light leading-relaxed">
+                    Agenda una consulta y descubre cómo puedo contribuir al éxito de tus objetivos empresariales
+                </p>
+                <a href="https://wa.me/593998128476?text=Hola,%20necesito%20asesoría%20legal" target="_blank"
+                    class="inline-flex items-center justify-center bg-blue-corp text-white px-10 py-5 rounded font-normal text-lg hover:bg-navy-light transition-all shadow-xl">
+                    <i class="fab fa-whatsapp mr-3 text-2xl"></i>
+                    Contactar por WhatsApp
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-navy-dark border-t border-navy-lighter/30">
+        <div class="container mx-auto px-8 sm:px-6 lg:px-12 py-12 lg:py-16">
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12 mb-12 max-w-5xl mx-auto">
+
+                <!-- Columna 1: Logo y descripción -->
+                <div>
+                    <div class="flex items-center space-x-3 mb-6">
+                        <img src="/assets/images/David_LOGO_7.png" alt="David Celi Lupera Logo"
+                            class="h-8 sm:h-10 lg:h-12 w-auto">
+                        <!-- <div>
+                            <h3 class="text-lg font-sans font-normal text-white">David Celi Lupera</h3>
+                            <p class="text-xs text-gray-400 tracking-widest font-light">ABOGADO</p>
+                        </div> -->
+                    </div>
+                    <p class="text-gray-400 text-sm leading-relaxed font-light">
+                        Asesoría legal corporativa especializada en Guayaquil, Ecuador.
+                    </p>
+                </div>
+
+                <!-- Columna 2: Contacto -->
+                <div>
+                    <h4 class="text-base font-sans font-normal text-white mb-4">Contacto</h4>
+                    <div class="space-y-3">
+                        <div class="flex items-center text-gray-400 text-sm font-light">
+                            <i class="fas fa-map-marker-alt text-blue-corp mr-3 w-5"></i>
+                            <span>Guayaquil, Ecuador</span>
+                        </div>
+                        <div class="flex items-center text-gray-400 text-sm font-light">
+                            <i class="fas fa-envelope text-blue-corp mr-3 w-5"></i>
+                            <a href="mailto:info@davidcelilupera.ec"
+                                class="hover:text-white transition-colors">info@davidcelilupera.ec</a>
+                        </div>
+                        <div class="flex items-center text-gray-400 text-sm font-light">
+                            <i class="fab fa-whatsapp text-blue-corp mr-3 w-5"></i>
+                            <a href="https://wa.me/593998128476" target="_blank"
+                                class="hover:text-white transition-colors">
+                                +593 998 128 476
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Columna 3: Redes Sociales -->
+                <div>
+                    <h4 class="text-base font-sans font-normal text-white mb-4">Redes Sociales</h4>
+                    <div class="flex space-x-4">
+                        <a href="https://www.linkedin.com/in/davidcelilupera/" target="_blank"
+                            class="w-10 h-10 border border-navy-lighter rounded flex items-center justify-center hover:bg-blue-corp hover:border-blue-corp group transition-all">
+                            <i class="fab fa-linkedin-in text-gray-400 group-hover:text-white transition-colors"></i>
+                        </a>
+                        <a href="https://www.instagram.com/davidcelilupera/" target="_blank"
+                            class="w-10 h-10 border border-navy-lighter rounded flex items-center justify-center hover:bg-blue-corp hover:border-blue-corp group transition-all">
+                            <i class="fab fa-instagram text-gray-400 group-hover:text-white transition-colors"></i>
+                        </a>
+                        <a href="https://x.com/davidcelilupera" target="_blank"
+                            class="w-10 h-10 border border-navy-lighter rounded flex items-center justify-center hover:bg-blue-corp hover:border-blue-corp group transition-all">
+                            <svg class="w-5 h-5 text-gray-400 group-hover:text-white transition-colors"
+                                fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Bar -->
+            <div
+                class="border-t border-navy-lighter/30 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-500 font-light">
+                <p>© 2025 David Celi Lupera. Todos los derechos reservados.</p>
+                <div class="flex gap-6">
+                    <a href="/politica-privacidad" class="hover:text-gray-300 transition-colors">Política de
+                        Privacidad</a>
+                    <!-- <a href="#" class="hover:text-gray-300 transition-colors">Términos y Condiciones</a> -->
+                    <button id="manageCookies" class="hover:text-gray-300 transition-colors">Configurar Cookies</button>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/593998128476?text=Hola,%20necesito%20asesoría%20legal" target="_blank"
+        class="fixed bottom-6 right-6 bg-green-500 text-white w-14 h-14 lg:w-16 lg:h-16 rounded-full flex items-center justify-center shadow-2xl hover:bg-green-600 hover:scale-105 transition-all z-50 group">
+        <i class="fab fa-whatsapp text-2xl lg:text-3xl"></i>
+        <span
+            class="absolute right-full mr-3 bg-blue-corp text-white px-4 py-2 rounded text-sm whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity shadow-lg hidden lg:block font-light">
+            ¿Necesita asesoría?
+        </span>
+    </a>
+
+    <!-- JavaScript -->
+    <script>
+
+        // ==========================================
+        // PAGE LOADER - Ocultar cuando la página cargue
+        // ==========================================
+        window.addEventListener('load', function () {
+            const loader = document.getElementById('pageLoader');
+            // Agregar clase para fade out
+            loader.style.opacity = '0';
+            // Remover del DOM después de la animación
+            setTimeout(() => {
+                loader.style.display = 'none';
+            }, 500);
+        });
+
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Navbar Scroll Effect
+        const navbar = document.getElementById('navbar');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('glass', 'border-b', 'border-navy-lighter/30');
+            } else {
+                navbar.classList.remove('glass', 'border-b', 'border-navy-lighter/30');
+            }
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!mobileMenuBtn.contains(e.target) && !mobileMenu.contains(e.target)) {
+                mobileMenu.classList.add('hidden');
+            }
+        });
+
+        // Close mobile menu when clicking a link
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+    </script>
+
+</body>
+
+</html>
