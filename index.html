@@ -43,7 +43,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600&family=Lora:wght@400;500;600&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:wght@300;400;500;600&family=Montserrat:wght@300;400;500;600&display=swap"
         rel="stylesheet">
 
     <!-- Tailwind Config -->
@@ -61,8 +61,8 @@
                         'cool-bg': '#EAF3EE',
                     },
                     fontFamily: {
-                        'sans': ['Montserrat', 'sans-serif'],
-                        'serif': ['Lora', 'serif'],
+                        'sans': ['Inter', 'sans-serif'],
+                        'serif': ['Cormorant Garamond', 'serif'],
                     }
                 }
             }
@@ -70,215 +70,241 @@
     </script>
 
     <style>
-        /* Hero Animation - sutil */
-        @keyframes zoomSlow {
-            0% {
-                transform: scale(1);
-            }
+        html { scroll-behavior: smooth; }
 
-            100% {
-                transform: scale(1.08);
-            }
-        }
-
-        .hero-image {
-            animation: zoomSlow 25s ease-in-out infinite alternate;
-        }
-
-        /* Smooth scroll */
-        html {
-            scroll-behavior: smooth;
-        }
-
-        /* Glassmorphism navbar */
-        .glass {
-            background: rgba(14, 47, 38, 0.92);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
+        :root {
+            --cream: #F7F3EE;
+            --cream-2: #EDE8DF;
+            --pine-dark: #0E2F26;
+            --pine: #12372C;
+            --gold: #C9A35C;
+            --gold-dark: #B88A3C;
+            --gold-light: rgba(201,163,92,0.12);
         }
 
         /* Custom scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
+        ::-webkit-scrollbar { width: 5px; }
+        ::-webkit-scrollbar-track { background: var(--cream); }
+        ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 10px; }
+
+        /* Navbar */
+        #navbar {
+            background: transparent;
+            border-bottom: 1px solid transparent;
+            transition: background 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
         }
-
-        ::-webkit-scrollbar-track {
-            background: #0E2F26;
+        #navbar.scrolled {
+            background: rgba(14, 47, 38, 0.97) !important;
+            border-bottom: 1px solid rgba(201,163,92,0.2) !important;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.18) !important;
         }
+        #navbar.scrolled .nav-link { color: #ffffff !important; }
+        #navbar.scrolled .nav-mobile-btn { color: #ffffff !important; }
 
-        ::-webkit-scrollbar-thumb {
-            background: #C9A35C;
-            border-radius: 4px;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: #B88A3C;
-        }
-
-        /* CSS Custom Properties */
-        :root {
-            --bg: #0E2F26;
-            --bg-2: #12372C;
-            --card: rgba(255, 255, 255, .05);
-            --text: #FFFFFF;
-            --text-2: #EAF3EE;
-            --muted: #C7D6CF;
-            --accent: #C9A35C;
-            --accent-strong: #B88A3C;
-            --border: rgba(255, 255, 255, .16);
-        }
-
-        /* Gold shimmer on accent elements */
-        @keyframes goldShimmer {
-            0% {
-                background-position: -200% center;
-            }
-
-            100% {
-                background-position: 200% center;
-            }
-        }
-
+        /* Gold shimmer line */
         .accent-line {
-            background: linear-gradient(90deg, var(--accent), var(--accent-strong), var(--accent));
+            background: linear-gradient(90deg, var(--gold), var(--gold-dark), var(--gold));
             background-size: 200% auto;
             animation: goldShimmer 4s linear infinite;
         }
-
-        /* Service cards gold border glow on hover */
-        .group:hover {
-            box-shadow: 0 0 20px rgba(201, 163, 92, 0.12);
+        @keyframes goldShimmer {
+            0% { background-position: -200% center; }
+            100% { background-position: 200% center; }
         }
 
-        /* Tipografía ultra ligera para títulos grandes */
-        .ultra-light {
-            font-weight: 200;
+        /* ---- HERO ---- */
+        .hero-right { position: relative; overflow: hidden; }
+        .hero-right img {
+            width: 100%; height: 100%; object-fit: cover;
+            animation: zoomSlow 28s ease-in-out infinite alternate;
+            filter: brightness(0.88) saturate(0.9);
+        }
+        @keyframes zoomSlow {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.07); }
+        }
+        .hero-right::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(160deg, rgba(14,47,38,0.45) 0%, rgba(201,163,92,0.1) 100%);
         }
 
-        /* CARRUSEL SIMPLE */
+        /* Decorative line before tagline */
+        .hero-tagline::before {
+            content: '';
+            display: block;
+            width: 48px;
+            height: 2px;
+            background: linear-gradient(90deg, var(--gold), var(--gold-dark));
+            margin-bottom: 1.5rem;
+            transition: width 0.4s ease;
+        }
+        .hero-tagline:hover::before { width: 72px; }
+
+        /* Hero decorative circle */
+        .hero-circle {
+            position: absolute;
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        /* ---- SCROLL REVEAL ---- */
+        .reveal {
+            opacity: 0;
+            transform: translateY(28px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .reveal-delay-1 { transition-delay: 0.1s; }
+        .reveal-delay-2 { transition-delay: 0.2s; }
+        .reveal-delay-3 { transition-delay: 0.3s; }
+        .reveal-delay-4 { transition-delay: 0.4s; }
+
+        /* ---- PILAR CARDS ---- */
+        .pilar-card {
+            transition: all 0.35s ease;
+            position: relative;
+        }
+        .pilar-card::before {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--gold), var(--gold-dark));
+            transform: scaleX(0);
+            transition: transform 0.35s ease;
+            transform-origin: left;
+        }
+        .pilar-card:hover::before { transform: scaleX(1); }
+        .pilar-card:hover {
+            background: #FDFAF6 !important;
+            box-shadow: 0 10px 40px rgba(201,163,92,0.1);
+        }
+
+        /* ---- SERVICE CARDS ---- */
+        .service-card {
+            position: relative;
+            border-left: 2px solid transparent;
+            transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            box-shadow: 0 2px 16px rgba(0,0,0,0.04);
+        }
+        .service-card:hover {
+            border-left-color: var(--gold);
+            transform: translateY(-4px);
+            box-shadow: 0 16px 40px rgba(0,0,0,0.08), 0 0 0 1px rgba(201,163,92,0.1);
+        }
+        .service-card .icon-wrap {
+            transition: all 0.3s ease;
+        }
+        .service-card:hover .icon-wrap {
+            background: var(--gold) !important;
+            color: white !important;
+        }
+        .service-card:hover .icon-wrap i {
+            color: white !important;
+        }
+
+        /* ---- BUTTONS ---- */
+        .btn-primary {
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .btn-primary::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(255,255,255,0.1);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .btn-primary:hover::after { opacity: 1; }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(201,163,92,0.35); }
+
+        .btn-outline {
+            transition: all 0.3s ease;
+        }
+        .btn-outline:hover { transform: translateY(-2px); }
+
+        /* ---- CARRUSEL ---- */
         @keyframes scrollClientsPingPong {
-            0% {
-                transform: translateX(0);
-            }
-
-            100% {
-                transform: translateX(-410%);
-            }
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-410%); }
         }
-
         .animate-scroll-clients {
             animation: scrollClientsPingPong 20s linear infinite alternate;
             will-change: transform;
             cursor: grab;
         }
-
-        .animate-scroll-clients:hover {
-            animation-play-state: paused;
-        }
-
-        /* Logos balanceados */
-        .client-logo-item {
-            height: 55px;
-            width: auto;
-            object-fit: contain;
-            max-width: 100%;
-        }
-
+        .animate-scroll-clients:hover { animation-play-state: paused; }
+        .client-logo-item { height: 55px; width: auto; object-fit: contain; max-width: 100%; }
         @media (min-width: 768px) {
-            .client-logo-item {
-                height: 75px;
-            }
-
+            .client-logo-item { height: 75px; }
             @keyframes scrollClientsPingPong {
-                0% {
-                    transform: translateX(0);
-                }
-
-                100% {
-                    transform: translateX(-125%);
-                }
+                0% { transform: translateX(0); }
+                100% { transform: translateX(-125%); }
             }
         }
-
         @media (min-width: 1024px) {
-            .client-logo-item {
-                height: 95px;
-            }
-
-            .animate-scroll-clients {
-                animation: scrollClientsPingPong 25s linear infinite alternate;
-            }
-
+            .client-logo-item { height: 95px; }
+            .animate-scroll-clients { animation: scrollClientsPingPong 25s linear infinite alternate; }
             @keyframes scrollClientsPingPong {
-                0% {
-                    transform: translateX(0);
-                }
-
-                100% {
-                    transform: translateX(-50%);
-                }
+                0% { transform: translateX(0); }
+                100% { transform: translateX(-50%); }
             }
         }
+        .logo-container { padding: 10px 0; }
 
-        /* Contenedor de logos con padding extra */
-        .logo-container {
-            padding: 10px 0;
-        }
-
-        /* Mobile Menu Animation */
-        @keyframes slideDown {
-            from {
-                opacity: 0;
-                transform: translateY(-10px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
+        /* ---- MOBILE MENU ---- */
         #mobile-menu {
-            transition: all 0.3s ease-in-out;
+            background: var(--pine-dark);
+            border-top: 1px solid rgba(201,163,92,0.2);
+            transition: all 0.25s ease;
         }
-
-        #mobile-menu:not(.hidden) {
-            animation: slideDown 0.3s ease-out;
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-8px); }
+            to { opacity: 1; transform: translateY(0); }
         }
+        #mobile-menu:not(.hidden) { animation: slideDown 0.25s ease-out; }
 
-        /* Cookie Banner Animation */
+        /* ---- COOKIE BANNER ---- */
         @keyframes slideUp {
-            from {
-                transform: translateY(100%);
-                opacity: 0;
-            }
-
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
+            from { transform: translateY(100%); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
         }
+        .cookie-banner-enter { animation: slideUp 0.5s ease-out; }
 
-        .cookie-banner-enter {
-            animation: slideUp 0.5s ease-out;
+        /* ---- FOOTER LOGO ---- */
+        .footer-logo-wrap img { filter: brightness(0) invert(1); opacity: 0.85; }
+
+        /* ---- DECORATIVE BG SHAPES ---- */
+        .bg-shape {
+            position: absolute;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 0;
         }
     </style>
 </head>
 
-<body class="bg-pine-dark text-gray-100 font-sans antialiased">
+<body class="bg-[#F7F3EE] text-gray-800 font-sans antialiased">
 
     <!-- PAGE LOADER -->
     <div id="pageLoader"
-        class="fixed inset-0 bg-pine-dark z-[200] flex items-center justify-center transition-opacity duration-500">
+        class="fixed inset-0 bg-[#0A0A0A] z-[200] flex items-center justify-center transition-opacity duration-500">
         <div class="text-center">
             <!-- Logo CAM animado -->
             <div class="mb-6 mx-auto">
                 <img src="/assets/images/Carla_LOGO_2.png" alt="Carla Álvarez Manrique"
-                    class="w-72 h-auto object-contain mx-auto animate-pulse">
+                    class="w-48 sm:w-60 h-auto object-contain mx-auto animate-pulse">
             </div>
             <!-- Spinner -->
             <div
-                class="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-sage border-r-transparent">
+                class="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-[#C9A35C] border-r-transparent">
             </div>
         </div>
     </div>
@@ -315,13 +341,13 @@
 
     <!-- NAVBAR -->
     <nav id="navbar" class="fixed w-full top-0 z-50 transition-all duration-300">
-        <div class="container mx-auto px-8 sm:px-6 lg:px-12">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-12">
             <div class="flex items-center justify-between h-20 lg:h-24">
 
                 <!-- Logo -->
                 <a href="#inicio" class="flex items-center">
                     <img src="/assets/images/Carla_LOGO_2.png" alt="Carla Álvarez Manrique"
-                        class="w-72 h-auto object-contain">
+                        class="w-56 sm:w-64 lg:w-72 h-auto object-contain">
                 </a>
 
                 <!-- Desktop Menu -->
@@ -335,7 +361,7 @@
                         mí</a>
                     <a href="/publicaciones"
                         class="text-gray-300 hover:text-sage transition-colors font-light text-sm tracking-wide">Publicaciones</a>
-                    <a href="https://wa.me/[TELEFONO]?text=Hola,%20necesito%20asesoría%20legal" target="_blank"
+                    <a href="https://wa.me/593986261897?text=Hola,%20necesito%20asesoría%20legal" target="_blank"
                         class="bg-sage text-pine-dark px-6 py-2.5 rounded font-semibold text-sm hover:bg-sage-light transition-all">
                         Contactar
                     </a>
@@ -358,7 +384,7 @@
                     mí</a>
                 <a href="/publicaciones"
                     class="block text-gray-300 hover:text-sage transition-colors font-light py-2">Publicaciones</a>
-                <a href="https://wa.me/[TELEFONO]?text=Hola,%20necesito%20asesoría%20legal" target="_blank"
+                <a href="https://wa.me/593986261897?text=Hola,%20necesito%20asesoría%20legal" target="_blank"
                     class="block bg-sage text-pine-dark text-center px-6 py-2.5 rounded font-semibold text-sm hover:bg-sage-light transition-all">
                     Contactar
                 </a>
@@ -368,223 +394,199 @@
 
     <!-- HERO SECTION -->
     <section id="inicio" class="relative min-h-screen flex items-center overflow-hidden">
-        <!-- Background Image with Animation -->
+
+        <!-- Background Image -->
         <div class="absolute inset-0">
-            <img src="https://images.unsplash.com/photo-1514971126075-758e7d825812?w=1920&q=80"
-                alt="Modern Professional Office" class="hero-image w-full h-full object-cover">
-            <!-- Overlay con tono verde suave -->
-            <div class="absolute inset-0 bg-gradient-to-r from-pine-dark/90 via-pine/80 to-pine/50"></div>
+            <img src="https://images.unsplash.com/photo-1554469384-e58fac16e23a?w=1920&q=80"
+                alt="Edificio corporativo" class="w-full h-full object-cover"
+                style="animation: zoomSlow 28s ease-in-out infinite alternate;">
+            <!-- Overlay verde oscuro a transparente -->
+            <div class="absolute inset-0" style="background: linear-gradient(105deg, rgba(14,47,38,0.92) 0%, rgba(14,47,38,0.75) 50%, rgba(14,47,38,0.35) 100%);"></div>
         </div>
 
-        <!-- Hero Content -->
-        <div class="relative z-10 container mx-auto px-8 sm:px-6 lg:px-12 py-20 lg:py-0">
-            <div class="max-w-4xl">
-                <!-- Accent Line -->
-                <div class="w-16 h-0.5 accent-line mb-8"></div>
+        <!-- Decorative corner accents -->
+        <div class="absolute top-8 left-8 w-16 h-16 border-l-2 border-t-2 border-[#C9A35C]/50 hidden lg:block z-10"></div>
+        <div class="absolute bottom-8 right-8 w-16 h-16 border-r-2 border-b-2 border-[#C9A35C]/50 hidden lg:block z-10"></div>
 
-                <!-- Título con tipografía ultra delgada -->
-                <h1
-                    class="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-sans ultra-light text-white mb-6 leading-tight tracking-wide">
+        <!-- Content -->
+        <div class="relative z-10 container mx-auto px-8 sm:px-6 lg:px-12 py-32 lg:py-0">
+            <div class="max-w-2xl">
+
+                <!-- Eyebrow -->
+                <div class="flex items-center gap-3 mb-8 reveal">
+                    <div class="w-8 h-px bg-[#C9A35C]"></div>
+                    <!-- <p class="text-xs uppercase tracking-[0.3em] text-[#C9A35C] font-medium">
+                        Abogada Corporativa · Guayaquil, Ecuador
+                    </p> -->
+                </div>
+
+                <!-- Título -->
+                <h1 class="font-sans text-5xl sm:text-6xl lg:text-7xl text-white leading-[1.05] mb-8 reveal reveal-delay-1" style="font-weight:200; letter-spacing:0.04em;">
                     Asesoría Legal<br>
-                    Corporativa
+                    <span style="color:#C9A35C; font-weight:200;">Corporativa</span>
                 </h1>
 
-                <p class="text-lg sm:text-xl lg:text-2xl text-gray-200 mb-4 font-light leading-relaxed">
-                    Transformo necesidades legales en soluciones claras<br>
-                    y ejecutables
-                    <br>
-                    <br>
+                <!-- Subtítulo -->
+                <p class="text-base lg:text-lg text-white/70 font-light leading-relaxed mb-10 max-w-lg reveal reveal-delay-2">
+                    Soluciones jurídicas claras y ejecutables para empresas que buscan crecer con seguridad legal.
                 </p>
 
-                <div class="flex flex-col sm:flex-row gap-4">
-                    <a href="https://wa.me/[TELEFONO]?text=Hola,%20necesito%20asesoría%20legal" target="_blank"
-                        class="inline-flex items-center justify-center bg-sage text-pine-dark px-8 py-4 rounded font-semibold text-base hover:bg-sage-light transition-all shadow-xl">
-                        <i class="fab fa-whatsapp mr-2 text-xl"></i>
+                <!-- Buttons -->
+                <div class="flex flex-col sm:flex-row gap-4 reveal reveal-delay-3">
+                    <a href="https://wa.me/593986261897?text=Hola,%20necesito%20asesoría%20legal" target="_blank"
+                        class="btn-primary inline-flex items-center justify-center bg-[#C9A35C] text-[#0E2F26] px-8 py-4 rounded-full font-semibold text-sm tracking-wide shadow-xl">
+                        <i class="fab fa-whatsapp mr-2 text-lg"></i>
                         Agendar Consulta
                     </a>
                     <a href="#servicios"
-                        class="inline-flex items-center justify-center border-2 border-sage text-sage px-8 py-4 rounded font-light text-base hover:bg-sage hover:text-pine-dark transition-all">
+                        class="btn-outline inline-flex items-center justify-center border border-white/30 text-white px-8 py-4 rounded-full font-light text-sm tracking-wide hover:border-[#C9A35C] hover:text-[#C9A35C]">
                         Ver Servicios
-                        <i class="fas fa-arrow-down ml-2"></i>
+                        <i class="fas fa-arrow-right ml-2 text-xs"></i>
                     </a>
                 </div>
             </div>
         </div>
 
-        <!-- Scroll Indicator -->
-        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 hidden lg:block">
-            <div class="animate-bounce text-white/60">
-                <i class="fas fa-chevron-down text-xl"></i>
+        <!-- Scroll indicator -->
+        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 hidden lg:block z-10">
+            <div class="animate-bounce text-white/40">
+                <i class="fas fa-chevron-down text-lg"></i>
             </div>
         </div>
     </section>
 
     <!-- ENFOQUE SECTION -->
-    <section class="py-16 lg:py-24 bg-gradient-to-b from-pine to-pine">
-        <div class="container mx-auto px-8 sm:px-6 lg:px-12">
-            <div class="text-center mb-12 lg:mb-16">
-                <div class="w-16 h-0.5 accent-line mx-auto mb-6"></div>
-                <h2 class="text-3xl lg:text-4xl xl:text-5xl font-sans font-light text-white mb-4">
-                    Enfoque Profesional
-                </h2>
-                <p class="text-base lg:text-lg text-gray-300 max-w-3xl mx-auto font-light">
-                    Asesoría legal orientada a resultados con base en cuatro pilares fundamentales
-                </p>
+    <section class="py-24 lg:py-32 bg-white relative overflow-hidden">
+        <!-- Decorative large letter -->
+        <!-- <div class="absolute right-8 top-8 font-serif text-[180px] leading-none text-[#0E2F26]/3 select-none pointer-events-none hidden lg:block">§</div> -->
+
+        <div class="container mx-auto px-8 sm:px-6 lg:px-12 relative z-10">
+            <div class="flex flex-col lg:flex-row lg:items-end justify-between mb-20 gap-8">
+                <div class="reveal">
+                    <p class="text-xs uppercase tracking-[0.3em] text-[#C9A35C] font-medium mb-5 flex items-center gap-3">
+                        <span class="w-6 h-px bg-[#C9A35C]"></span>Mi Enfoque
+                    </p>
+                    <h2 class="font-serif text-4xl lg:text-5xl xl:text-6xl text-[#0E2F26] leading-tight">
+                        Cuatro pilares que<br>
+                        <em class="font-light" style="color:#C9A35C;">guían mi trabajo</em>
+                    </h2>
+                </div>
+                <!-- <p class="text-gray-400 font-light max-w-xs text-sm leading-relaxed lg:text-right reveal reveal-delay-1">
+                    Metodología clara y comunicación directa en cada proceso.
+                </p> -->
             </div>
 
-            <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6 max-w-6xl mx-auto">
-                <div
-                    class="bg-pine-light/40 border border-pine-lighter/60 p-6 lg:p-8 text-center hover:bg-pine-light/60 hover:border-sage/50 transition-all">
-                    <div class="text-3xl lg:text-4xl mb-4 text-sage">
-                        <i class="fas fa-lightbulb"></i>
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-px bg-[#F7F3EE]">
+                <div class="pilar-card bg-white p-8 lg:p-10 reveal">
+                    <div class="w-12 h-12 rounded-full bg-[#C9A35C]/10 flex items-center justify-center mb-6 transition-all duration-300">
+                        <i class="fas fa-lightbulb text-[#C9A35C]"></i>
                     </div>
-                    <h3 class="text-base lg:text-lg font-sans font-normal text-white mb-2">Claridad</h3>
-                    <p class="text-sm text-gray-400 font-light">Soluciones comprensibles</p>
+                    <h3 class="font-sans font-semibold text-[#0E2F26] mb-3 text-base tracking-wide">Claridad</h3>
+                    <p class="text-sm text-gray-400 font-light leading-relaxed">Soluciones comprensibles, sin tecnicismos innecesarios.</p>
                 </div>
-
-                <div
-                    class="bg-pine-light/40 border border-pine-lighter/60 p-6 lg:p-8 text-center hover:bg-pine-light/60 hover:border-sage/50 transition-all">
-                    <div class="text-3xl lg:text-4xl mb-4 text-sage">
-                        <i class="fas fa-balance-scale"></i>
+                <div class="pilar-card bg-white p-8 lg:p-10 reveal reveal-delay-1">
+                    <div class="w-12 h-12 rounded-full bg-[#C9A35C]/10 flex items-center justify-center mb-6 transition-all duration-300">
+                        <i class="fas fa-balance-scale text-[#C9A35C]"></i>
                     </div>
-                    <h3 class="text-base lg:text-lg font-sans font-normal text-white mb-2">Rigor Legal</h3>
-                    <p class="text-sm text-gray-400 font-light">Análisis fundamentado</p>
+                    <h3 class="font-sans font-semibold text-[#0E2F26] mb-3 text-base tracking-wide">Rigor Legal</h3>
+                    <p class="text-sm text-gray-400 font-light leading-relaxed">Análisis fundamentado en cada decisión jurídica.</p>
                 </div>
-
-                <div
-                    class="bg-pine-light/40 border border-pine-lighter/60 p-6 lg:p-8 text-center hover:bg-pine-light/60 hover:border-sage/50 transition-all">
-                    <div class="text-3xl lg:text-4xl mb-4 text-sage">
-                        <i class="fas fa-eye"></i>
+                <div class="pilar-card bg-white p-8 lg:p-10 reveal reveal-delay-2">
+                    <div class="w-12 h-12 rounded-full bg-[#C9A35C]/10 flex items-center justify-center mb-6 transition-all duration-300">
+                        <i class="fas fa-eye text-[#C9A35C]"></i>
                     </div>
-                    <h3 class="text-base lg:text-lg font-sans font-normal text-white mb-2">Transparencia</h3>
-                    <p class="text-sm text-gray-400 font-light">Comunicación directa</p>
+                    <h3 class="font-sans font-semibold text-[#0E2F26] mb-3 text-base tracking-wide">Transparencia</h3>
+                    <p class="text-sm text-gray-400 font-light leading-relaxed">Comunicación directa en cada etapa del proceso.</p>
                 </div>
-
-                <div
-                    class="bg-pine-light/40 border border-pine-lighter/60 p-6 lg:p-8 text-center hover:bg-pine-light/60 hover:border-sage/50 transition-all">
-                    <div class="text-3xl lg:text-4xl mb-4 text-sage">
-                        <i class="fas fa-handshake"></i>
+                <div class="pilar-card bg-white p-8 lg:p-10 reveal reveal-delay-3">
+                    <div class="w-12 h-12 rounded-full bg-[#C9A35C]/10 flex items-center justify-center mb-6 transition-all duration-300">
+                        <i class="fas fa-handshake text-[#C9A35C]"></i>
                     </div>
-                    <h3 class="text-base lg:text-lg font-sans font-normal text-white mb-2">Compromiso</h3>
-                    <p class="text-sm text-gray-400 font-light">Objetivos compartidos</p>
+                    <h3 class="font-sans font-semibold text-[#0E2F26] mb-3 text-base tracking-wide">Compromiso</h3>
+                    <p class="text-sm text-gray-400 font-light leading-relaxed">El objetivo de mi cliente es mi objetivo.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- SERVICIOS SECTION -->
-    <section id="servicios" class="py-16 lg:py-24 bg-pine">
-        <div class="container mx-auto px-8 sm:px-6 lg:px-12">
-            <div class="text-center mb-12 lg:mb-16">
-                <div class="w-16 h-0.5 accent-line mx-auto mb-6"></div>
-                <h2 class="text-3xl lg:text-4xl xl:text-5xl font-sans font-light text-white mb-4">
-                    Áreas de Práctica
-                </h2>
-                <p class="text-base lg:text-lg text-gray-300 max-w-3xl mx-auto font-light">
-                    Servicios especializados para empresas y corporaciones
+    <section id="servicios" class="py-24 lg:py-32 bg-[#F7F3EE] relative overflow-hidden">
+        <div class="bg-shape w-[600px] h-[600px] bg-[#C9A35C]/4 -top-48 -right-48 hidden lg:block"></div>
+
+        <div class="container mx-auto px-8 sm:px-6 lg:px-12 relative z-10">
+            <div class="text-center mb-20 reveal">
+                <p class="text-xs uppercase tracking-[0.3em] text-[#C9A35C] font-medium mb-5 flex items-center justify-center gap-3">
+                    <span class="w-6 h-px bg-[#C9A35C]"></span>Áreas de Práctica<span class="w-6 h-px bg-[#C9A35C]"></span>
                 </p>
+                <h2 class="font-serif text-4xl lg:text-5xl xl:text-6xl text-[#0E2F26]">
+                    Lo que <em class="font-light" style="color:#C9A35C;">ofrezco</em>
+                </h2>
             </div>
 
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 max-w-6xl mx-auto">
-                <!-- Servicio 1 -->
-                <a href="/pages/servicios.html#corporativo"
-                    class="group bg-pine-light/40 border border-pine-lighter/60 p-6 lg:p-8 hover:bg-pine-light/60 hover:border-sage/70 transition-all block">
-                    <div class="flex items-start justify-between mb-6">
-                        <div class="text-4xl text-sage">
-                            <i class="fas fa-building"></i>
-                        </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+                <a href="/pages/servicios.html#corporativo" class="service-card bg-white p-8 block reveal">
+                    <div class="icon-wrap w-12 h-12 rounded-full bg-[#C9A35C]/10 flex items-center justify-center mb-6">
+                        <i class="fas fa-building text-[#C9A35C]"></i>
                     </div>
-                    <h3 class="text-xl lg:text-2xl font-sans font-normal text-white mb-3">Corporativo</h3>
-                    <p class="text-gray-300 mb-4 text-sm lg:text-base font-light leading-relaxed">Asesoría para la
-                        estructuración y gestión legal de empresas</p>
-                    <span
-                        class="text-sage group-hover:text-white transition-colors text-sm font-light inline-flex items-center">
-                        Ver más <i class="fas fa-arrow-right ml-2 text-xs"></i>
+                    <h3 class="font-sans font-semibold text-[#0E2F26] text-base mb-2 tracking-wide">Corporativo</h3>
+                    <p class="text-gray-400 text-sm font-light leading-relaxed mb-6">Estructuración y gestión legal de empresas en todas sus etapas.</p>
+                    <span class="text-[#C9A35C] text-xs font-semibold tracking-widest uppercase inline-flex items-center gap-2">
+                        Ver más <i class="fas fa-arrow-right text-[10px]"></i>
                     </span>
                 </a>
 
-                <!-- Servicio 2 -->
-                <a href="/pages/servicios.html#contratos"
-                    class="group bg-pine-light/40 border border-pine-lighter/60 p-6 lg:p-8 hover:bg-pine-light/60 hover:border-sage/70 transition-all block">
-                    <div class="flex items-start justify-between mb-6">
-                        <div class="text-4xl text-sage">
-                            <i class="fas fa-file-contract"></i>
-                        </div>
+                <a href="/pages/servicios.html#contratos" class="service-card bg-white p-8 block reveal reveal-delay-1">
+                    <div class="icon-wrap w-12 h-12 rounded-full bg-[#C9A35C]/10 flex items-center justify-center mb-6">
+                        <i class="fas fa-file-contract text-[#C9A35C]"></i>
                     </div>
-                    <h3 class="text-xl lg:text-2xl font-sans font-normal text-white mb-3">Contratos</h3>
-                    <p class="text-gray-300 mb-4 text-sm lg:text-base font-light leading-relaxed">Redacción y
-                        negociación estratégica de contratos comerciales</p>
-                    <span
-                        class="text-sage group-hover:text-white transition-colors text-sm font-light inline-flex items-center">
-                        Ver más <i class="fas fa-arrow-right ml-2 text-xs"></i>
+                    <h3 class="font-sans font-semibold text-[#0E2F26] text-base mb-2 tracking-wide">Contratos</h3>
+                    <p class="text-gray-400 text-sm font-light leading-relaxed mb-6">Redacción y negociación estratégica de contratos comerciales.</p>
+                    <span class="text-[#C9A35C] text-xs font-semibold tracking-widest uppercase inline-flex items-center gap-2">
+                        Ver más <i class="fas fa-arrow-right text-[10px]"></i>
                     </span>
                 </a>
 
-                <!-- Servicio 3 -->
-                <a href="/pages/servicios.html#laboral"
-                    class="group bg-pine-light/40 border border-pine-lighter/60 p-6 lg:p-8 hover:bg-pine-light/60 hover:border-sage/70 transition-all block">
-                    <div class="flex items-start justify-between mb-6">
-                        <div class="text-4xl text-sage">
-                            <i class="fas fa-users"></i>
-                        </div>
+                <a href="/pages/servicios.html#laboral" class="service-card bg-white p-8 block reveal reveal-delay-2">
+                    <div class="icon-wrap w-12 h-12 rounded-full bg-[#C9A35C]/10 flex items-center justify-center mb-6">
+                        <i class="fas fa-users text-[#C9A35C]"></i>
                     </div>
-                    <h3 class="text-xl lg:text-2xl font-sans font-normal text-white mb-3">Gestión Laboral</h3>
-                    <p class="text-gray-300 mb-4 text-sm lg:text-base font-light leading-relaxed">Asesoría integral en
-                        relaciones laborales corporativas</p>
-                    <span
-                        class="text-sage group-hover:text-white transition-colors text-sm font-light inline-flex items-center">
-                        Ver más <i class="fas fa-arrow-right ml-2 text-xs"></i>
+                    <h3 class="font-sans font-semibold text-[#0E2F26] text-base mb-2 tracking-wide">Gestión Laboral</h3>
+                    <p class="text-gray-400 text-sm font-light leading-relaxed mb-6">Asesoría integral en relaciones laborales corporativas.</p>
+                    <span class="text-[#C9A35C] text-xs font-semibold tracking-widest uppercase inline-flex items-center gap-2">
+                        Ver más <i class="fas fa-arrow-right text-[10px]"></i>
                     </span>
                 </a>
 
-                <!-- Servicio 4 -->
-                <a href="/pages/servicios.html#pesquero"
-                    class="group bg-pine-light/40 border border-pine-lighter/60 p-6 lg:p-8 hover:bg-pine-light/60 hover:border-sage/70 transition-all block">
-                    <div class="flex items-start justify-between mb-6">
-                        <div class="text-4xl text-sage">
-                            <i class="fas fa-fish"></i>
-                        </div>
+                <a href="/pages/servicios.html#pesquero" class="service-card bg-white p-8 block reveal reveal-delay-1">
+                    <div class="icon-wrap w-12 h-12 rounded-full bg-[#C9A35C]/10 flex items-center justify-center mb-6">
+                        <i class="fas fa-fish text-[#C9A35C]"></i>
                     </div>
-                    <h3 class="text-xl lg:text-2xl font-sans font-normal text-white mb-3">Pesquero y Regulatorio</h3>
-                    <p class="text-gray-300 mb-4 text-sm lg:text-base font-light leading-relaxed">Especialización en
-                        normativa sectorial y compliance</p>
-                    <span
-                        class="text-sage group-hover:text-white transition-colors text-sm font-light inline-flex items-center">
-                        Ver más <i class="fas fa-arrow-right ml-2 text-xs"></i>
+                    <h3 class="font-sans font-semibold text-[#0E2F26] text-base mb-2 tracking-wide">Pesquero y Regulatorio</h3>
+                    <p class="text-gray-400 text-sm font-light leading-relaxed mb-6">Especialización en normativa sectorial y cumplimiento regulatorio.</p>
+                    <span class="text-[#C9A35C] text-xs font-semibold tracking-widest uppercase inline-flex items-center gap-2">
+                        Ver más <i class="fas fa-arrow-right text-[10px]"></i>
                     </span>
                 </a>
 
-                <!-- Servicio 5 -->
-                <a href="/pages/servicios.html#compliance"
-                    class="group bg-pine-light/40 border border-pine-lighter/60 p-6 lg:p-8 hover:bg-pine-light/60 hover:border-sage/70 transition-all block">
-                    <div class="flex items-start justify-between mb-6">
-                        <div class="text-4xl text-sage">
-                            <i class="fas fa-shield-alt"></i>
-                        </div>
+                <a href="/pages/servicios.html#compliance" class="service-card bg-white p-8 block reveal reveal-delay-2">
+                    <div class="icon-wrap w-12 h-12 rounded-full bg-[#C9A35C]/10 flex items-center justify-center mb-6">
+                        <i class="fas fa-shield-alt text-[#C9A35C]"></i>
                     </div>
-                    <h3 class="text-xl lg:text-2xl font-sans font-normal text-white mb-3">Compliance</h3>
-                    <p class="text-gray-300 mb-4 text-sm lg:text-base font-light leading-relaxed">Programas de
-                        cumplimiento normativo empresarial</p>
-                    <span
-                        class="text-sage group-hover:text-white transition-colors text-sm font-light inline-flex items-center">
-                        Ver más <i class="fas fa-arrow-right ml-2 text-xs"></i>
+                    <h3 class="font-sans font-semibold text-[#0E2F26] text-base mb-2 tracking-wide">Compliance</h3>
+                    <p class="text-gray-400 text-sm font-light leading-relaxed mb-6">Programas de cumplimiento normativo empresarial.</p>
+                    <span class="text-[#C9A35C] text-xs font-semibold tracking-widest uppercase inline-flex items-center gap-2">
+                        Ver más <i class="fas fa-arrow-right text-[10px]"></i>
                     </span>
                 </a>
 
-                <!-- Servicio 6 -->
-                <a href="/pages/servicios.html#maritimo"
-                    class="group bg-pine-light/40 border border-pine-lighter/60 p-6 lg:p-8 hover:bg-pine-light/60 hover:border-sage/70 transition-all block">
-                    <div class="flex items-start justify-between mb-6">
-                        <div class="text-4xl text-sage">
-                            <i class="fas fa-ship"></i>
-                        </div>
+                <a href="/pages/servicios.html#maritimo" class="service-card bg-white p-8 block reveal reveal-delay-3">
+                    <div class="icon-wrap w-12 h-12 rounded-full bg-[#C9A35C]/10 flex items-center justify-center mb-6">
+                        <i class="fas fa-ship text-[#C9A35C]"></i>
                     </div>
-                    <h3 class="text-xl lg:text-2xl font-sans font-normal text-white mb-3">Marítimo y Portuario</h3>
-                    <p class="text-gray-300 mb-4 text-sm lg:text-base font-light leading-relaxed">Asesoría especializada
-                        en derecho marítimo internacional</p>
-                    <span
-                        class="text-sage group-hover:text-white transition-colors text-sm font-light inline-flex items-center">
-                        Ver más <i class="fas fa-arrow-right ml-2 text-xs"></i>
+                    <h3 class="font-sans font-semibold text-[#0E2F26] text-base mb-2 tracking-wide">Marítimo y Portuario</h3>
+                    <p class="text-gray-400 text-sm font-light leading-relaxed mb-6">Asesoría especializada en derecho marítimo internacional.</p>
+                    <span class="text-[#C9A35C] text-xs font-semibold tracking-widest uppercase inline-flex items-center gap-2">
+                        Ver más <i class="fas fa-arrow-right text-[10px]"></i>
                     </span>
                 </a>
             </div>
@@ -671,18 +673,28 @@
     </section>
 
     <!-- CTA SECTION -->
-    <section class="py-16 lg:py-24 bg-pine-dark">
-        <div class="container mx-auto px-8 sm:px-6 lg:px-12">
-            <div class="max-w-4xl mx-auto text-center">
-                <div class="w-16 h-0.5 accent-line mx-auto mb-8"></div>
-                <h2 class="text-3xl lg:text-4xl xl:text-5xl font-sans font-light text-white mb-6">
-                    ¿Necesitas Asesoría Legal?
-                    <br>
-                    <br>
+    <section class="py-24 lg:py-32 bg-[#0E2F26] relative overflow-hidden">
+        <!-- Large decorative circles -->
+        <div class="bg-shape w-[700px] h-[700px] bg-[#C9A35C]/5 -top-48 -right-48"></div>
+        <div class="bg-shape w-[400px] h-[400px] bg-white/3 -bottom-32 -left-32"></div>
+        <!-- Decorative § -->
+        <div class="absolute left-12 top-1/2 -translate-y-1/2 font-serif text-[220px] leading-none text-white/3 select-none pointer-events-none hidden lg:block">§</div>
+
+        <div class="container mx-auto px-8 sm:px-6 lg:px-12 relative z-10">
+            <div class="max-w-3xl mx-auto text-center">
+                <p class="text-xs uppercase tracking-[0.3em] text-[#C9A35C] font-medium mb-8 flex items-center justify-center gap-3 reveal">
+                    <span class="w-6 h-px bg-[#C9A35C]"></span>Contacto<span class="w-6 h-px bg-[#C9A35C]"></span>
+                </p>
+                <h2 class="font-serif text-4xl lg:text-5xl xl:text-6xl text-white mb-6 leading-tight reveal reveal-delay-1">
+                    ¿Necesitas asesoría<br>
+                    <em class="font-light" style="color:#C9A35C;">legal corporativa?</em>
                 </h2>
-                <a href="https://wa.me/[TELEFONO]?text=Hola,%20necesito%20asesoría%20legal" target="_blank"
-                    class="inline-flex items-center justify-center bg-sage text-pine-dark px-10 py-5 rounded font-semibold text-lg hover:bg-sage-light transition-all shadow-xl">
-                    <i class="fab fa-whatsapp mr-3 text-2xl"></i>
+                <p class="text-gray-400 font-light mb-12 text-base leading-relaxed reveal reveal-delay-2">
+                    Conversemos sobre tu caso.<br>Primera consulta sin compromiso.
+                </p>
+                <a href="https://wa.me/593986261897?text=Hola,%20necesito%20asesoría%20legal" target="_blank"
+                    class="btn-primary inline-flex items-center justify-center bg-[#C9A35C] text-[#0E2F26] px-10 py-4 rounded-full font-semibold text-sm tracking-wide shadow-2xl reveal reveal-delay-3">
+                    <i class="fab fa-whatsapp mr-3 text-xl"></i>
                     Contactar por WhatsApp
                 </a>
             </div>
@@ -715,11 +727,11 @@
                         </div>
                         <div class="flex items-center text-gray-400 text-sm font-light">
                             <i class="fas fa-envelope text-sage mr-3 w-5"></i>
-                            <span>[PENDIENTE EMAIL]</span>
+                            <span><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="6a03040c052a090b18060b0b061c0b180f10070b0418031b1f0f440f09">[email&#160;protected]</a></span>
                         </div>
                         <div class="flex items-center text-gray-400 text-sm font-light">
                             <i class="fab fa-whatsapp text-sage mr-3 w-5"></i>
-                            <span>[PENDIENTE TELÉFONO]</span>
+                            <span>+593 98 626 1897</span>
                         </div>
                     </div>
                 </div>
@@ -728,11 +740,11 @@
                 <div>
                     <h4 class="text-base font-sans font-normal text-white mb-4">Redes Sociales</h4>
                     <div class="flex space-x-4">
-                        <a href="#" target="_blank"
+                        <a href="https://www.linkedin.com/in/carlaalvarezm/" target="_blank"
                             class="w-10 h-10 border border-pine-lighter rounded flex items-center justify-center hover:bg-sage hover:border-sage group transition-all">
                             <i class="fab fa-linkedin-in text-gray-400 group-hover:text-white transition-colors"></i>
                         </a>
-                        <a href="#" target="_blank"
+                        <a href="https://www.instagram.com/carlaalvarezm_/" target="_blank"
                             class="w-10 h-10 border border-pine-lighter rounded flex items-center justify-center hover:bg-sage hover:border-sage group transition-all">
                             <i class="fab fa-instagram text-gray-400 group-hover:text-white transition-colors"></i>
                         </a>
@@ -763,7 +775,7 @@
     </footer>
 
     <!-- WhatsApp Float Button -->
-    <a href="https://wa.me/[TELEFONO]?text=Hola,%20necesito%20asesoría%20legal" target="_blank"
+    <a href="https://wa.me/593986261897?text=Hola,%20necesito%20asesoría%20legal" target="_blank"
         class="fixed bottom-6 right-6 bg-green-500 text-white w-14 h-14 lg:w-16 lg:h-16 rounded-full flex items-center justify-center shadow-2xl hover:bg-green-600 hover:scale-105 transition-all z-50 group">
         <i class="fab fa-whatsapp text-2xl lg:text-3xl"></i>
         <span
@@ -773,17 +785,18 @@
     </a>
 
     <!-- JavaScript -->
-    <script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         // ==========================================
         // PAGE LOADER
         // ==========================================
-        window.addEventListener('load', function () {
+        function hideLoader() {
             const loader = document.getElementById('pageLoader');
+            if (!loader || loader.style.display === 'none') return;
             loader.style.opacity = '0';
-            setTimeout(() => {
-                loader.style.display = 'none';
-            }, 500);
-        });
+            setTimeout(() => { loader.style.display = 'none'; }, 500);
+        }
+        window.addEventListener('load', hideLoader);
+        setTimeout(hideLoader, 2500);
 
         // Cookie Banner Management
         const cookieBanner = document.getElementById('cookieBanner');
@@ -898,9 +911,9 @@
 
         window.addEventListener('scroll', () => {
             if (window.scrollY > 50) {
-                navbar.classList.add('glass', 'border-b', 'border-pine-lighter/30');
+                navbar.classList.add('scrolled');
             } else {
-                navbar.classList.remove('glass', 'border-b', 'border-pine-lighter/30');
+                navbar.classList.remove('scrolled');
             }
         });
 
@@ -918,8 +931,31 @@
                 mobileMenu.classList.add('hidden');
             });
         });
+        // ---- SCROLL REVEAL ----
+        const revealEls = document.querySelectorAll('.reveal');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.12 });
+        revealEls.forEach(el => observer.observe(el));
+
+        // Trigger hero reveals immediately
+    
+        // Trigger hero reveals immediately on load
+        window.addEventListener('DOMContentLoaded', () => {
+            const heroReveals = document.querySelectorAll('.reveal');
+            heroReveals.forEach(el => {
+                const rect = el.getBoundingClientRect();
+                if (rect.top < window.innerHeight) {
+                    setTimeout(() => el.classList.add('visible'), 100);
+                }
+            });
+        });
+
     </script>
 
 </body>
-
 </html>
