@@ -21,8 +21,8 @@
     <meta name="ICBM" content="-2.170998, -79.922359">
 
     <!-- Additional SEO -->
-    <meta name="theme-color" content="#0F2E24">
-    <meta name="msapplication-TileColor" content="#0F2E24">
+    <meta name="theme-color" content="#0E2F26">
+    <meta name="msapplication-TileColor" content="#0E2F26">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="format-detection" content="telephone=yes">
@@ -52,13 +52,13 @@
             theme: {
                 extend: {
                     colors: {
-                        'pine-dark': '#0A1F19',
-                        'pine': '#0F2E24',
-                        'pine-light': '#1a3d30',
-                        'pine-lighter': '#2d4a40',
-                        'sage': '#4a6b5e',
-                        'sage-light': '#6b8a7d',
-                        'cool-bg': '#F7F8F9',
+                        'pine-dark': '#0E2F26',
+                        'pine': '#12372C',
+                        'pine-light': '#1a4035',
+                        'pine-lighter': '#2a5245',
+                        'sage': '#C9A35C',
+                        'sage-light': '#B88A3C',
+                        'cool-bg': '#EAF3EE',
                     },
                     fontFamily: {
                         'sans': ['Montserrat', 'sans-serif'],
@@ -92,9 +92,9 @@
 
         /* Glassmorphism navbar */
         .glass {
-            background: rgba(15, 46, 36, 0.9);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
+            background: rgba(14, 47, 38, 0.92);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
         }
 
         /* Custom scrollbar */
@@ -103,16 +103,46 @@
         }
 
         ::-webkit-scrollbar-track {
-            background: #0F2E24;
+            background: #0E2F26;
         }
 
         ::-webkit-scrollbar-thumb {
-            background: #4a6b5e;
+            background: #C9A35C;
             border-radius: 4px;
         }
 
         ::-webkit-scrollbar-thumb:hover {
-            background: #6b8a7d;
+            background: #B88A3C;
+        }
+
+        /* CSS Custom Properties */
+        :root {
+            --bg: #0E2F26;
+            --bg-2: #12372C;
+            --card: rgba(255,255,255,.05);
+            --text: #FFFFFF;
+            --text-2: #EAF3EE;
+            --muted: #C7D6CF;
+            --accent: #C9A35C;
+            --accent-strong: #B88A3C;
+            --border: rgba(255,255,255,.16);
+        }
+
+        /* Gold shimmer on accent elements */
+        @keyframes goldShimmer {
+            0% { background-position: -200% center; }
+            100% { background-position: 200% center; }
+        }
+
+        .accent-line {
+            background: linear-gradient(90deg, var(--accent), var(--accent-strong), var(--accent));
+            background-size: 200% auto;
+            animation: goldShimmer 4s linear infinite;
+        }
+
+        /* Service cards gold border glow on hover */
+        .group:hover {
+            box-shadow: 0 0 20px rgba(201,163,92,0.12);
         }
 
         /* Tipografía ultra ligera para títulos grandes */
@@ -238,10 +268,9 @@
         <div class="text-center">
             <!-- Logo CAM animado -->
             <div class="mb-6 mx-auto">
-                <div
-                    class="w-16 h-16 lg:w-20 lg:h-20 rounded-full bg-gradient-to-br from-sage to-pine-light flex items-center justify-center shadow-2xl animate-pulse mx-auto">
-                    <span class="text-white font-bold text-2xl lg:text-3xl tracking-tight">CAM</span>
-                </div>
+                <img src="/assets/images/Carla_LOGO_2.png"
+                     alt="Carla Álvarez Manrique"
+                     class="w-72 h-auto object-contain mx-auto animate-pulse">
             </div>
             <!-- Spinner -->
             <div
@@ -286,11 +315,10 @@
             <div class="flex items-center justify-between h-20 lg:h-24">
 
                 <!-- Logo -->
-                <a href="#inicio" class="flex items-center space-x-2 sm:space-x-3">
-                    <div
-                        class="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-br from-sage to-pine-light flex items-center justify-center shadow-lg">
-                        <span class="text-white font-bold text-base sm:text-lg tracking-tight">CAM</span>
-                    </div>
+                <a href="#inicio" class="flex items-center">
+                    <img src="/assets/images/Carla_LOGO_2.png"
+                         alt="Carla Álvarez Manrique"
+                         class="w-72 h-auto object-contain">
                 </a>
 
                 <!-- Desktop Menu -->
@@ -305,7 +333,7 @@
                     <a href="/publicaciones"
                         class="text-gray-300 hover:text-sage transition-colors font-light text-sm tracking-wide">Publicaciones</a>
                     <a href="https://wa.me/[TELEFONO]?text=Hola,%20necesito%20asesoría%20legal" target="_blank"
-                        class="bg-sage text-white px-6 py-2.5 rounded font-normal text-sm hover:bg-pine-light transition-all">
+                        class="bg-sage text-pine-dark px-6 py-2.5 rounded font-semibold text-sm hover:bg-sage-light transition-all">
                         Contactar
                     </a>
                 </div>
@@ -329,7 +357,7 @@
                 <a href="/publicaciones"
                     class="block text-gray-300 hover:text-sage transition-colors font-light py-2">Publicaciones</a>
                 <a href="https://wa.me/[TELEFONO]?text=Hola,%20necesito%20asesoría%20legal" target="_blank"
-                    class="block bg-sage text-white text-center px-6 py-2.5 rounded font-normal text-sm hover:bg-pine-light transition-all">
+                    class="block bg-sage text-pine-dark text-center px-6 py-2.5 rounded font-semibold text-sm hover:bg-sage-light transition-all">
                     Contactar
                 </a>
             </div>
@@ -340,17 +368,17 @@
     <section id="inicio" class="relative min-h-screen flex items-center overflow-hidden">
         <!-- Background Image with Animation -->
         <div class="absolute inset-0">
-            <img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=1920&q=80"
+            <img src="https://images.unsplash.com/photo-1514971126075-758e7d825812?w=1920&q=80"
                 alt="Modern Professional Office" class="hero-image w-full h-full object-cover">
             <!-- Overlay con tono verde suave -->
-            <div class="absolute inset-0 bg-gradient-to-r from-pine-dark/85 via-pine/75 to-pine/55"></div>
+            <div class="absolute inset-0 bg-gradient-to-r from-pine-dark/90 via-pine/80 to-pine/50"></div>
         </div>
 
         <!-- Hero Content -->
         <div class="relative z-10 container mx-auto px-8 sm:px-6 lg:px-12 py-20 lg:py-0">
             <div class="max-w-4xl">
                 <!-- Accent Line -->
-                <div class="w-16 h-0.5 bg-sage mb-8"></div>
+                <div class="w-16 h-0.5 accent-line mb-8"></div>
 
                 <!-- Título con tipografía ultra delgada -->
                 <h1
@@ -368,12 +396,12 @@
 
                 <div class="flex flex-col sm:flex-row gap-4">
                     <a href="https://wa.me/[TELEFONO]?text=Hola,%20necesito%20asesoría%20legal" target="_blank"
-                        class="inline-flex items-center justify-center bg-sage text-white px-8 py-4 rounded font-normal text-base hover:bg-pine-light transition-all shadow-xl">
+                        class="inline-flex items-center justify-center bg-sage text-pine-dark px-8 py-4 rounded font-semibold text-base hover:bg-sage-light transition-all shadow-xl">
                         <i class="fab fa-whatsapp mr-2 text-xl"></i>
                         Agendar Consulta
                     </a>
                     <a href="#servicios"
-                        class="inline-flex items-center justify-center border-2 border-white/80 text-white px-8 py-4 rounded font-light text-base hover:bg-white hover:text-pine-dark transition-all">
+                        class="inline-flex items-center justify-center border-2 border-sage text-sage px-8 py-4 rounded font-light text-base hover:bg-sage hover:text-pine-dark transition-all">
                         Ver Servicios
                         <i class="fas fa-arrow-down ml-2"></i>
                     </a>
@@ -393,7 +421,7 @@
     <section class="py-16 lg:py-24 bg-gradient-to-b from-pine to-pine">
         <div class="container mx-auto px-8 sm:px-6 lg:px-12">
             <div class="text-center mb-12 lg:mb-16">
-                <div class="w-16 h-0.5 bg-sage mx-auto mb-6"></div>
+                <div class="w-16 h-0.5 accent-line mx-auto mb-6"></div>
                 <h2 class="text-3xl lg:text-4xl xl:text-5xl font-sans font-light text-white mb-4">
                     Enfoque Profesional
                 </h2>
@@ -446,7 +474,7 @@
     <section id="servicios" class="py-16 lg:py-24 bg-pine">
         <div class="container mx-auto px-8 sm:px-6 lg:px-12">
             <div class="text-center mb-12 lg:mb-16">
-                <div class="w-16 h-0.5 bg-sage mx-auto mb-6"></div>
+                <div class="w-16 h-0.5 accent-line mx-auto mb-6"></div>
                 <h2 class="text-3xl lg:text-4xl xl:text-5xl font-sans font-light text-white mb-4">
                     Áreas de Práctica
                 </h2>
@@ -562,12 +590,12 @@
     </section>
 
     <!-- CLIENTES / MARCAS -->
-    <section class="py-16 lg:py-20 bg-white border-t border-gray-200 overflow-hidden">
+    <section class="py-16 lg:py-20 bg-pine-dark border-t border-white/10 overflow-hidden">
         <div class="container mx-auto px-8 sm:px-6 lg:px-12">
 
             <!-- Título -->
             <div class="text-center mb-10">
-                <p class="text-sm text-gray-500 uppercase tracking-widest font-medium">
+                <p class="text-sm text-[#C7D6CF] uppercase tracking-widest font-medium">
                     Confían en mí
                 </p>
             </div>
@@ -577,10 +605,10 @@
                 <div class="overflow-hidden relative py-4">
                     <!-- Gradientes laterales para efecto fade -->
                     <div
-                        class="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none">
+                        class="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-pine-dark to-transparent z-10 pointer-events-none">
                     </div>
                     <div
-                        class="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none">
+                        class="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-pine-dark to-transparent z-10 pointer-events-none">
                     </div>
 
                     <div class="flex animate-scroll-clients items-center logo-container">
@@ -589,49 +617,49 @@
                         <div
                             class="w-40 lg:w-52 h-16 lg:h-24 flex items-center justify-center flex-shrink-0 px-6 lg:px-8">
                             <img src="/assets/images/LOGOS/logo5.png" alt="LOGIS TRV"
-                                class="client-logo-item opacity-60 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300">
+                                class="client-logo-item opacity-50 brightness-0 invert hover:opacity-80 hover:brightness-100 hover:invert-0 transition-all duration-300">
                         </div>
                         <div
                             class="w-40 lg:w-52 h-16 lg:h-24 flex items-center justify-center flex-shrink-0 px-6 lg:px-8">
                             <img src="/assets/images/LOGOS/logo3.png" alt="FEDES"
-                                class="client-logo-item opacity-60 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300">
+                                class="client-logo-item opacity-50 brightness-0 invert hover:opacity-80 hover:brightness-100 hover:invert-0 transition-all duration-300">
                         </div>
                         <div
                             class="w-40 lg:w-52 h-16 lg:h-24 flex items-center justify-center flex-shrink-0 px-6 lg:px-8">
                             <img src="/assets/images/LOGOS/logo8.png" alt="MUZA"
-                                class="client-logo-item opacity-60 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300">
+                                class="client-logo-item opacity-50 brightness-0 invert hover:opacity-80 hover:brightness-100 hover:invert-0 transition-all duration-300">
                         </div>
                         <div
                             class="w-40 lg:w-52 h-16 lg:h-24 flex items-center justify-center flex-shrink-0 px-6 lg:px-8">
                             <img src="/assets/images/LOGOS/logo9.png" alt="UNICORSA"
-                                class="client-logo-item opacity-60 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300">
+                                class="client-logo-item opacity-50 brightness-0 invert hover:opacity-80 hover:brightness-100 hover:invert-0 transition-all duration-300">
                         </div>
                         <div class="flex items-center gap-6 lg:gap-8 pr-6 lg:pr-8 flex-shrink-0">
                             <div
                                 class="w-40 lg:w-52 h-16 lg:h-24 flex items-center justify-center flex-shrink-0 px-6 lg:px-8">
                                 <img src="/assets/images/LOGOS/logo1.png" alt="COEM"
-                                    class="client-logo-item opacity-60 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300">
+                                    class="client-logo-item opacity-50 brightness-0 invert hover:opacity-80 hover:brightness-100 hover:invert-0 transition-all duration-300">
                             </div>
                             <div
                                 class="w-40 lg:w-52 h-16 lg:h-24 flex items-center justify-center flex-shrink-0 px-6 lg:px-8">
                                 <img src="/assets/images/LOGOS/logo2.png" alt="DTA"
-                                    class="client-logo-item opacity-60 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300">
+                                    class="client-logo-item opacity-50 brightness-0 invert hover:opacity-80 hover:brightness-100 hover:invert-0 transition-all duration-300">
                             </div>
 
                             <div
                                 class="w-40 lg:w-52 h-16 lg:h-24 flex items-center justify-center flex-shrink-0 px-6 lg:px-8">
                                 <img src="/assets/images/LOGOS/logo4.png" alt="IBP"
-                                    class="client-logo-item opacity-60 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300">
+                                    class="client-logo-item opacity-50 brightness-0 invert hover:opacity-80 hover:brightness-100 hover:invert-0 transition-all duration-300">
                             </div>
                             <div
                                 class="w-40 lg:w-52 h-16 lg:h-24 flex items-center justify-center flex-shrink-0 px-6 lg:px-8">
                                 <img src="/assets/images/LOGOS/logo6.png" alt="LUA"
-                                    class="client-logo-item opacity-60 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300">
+                                    class="client-logo-item opacity-50 brightness-0 invert hover:opacity-80 hover:brightness-100 hover:invert-0 transition-all duration-300">
                             </div>
                             <div
                                 class="w-40 lg:w-52 h-16 lg:h-24 flex items-center justify-center flex-shrink-0 px-6 lg:px-8">
                                 <img src="/assets/images/LOGOS/logo7.png" alt="MQA"
-                                    class="client-logo-item opacity-60 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300">
+                                    class="client-logo-item opacity-50 brightness-0 invert hover:opacity-80 hover:brightness-100 hover:invert-0 transition-all duration-300">
                             </div>
                         </div>
                     </div>
@@ -644,14 +672,14 @@
     <section class="py-16 lg:py-24 bg-pine-dark">
         <div class="container mx-auto px-8 sm:px-6 lg:px-12">
             <div class="max-w-4xl mx-auto text-center">
-                <div class="w-16 h-0.5 bg-sage mx-auto mb-8"></div>
+                <div class="w-16 h-0.5 accent-line mx-auto mb-8"></div>
                 <h2 class="text-3xl lg:text-4xl xl:text-5xl font-sans font-light text-white mb-6">
                     ¿Necesitas Asesoría Legal?
                     <br>
                     <br>
                 </h2>
                 <a href="https://wa.me/[TELEFONO]?text=Hola,%20necesito%20asesoría%20legal" target="_blank"
-                    class="inline-flex items-center justify-center bg-sage text-white px-10 py-5 rounded font-normal text-lg hover:bg-pine-light transition-all shadow-xl">
+                    class="inline-flex items-center justify-center bg-sage text-pine-dark px-10 py-5 rounded font-semibold text-lg hover:bg-sage-light transition-all shadow-xl">
                     <i class="fab fa-whatsapp mr-3 text-2xl"></i>
                     Contactar por WhatsApp
                 </a>
@@ -667,10 +695,9 @@
                 <!-- Columna 1: Logo y descripción -->
                 <div>
                     <div class="flex items-center space-x-3 mb-6">
-                        <div
-                            class="w-10 h-10 lg:w-12 lg:h-12 rounded-full bg-gradient-to-br from-sage to-pine-light flex items-center justify-center shadow-lg">
-                            <span class="text-white font-bold text-base lg:text-lg tracking-tight">CAM</span>
-                        </div>
+                        <img src="/assets/images/Carla_LOGO_2.png"
+                             alt="Carla Álvarez Manrique"
+                             class="w-72 h-auto object-contain">
                     </div>
                     <p class="text-gray-400 text-sm leading-relaxed font-light">
                         Asesoría legal corporativa especializada en Guayaquil, Ecuador.
