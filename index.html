@@ -119,19 +119,24 @@
         :root {
             --bg: #0E2F26;
             --bg-2: #12372C;
-            --card: rgba(255,255,255,.05);
+            --card: rgba(255, 255, 255, .05);
             --text: #FFFFFF;
             --text-2: #EAF3EE;
             --muted: #C7D6CF;
             --accent: #C9A35C;
             --accent-strong: #B88A3C;
-            --border: rgba(255,255,255,.16);
+            --border: rgba(255, 255, 255, .16);
         }
 
         /* Gold shimmer on accent elements */
         @keyframes goldShimmer {
-            0% { background-position: -200% center; }
-            100% { background-position: 200% center; }
+            0% {
+                background-position: -200% center;
+            }
+
+            100% {
+                background-position: 200% center;
+            }
         }
 
         .accent-line {
@@ -142,7 +147,7 @@
 
         /* Service cards gold border glow on hover */
         .group:hover {
-            box-shadow: 0 0 20px rgba(201,163,92,0.12);
+            box-shadow: 0 0 20px rgba(201, 163, 92, 0.12);
         }
 
         /* Tipografía ultra ligera para títulos grandes */
@@ -268,9 +273,8 @@
         <div class="text-center">
             <!-- Logo CAM animado -->
             <div class="mb-6 mx-auto">
-                <img src="/assets/images/Carla_LOGO_2.png"
-                     alt="Carla Álvarez Manrique"
-                     class="w-72 h-auto object-contain mx-auto animate-pulse">
+                <img src="/assets/images/Carla_LOGO_2.png" alt="Carla Álvarez Manrique"
+                    class="w-72 h-auto object-contain mx-auto animate-pulse">
             </div>
             <!-- Spinner -->
             <div
@@ -316,9 +320,8 @@
 
                 <!-- Logo -->
                 <a href="#inicio" class="flex items-center">
-                    <img src="/assets/images/Carla_LOGO_2.png"
-                         alt="Carla Álvarez Manrique"
-                         class="w-72 h-auto object-contain">
+                    <img src="/assets/images/Carla_LOGO_2.png" alt="Carla Álvarez Manrique"
+                        class="w-72 h-auto object-contain">
                 </a>
 
                 <!-- Desktop Menu -->
@@ -348,12 +351,11 @@
         <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden lg:hidden glass border-t border-pine-lighter/30">
             <div class="container mx-auto px-8 sm:px-6 py-6 space-y-4">
-                <a href="#inicio"
-                    class="block text-white hover:text-sage transition-colors font-light py-2">Inicio</a>
+                <a href="#inicio" class="block text-white hover:text-sage transition-colors font-light py-2">Inicio</a>
                 <a href="/servicios"
                     class="block text-gray-300 hover:text-sage transition-colors font-light py-2">Servicios</a>
-                <a href="/sobre-mi"
-                    class="block text-gray-300 hover:text-sage transition-colors font-light py-2">Sobre mí</a>
+                <a href="/sobre-mi" class="block text-gray-300 hover:text-sage transition-colors font-light py-2">Sobre
+                    mí</a>
                 <a href="/publicaciones"
                     class="block text-gray-300 hover:text-sage transition-colors font-light py-2">Publicaciones</a>
                 <a href="https://wa.me/[TELEFONO]?text=Hola,%20necesito%20asesoría%20legal" target="_blank"
@@ -590,12 +592,12 @@
     </section>
 
     <!-- CLIENTES / MARCAS -->
-    <section class="py-16 lg:py-20 bg-pine-dark border-t border-white/10 overflow-hidden">
+    <section class="py-16 lg:py-20 bg-white border-t border-gray-200 overflow-hidden">
         <div class="container mx-auto px-8 sm:px-6 lg:px-12">
 
             <!-- Título -->
             <div class="text-center mb-10">
-                <p class="text-sm text-[#C7D6CF] uppercase tracking-widest font-medium">
+                <p class="text-sm text-gray-500 uppercase tracking-widest font-medium">
                     Confían en mí
                 </p>
             </div>
@@ -605,10 +607,10 @@
                 <div class="overflow-hidden relative py-4">
                     <!-- Gradientes laterales para efecto fade -->
                     <div
-                        class="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-pine-dark to-transparent z-10 pointer-events-none">
+                        class="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none">
                     </div>
                     <div
-                        class="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-pine-dark to-transparent z-10 pointer-events-none">
+                        class="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none">
                     </div>
 
                     <div class="flex animate-scroll-clients items-center logo-container">
@@ -617,49 +619,49 @@
                         <div
                             class="w-40 lg:w-52 h-16 lg:h-24 flex items-center justify-center flex-shrink-0 px-6 lg:px-8">
                             <img src="/assets/images/LOGOS/logo5.png" alt="LOGIS TRV"
-                                class="client-logo-item opacity-50 brightness-0 invert hover:opacity-80 hover:brightness-100 hover:invert-0 transition-all duration-300">
+                                class="client-logo-item opacity-60 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300">
                         </div>
                         <div
                             class="w-40 lg:w-52 h-16 lg:h-24 flex items-center justify-center flex-shrink-0 px-6 lg:px-8">
                             <img src="/assets/images/LOGOS/logo3.png" alt="FEDES"
-                                class="client-logo-item opacity-50 brightness-0 invert hover:opacity-80 hover:brightness-100 hover:invert-0 transition-all duration-300">
+                                class="client-logo-item opacity-60 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300">
                         </div>
                         <div
                             class="w-40 lg:w-52 h-16 lg:h-24 flex items-center justify-center flex-shrink-0 px-6 lg:px-8">
                             <img src="/assets/images/LOGOS/logo8.png" alt="MUZA"
-                                class="client-logo-item opacity-50 brightness-0 invert hover:opacity-80 hover:brightness-100 hover:invert-0 transition-all duration-300">
+                                class="client-logo-item opacity-60 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300">
                         </div>
                         <div
                             class="w-40 lg:w-52 h-16 lg:h-24 flex items-center justify-center flex-shrink-0 px-6 lg:px-8">
                             <img src="/assets/images/LOGOS/logo9.png" alt="UNICORSA"
-                                class="client-logo-item opacity-50 brightness-0 invert hover:opacity-80 hover:brightness-100 hover:invert-0 transition-all duration-300">
+                                class="client-logo-item opacity-60 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300">
                         </div>
                         <div class="flex items-center gap-6 lg:gap-8 pr-6 lg:pr-8 flex-shrink-0">
                             <div
                                 class="w-40 lg:w-52 h-16 lg:h-24 flex items-center justify-center flex-shrink-0 px-6 lg:px-8">
                                 <img src="/assets/images/LOGOS/logo1.png" alt="COEM"
-                                    class="client-logo-item opacity-50 brightness-0 invert hover:opacity-80 hover:brightness-100 hover:invert-0 transition-all duration-300">
+                                    class="client-logo-item opacity-60 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300">
                             </div>
                             <div
                                 class="w-40 lg:w-52 h-16 lg:h-24 flex items-center justify-center flex-shrink-0 px-6 lg:px-8">
                                 <img src="/assets/images/LOGOS/logo2.png" alt="DTA"
-                                    class="client-logo-item opacity-50 brightness-0 invert hover:opacity-80 hover:brightness-100 hover:invert-0 transition-all duration-300">
+                                    class="client-logo-item opacity-60 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300">
                             </div>
 
                             <div
                                 class="w-40 lg:w-52 h-16 lg:h-24 flex items-center justify-center flex-shrink-0 px-6 lg:px-8">
                                 <img src="/assets/images/LOGOS/logo4.png" alt="IBP"
-                                    class="client-logo-item opacity-50 brightness-0 invert hover:opacity-80 hover:brightness-100 hover:invert-0 transition-all duration-300">
+                                    class="client-logo-item opacity-60 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300">
                             </div>
                             <div
                                 class="w-40 lg:w-52 h-16 lg:h-24 flex items-center justify-center flex-shrink-0 px-6 lg:px-8">
                                 <img src="/assets/images/LOGOS/logo6.png" alt="LUA"
-                                    class="client-logo-item opacity-50 brightness-0 invert hover:opacity-80 hover:brightness-100 hover:invert-0 transition-all duration-300">
+                                    class="client-logo-item opacity-60 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300">
                             </div>
                             <div
                                 class="w-40 lg:w-52 h-16 lg:h-24 flex items-center justify-center flex-shrink-0 px-6 lg:px-8">
                                 <img src="/assets/images/LOGOS/logo7.png" alt="MQA"
-                                    class="client-logo-item opacity-50 brightness-0 invert hover:opacity-80 hover:brightness-100 hover:invert-0 transition-all duration-300">
+                                    class="client-logo-item opacity-60 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300">
                             </div>
                         </div>
                     </div>
@@ -695,9 +697,8 @@
                 <!-- Columna 1: Logo y descripción -->
                 <div>
                     <div class="flex items-center space-x-3 mb-6">
-                        <img src="/assets/images/Carla_LOGO_2.png"
-                             alt="Carla Álvarez Manrique"
-                             class="w-72 h-auto object-contain">
+                        <img src="/assets/images/Carla_LOGO_2.png" alt="Carla Álvarez Manrique"
+                            class="w-72 h-auto object-contain">
                     </div>
                     <p class="text-gray-400 text-sm leading-relaxed font-light">
                         Asesoría legal corporativa especializada en Guayaquil, Ecuador.
