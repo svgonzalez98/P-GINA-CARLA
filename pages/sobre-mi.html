@@ -5,474 +5,332 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
-        content="David Celi Lupera - Abogado con maestría en Derecho Marítimo, Puertos y Aduanas. Asesor legal empresarial especializado.">
-    <meta name="keywords" content="David Celi Lupera, abogado Guayaquil, derecho marítimo, asesoría legal corporativa">
-    <meta name="author" content="David Celi Lupera">
-    <meta property="og:title" content="Sobre mí - David Celi Lupera | Abogado Corporativo">
+        content="Carla Álvarez Manrique - Abogada regulatoria y corporativa en Guayaquil, Ecuador. Asesoría legal integral con enfoque preventivo y orientado a resultados.">
+    <meta name="keywords" content="Carla Álvarez Manrique, abogada Guayaquil, derecho corporativo, compliance, asesoría legal empresarial">
+    <meta name="author" content="Carla Álvarez Manrique">
+    <meta property="og:title" content="Sobre mí - Carla Álvarez Manrique | Asesoría Legal Corporativa">
     <meta property="og:description"
-        content="Abogado con maestría en Derecho Marítimo. Asesoría legal empresarial con rigor jurídico y criterio empresarial.">
+        content="Abogada regulatoria y corporativa con enfoque preventivo y orientado a resultados.">
     <meta property="og:type" content="profile">
-    <meta property="og:url" content="https://davidcelilupera.com/sobre-mi">
-    <title>Sobre mí - David Celi Lupera | Asesoría Legal Corporativa</title>
+    <meta property="og:url" content="https://carlaalvarezmanrique.ec/sobre-mi">
+    <title>Sobre mí - Carla Álvarez Manrique | Asesoría Legal Corporativa</title>
     <link rel="icon" type="image/x-icon" href="/assets/icons/favicon.ico">
     <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600&family=Lora:wght@400;500;600&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        'navy-dark': '#0a1628',
-                        'navy': '#0f2942',
-                        'navy-light': '#1a3a5c',
-                        'navy-lighter': '#2d4a6f',
-                        'blue-corp': '#3b82f6',
-                        'blue-corp-dark': '#2563eb',
+                        'pine-dark': '#0E2F26',
+                        'pine': '#12372C',
+                        'pine-light': '#1a4035',
+                        'pine-lighter': '#2a5245',
+                        'sage': '#C9A35C',
+                        'sage-light': '#B88A3C',
                     },
                     fontFamily: {
-                        'sans': ['Montserrat', 'sans-serif'],
-                        'serif': ['Lora', 'serif'],
+                        'sans': ['Inter', 'sans-serif'],
+                        'serif': ['Cormorant Garamond', 'serif'],
                     }
                 }
             }
         }
     </script>
     <style>
-        html {
-            scroll-behavior: smooth;
-        }
-
-        .glass {
-            background: rgba(10, 22, 40, 0.9);
-            backdrop-filter: blur(10px);
-        }
-
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: #0a1628;
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: #3b82f6;
-            border-radius: 4px;
-        }
-
-        .ultra-light {
-            font-weight: 200;
-        }
-
-        /* Mobile Menu Animation */
-        @keyframes slideDown {
-            from {
-                opacity: 0;
-                transform: translateY(-10px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        #mobile-menu:not(.hidden) {
-            animation: slideDown 0.3s ease-out;
-        }
+        html { scroll-behavior: smooth; }
+        :root { --cream: #F7F3EE; --pine-dark: #0E2F26; --gold: #C9A35C; --gold-dark: #B88A3C; }
+        ::-webkit-scrollbar { width: 5px; }
+        ::-webkit-scrollbar-track { background: var(--cream); }
+        ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 10px; }
+        #navbar { background: rgba(14,47,38,0.97); border-bottom: 1px solid rgba(201,163,92,0.2); box-shadow: 0 4px 24px rgba(0,0,0,0.18); }
+        #mobile-menu { background: var(--pine-dark); border-top: 1px solid rgba(201,163,92,0.2); }
+        @keyframes slideDown { from { opacity:0; transform:translateY(-8px); } to { opacity:1; transform:translateY(0); } }
+        #mobile-menu:not(.hidden) { animation: slideDown 0.25s ease-out; }
+        .reveal { opacity:0; transform:translateY(24px); transition:opacity 0.7s ease, transform 0.7s ease; pointer-events:none; }
+        .reveal.visible { opacity:1; transform:translateY(0); pointer-events:auto; }
+        .reveal-delay-1 { transition-delay:0.15s; }
+        .reveal-delay-2 { transition-delay:0.3s; }
+        .gold-line { background: linear-gradient(90deg, var(--gold), var(--gold-dark)); }
+        .photo-wrap { position:relative; overflow:hidden; }
+        .photo-wrap img { transition:transform 0.7s ease; }
+        .photo-wrap:hover img { transform:scale(1.04); }
+        .company-card { transition:all 0.3s ease; border-left:2px solid transparent; }
+        .company-card:hover { border-left-color:var(--gold); transform:translateX(4px); }
+        @keyframes slideUp { from { transform:translateY(100%); opacity:0; } to { transform:translateY(0); opacity:1; } }
+        .cookie-banner-enter { animation: slideUp 0.5s ease-out; }
     </style>
 </head>
 
-<body class="bg-navy-dark text-gray-100 font-sans antialiased">
+<body class="bg-[#F7F3EE] text-gray-800 font-sans antialiased">
 
-    <!-- PAGE LOADER - Animación de carga -->
-    <div id="pageLoader"
-        class="fixed inset-0 bg-navy-dark z-[200] flex items-center justify-center transition-opacity duration-500">
+    <!-- PAGE LOADER -->
+    <div id="pageLoader" class="fixed inset-0 bg-[#0A0A0A] z-[200] flex items-center justify-center transition-opacity duration-500">
         <div class="text-center">
-            <!-- Logo animado -->
-            <img src="/assets/images/David_LOGO_7.png" alt="Loading" class="h-16 lg:h-20 mx-auto mb-6 animate-pulse">
-            <!-- Spinner -->
-            <div
-                class="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-blue-corp border-r-transparent">
+            <div class="mb-6 mx-auto">
+                <img src="/assets/images/Carla_LOGO_2.png" alt="Carla Álvarez Manrique" class="w-48 sm:w-60 h-auto object-contain mx-auto animate-pulse">
+            </div>
+            <div class="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-[#C9A35C] border-r-transparent"></div>
+        </div>
+    </div>
+
+    <!-- COOKIE BANNER -->
+    <div id="cookieBanner" class="hidden fixed bottom-0 left-0 right-0 z-[100] cookie-banner-enter">
+        <div class="bg-pine border-t border-pine-lighter/30 shadow-2xl">
+            <div class="container mx-auto px-8 sm:px-6 lg:px-12 py-6">
+                <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+                    <div class="flex-1">
+                        <h3 class="text-base font-normal text-white mb-2">🍪 Uso de Cookies</h3>
+                        <p class="text-sm text-gray-300 font-light leading-relaxed">
+                            Este sitio utiliza cookies para mejorar la experiencia de navegación.
+                            <a href="/politica-privacidad" class="text-sage hover:underline">Política de Privacidad</a>.
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-3 flex-shrink-0">
+                        <button id="acceptCookies" class="bg-sage text-pine-dark px-6 py-2.5 rounded font-normal text-sm hover:bg-sage-light transition-all whitespace-nowrap">Aceptar</button>
+                        <button id="rejectCookies" class="border border-pine-lighter text-gray-300 px-6 py-2.5 rounded font-normal text-sm hover:bg-pine-light transition-all whitespace-nowrap">Rechazar</button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 
     <!-- NAVBAR -->
     <nav id="navbar" class="fixed w-full top-0 z-50 transition-all duration-300">
-        <div class="container mx-auto px-8 sm:px-6 lg:px-12">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-12">
             <div class="flex items-center justify-between h-20 lg:h-24">
-                <a href="/" class="flex items-center space-x-2 sm:space-x-3">
-                    <img src="/assets/images/David_LOGO_7.png" alt="David Celi Lupera Logo"
-                        class="h-8 sm:h-10 lg:h-12 w-auto">
+                <a href="/" class="flex items-center">
+                    <img src="/assets/images/Carla_LOGO_2.png" alt="Carla Álvarez Manrique" class="w-56 sm:w-64 lg:w-72 h-auto object-contain">
                 </a>
                 <div class="hidden lg:flex items-center space-x-8">
-                    <a href="/"
-                        class="text-gray-300 hover:text-blue-corp transition-colors font-light text-sm tracking-wide">Inicio</a>
-                    <a href="/servicios"
-                        class="text-gray-300 hover:text-blue-corp transition-colors font-light text-sm tracking-wide">Servicios</a>
-                    <a href="/sobre-mi"
-                        class="text-white hover:text-blue-corp transition-colors font-light text-sm tracking-wide">Sobre
-                        mí</a>
-                    <a href="/publicaciones"
-                        class="text-gray-300 hover:text-blue-corp transition-colors font-light text-sm tracking-wide">Publicaciones</a>
-                    <a href="https://wa.me/593998128476?text=Hola,%20necesito%20asesoría%20legal" target="_blank"
-                        class="bg-blue-corp text-white px-6 py-2.5 rounded font-normal text-sm hover:bg-navy-light transition-all">
-                        Contactar
-                    </a>
+                    <a href="/" class="text-gray-300 hover:text-sage transition-colors font-light text-sm tracking-wide">Inicio</a>
+                    <a href="/servicios" class="text-gray-300 hover:text-sage transition-colors font-light text-sm tracking-wide">Servicios</a>
+                    <a href="/sobre-mi" class="text-white hover:text-sage transition-colors font-light text-sm tracking-wide">Sobre mí</a>
+                    <a href="/publicaciones" class="text-gray-300 hover:text-sage transition-colors font-light text-sm tracking-wide">Publicaciones</a>
+                    <a href="https://wa.me/593986261897?text=Hola,%20necesito%20asesoría%20legal" target="_blank"
+                        class="bg-sage text-pine-dark px-6 py-2.5 rounded font-semibold text-sm hover:bg-sage-light transition-all">Contactar</a>
                 </div>
                 <button id="mobile-menu-btn" class="lg:hidden text-white focus:outline-none">
                     <i class="fas fa-bars text-2xl"></i>
                 </button>
             </div>
-            <div id="mobile-menu" class="hidden lg:hidden pb-6 space-y-3 bg-navy-dark/95 backdrop-blur-lg rounded-b-lg">
-                <a href="/"
-                    class="block text-gray-300 hover:text-blue-corp transition-colors font-light py-2 px-4">Inicio</a>
-                <a href="/servicios"
-                    class="block text-gray-300 hover:text-blue-corp transition-colors font-light py-2 px-4">Servicios</a>
-                <a href="/sobre-mi"
-                    class="block text-white hover:text-blue-corp transition-colors font-light py-2 px-4">Sobre mí</a>
-                <a href="/publicaciones"
-                    class="block text-gray-300 hover:text-blue-corp transition-colors font-light py-2 px-4">Publicaciones</a>
-                <a href="https://wa.me/593998128476?text=Hola,%20necesito%20asesoría%20legal" target="_blank"
-                    class="block bg-blue-corp text-white text-center px-6 py-2.5 rounded font-normal text-sm hover:bg-navy-light transition-all">
-                    Contactar
-                </a>
+        </div>
+        <div id="mobile-menu" class="hidden lg:hidden border-t border-pine-lighter/30">
+            <div class="container mx-auto px-8 sm:px-6 py-6 space-y-4">
+                <a href="/" class="block text-white hover:text-sage transition-colors font-light py-2">Inicio</a>
+                <a href="/servicios" class="block text-gray-300 hover:text-sage transition-colors font-light py-2">Servicios</a>
+                <a href="/sobre-mi" class="block text-sage font-light py-2">Sobre mí</a>
+                <a href="/publicaciones" class="block text-gray-300 hover:text-sage transition-colors font-light py-2">Publicaciones</a>
+                <a href="https://wa.me/593986261897?text=Hola,%20necesito%20asesoría%20legal" target="_blank"
+                    class="block bg-sage text-pine-dark text-center px-6 py-2.5 rounded font-semibold text-sm hover:bg-sage-light transition-all">Contactar</a>
             </div>
         </div>
     </nav>
+
     <!-- HERO MINI -->
-    <section class="relative pt-32 pb-20 bg-gradient-to-br from-navy-dark via-navy to-navy-light overflow-hidden">
-        <!-- Patrón decorativo -->
-        <div class="absolute inset-0 opacity-10">
-            <div
-                class="absolute top-0 right-0 w-96 h-96 border-2 border-blue-corp rounded-full transform translate-x-1/2 -translate-y-1/2">
-            </div>
-            <div
-                class="absolute bottom-0 left-0 w-72 h-72 border-2 border-blue-corp rounded-full transform -translate-x-1/2 translate-y-1/2">
-            </div>
-        </div>
+    <section class="relative pt-36 lg:pt-44 pb-20 bg-[#0E2F26] overflow-hidden">
+        <div class="absolute -top-40 -right-40 w-[600px] h-[600px] rounded-full bg-[#C9A35C]/5 pointer-events-none"></div>
+        <div class="absolute -bottom-20 -left-20 w-[300px] h-[300px] rounded-full bg-white/3 pointer-events-none"></div>
 
-        <div class="container mx-auto px-7 lg:px-12 relative z-10">
+        <div class="container mx-auto px-8 sm:px-6 lg:px-12 relative z-10">
             <div class="max-w-3xl mx-auto text-center">
-                <!-- Breadcrumb -->
-                <div class="flex items-center justify-center space-x-2 text-sm text-gray-300 mb-6">
-                    <a href="/" class="hover:text-blue-corp transition-colors">Inicio</a>
-                    <i class="fas fa-chevron-right text-xs"></i>
-                    <span class="text-blue-corp">Sobre mí</span>
+                <div class="flex items-center justify-center space-x-2 text-xs text-white/40 font-light mb-8 tracking-widest uppercase">
+                    <a href="/" class="hover:text-sage transition-colors">Inicio</a>
+                    <i class="fas fa-chevron-right text-[10px]"></i>
+                    <span class="text-sage">Sobre mí</span>
                 </div>
-
-                <div class="w-20 h-1 bg-blue-corp mx-auto mb-8"></div>
-                <h1 class="text-4xl lg:text-6xl font-sans font-light text-white mb-4">
-                    David Celi Lupera
+                <p class="text-xs uppercase tracking-[0.3em] text-[#C9A35C] font-medium mb-6 flex items-center justify-center gap-3">
+                    <span class="w-6 h-px bg-[#C9A35C]"></span>Perfil Profesional<span class="w-6 h-px bg-[#C9A35C]"></span>
+                </p>
+                <h1 class="font-serif text-4xl lg:text-5xl xl:text-6xl text-white leading-tight mb-6" style="font-weight:300;">
+                    Carla Álvarez Manrique
                 </h1>
-                <p class="text-xl text-gray-200 leading-relaxed">
-                    Abogado | Magíster en Derecho Marítimo, Puertos y Aduanas | Asesor Empresarial | Gestión Legal y
-                    Corporativa
+                <div class="w-16 h-px gold-line mx-auto mb-6"></div>
+                <p class="text-white/60 font-light text-base leading-relaxed">
+                    Abogada Regulatoria y Corporativa &nbsp;·&nbsp; Guayaquil, Ecuador
                 </p>
             </div>
         </div>
-
-        <!-- Scroll Indicator -->
-        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-            <i class="fas fa-chevron-down text-white text-2xl"></i>
+        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 hidden lg:block">
+            <div class="animate-bounce text-white/30"><i class="fas fa-chevron-down text-lg"></i></div>
         </div>
     </section>
 
     <!-- MAIN CONTENT -->
-    <section class="py-24 bg-navy relative overflow-hidden">
-        <!-- Patrón decorativo de fondo -->
-        <div class="absolute inset-0 opacity-5">
-            <div class="absolute top-20 right-10 w-72 h-72 border border-blue-corp rounded-full"></div>
-            <div class="absolute bottom-20 left-10 w-96 h-96 border border-navy rounded-full"></div>
-        </div>
+    <section class="py-24 bg-[#F7F3EE] relative overflow-hidden">
+        <div class="absolute top-20 right-10 w-72 h-72 border border-[#C9A35C]/10 rounded-full pointer-events-none"></div>
+        <div class="absolute bottom-20 left-10 w-96 h-96 border border-[#0E2F26]/5 rounded-full pointer-events-none"></div>
 
-        <div class="container mx-auto px-7 lg:px-12 relative z-10">
+        <div class="container mx-auto px-8 sm:px-6 lg:px-12 relative z-10">
 
-            <!-- BLOQUE 1: Imagen Izquierda + Texto Derecha -->
-            <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center max-w-7xl mx-auto mb-20">
+            <!-- BLOQUE PRINCIPAL: Foto izquierda + Texto derecha -->
+            <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center max-w-6xl mx-auto mb-24">
 
-                <!-- Imagen 1 - Izquierda -->
-                <div class="order-2 lg:order-1" data-aos="fade-right">
-                    <div class="relative group">
-                        <div
-                            class="absolute -inset-4 bg-gradient-to-r from-blue-corp to-blue-corp-dark rounded-2xl opacity-20 group-hover:opacity-30 blur-xl transition-all duration-500">
+                <!-- Foto izquierda -->
+                <div class="order-2 lg:order-1 reveal">
+                    <div class="relative">
+                        <div class="absolute -top-4 -left-4 w-full h-full border border-[#C9A35C]/25 pointer-events-none"></div>
+                        <div class="photo-wrap relative shadow-2xl">
+                            <img src="/assets/images/CARLA_1.jpeg" alt="Carla Álvarez Manrique - Abogada" class="w-full h-auto object-contain">
+                            <div class="absolute inset-0 bg-gradient-to-t from-[#0E2F26]/40 via-transparent to-transparent"></div>
                         </div>
-                        <div class="relative overflow-hidden rounded-2xl shadow-2xl">
-                            <img src="/assets/images/david1.jpg" alt="David Celi Lupera - Abogado"
-                                class="w-full h-[500px] object-cover transition-all duration-700 group-hover:scale-110">
-                            <div
-                                class="absolute inset-0 bg-gradient-to-t from-navy via-navy/30 to-transparent opacity-60">
-                            </div>
-                        </div>
-
-                        <!-- Elemento decorativo -->
-                        <div
-                            class="absolute -top-6 -left-6 w-24 h-24 border-4 border-blue-corp rounded-full opacity-30">
-                        </div>
+                        <!-- <div class="absolute -bottom-5 -right-5 bg-[#C9A35C] text-[#0E2F26] px-6 py-4 shadow-xl">
+                            <p class="text-2xl font-serif font-semibold leading-none">5+</p>
+                            <p class="text-xs font-semibold tracking-widest uppercase mt-1">Años de experiencia</p>
+                        </div> -->
                     </div>
                 </div>
 
-                <!-- Texto 1 - Derecha -->
-                <div class="order-1 lg:order-2 space-y-6" data-aos="fade-left">
+                <!-- Texto derecha -->
+                <div class="order-1 lg:order-2 space-y-6 reveal reveal-delay-1">
                     <div>
-                        <div class="w-20 h-1 bg-blue-corp mb-6"></div>
-                        <h2 class="text-3xl lg:text-4xl font-sans font-light text-white mb-4">
-                            Experiencia y Compromiso Legal
+                        <p class="text-xs uppercase tracking-[0.25em] text-[#C9A35C] font-medium mb-4 flex items-center gap-3">
+                            <span class="w-4 h-px bg-[#C9A35C]"></span>Quién soy
+                        </p>
+                        <h2 class="font-serif text-3xl lg:text-4xl text-[#0E2F26] leading-tight mb-6" style="font-weight:400;">
+                            Experiencia y Compromiso<br>
+                            <em style="font-weight:300; color:#C9A35C;">Legal</em>
                         </h2>
                     </div>
 
-                    <p class="text-lg text-gray-300 leading-relaxed">
-                        Soy abogado con maestría en Derecho Marítimo, Puertos y Aduanas, dedicado a la asesoría
-                        legal empresarial. Combino rigor jurídico y criterio empresarial para convertir marcos
-                        normativos complejos en decisiones claras, ejecutables y alineadas al negocio.
+                    <p class="text-gray-600 font-light leading-relaxed text-base">
+                        Abogada regulatoria y corporativa. Brindo asesoría legal integral para empresas y emprendimientos, con enfoque preventivo y orientado a resultados, garantizando el cumplimiento de obligaciones legales y la correcta gestión de riesgos.
                     </p>
 
-                    <p class="text-gray-300 leading-relaxed">
-                        Actúo en asuntos corporativos y contractuales, estructuración y reorganización de empresas,
-                        resolución de conflictos comerciales y laborales, y cumplimiento regulatorio.
+                    <p class="text-gray-600 font-light leading-relaxed text-base">
+                        Acompaño a mis clientes en cumplimiento normativo, obtención y mantenimiento de licencias y permisos, y atención de requerimientos y trámites ante autoridades gubernamentales y entes de control. Elaboro, reviso y negocio contratos comerciales, civiles y laborales, cuidando la protección de intereses, la claridad de responsabilidades y la continuidad operativa.
                     </p>
 
-                    <!-- Stats decorativos -->
-                    <div class="grid grid-cols-2 gap-4 pt-4">
-                        <div class="bg-navy-light/40 rounded-xl p-5 border-l-4 border-blue-corp">
-                            <p class="text-3xl font-bold text-blue-corp mb-1">5+</p>
-                            <p class="text-sm text-gray-400">Años de Experiencia</p>
+                    <p class="text-gray-600 font-light leading-relaxed text-base">
+                        Lidero el control documental y la preparación legal para auditorías internas y externas, asegurando orden, trazabilidad y soporte verificable. Asimismo, coordino frentes legales con proveedores, clientes y terceros estratégicos, apoyando la toma de decisiones y la implementación de soluciones prácticas.
+                    </p>
+
+                    <!-- <div class="grid grid-cols-2 gap-4 pt-2">
+                        <div class="bg-white border border-gray-200 p-5 border-l-2 border-l-[#C9A35C]">
+                            <p class="font-serif text-3xl text-[#0E2F26] mb-1" style="font-weight:400;">5+</p>
+                            <p class="text-xs text-gray-400 font-light uppercase tracking-widest">Años de experiencia</p>
                         </div>
-                        <div class="bg-navy-light/40 rounded-xl p-5 border-l-4 border-blue-corp">
-                            <p class="text-3xl font-bold text-blue-corp mb-1">5+</p>
-                            <p class="text-sm text-gray-400">Sectores Asesorados</p>
+                        <div class="bg-white border border-gray-200 p-5 border-l-2 border-l-[#C9A35C]">
+                            <p class="font-serif text-3xl text-[#0E2F26] mb-1" style="font-weight:400;">6+</p>
+                            <p class="text-xs text-gray-400 font-light uppercase tracking-widest">Sectores asesorados</p>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
 
-            <!-- BLOQUE 2: Texto Izquierda + Imagen Derecha -->
-            <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center max-w-7xl mx-auto mb-20">
-
-                <!-- Texto 2 - Izquierda -->
-                <div class="space-y-6" data-aos="fade-right">
-                    <div>
-                        <div class="w-20 h-1 bg-blue-corp mb-6"></div>
-                        <h2 class="text-3xl lg:text-4xl font-sans font-light text-white mb-4">
-                            Representación Legal Estratégica
-                        </h2>
-                    </div>
-
-                    <p class="text-gray-300 leading-relaxed">
-                        Me desempeño como representante legal de compañías, liderando procesos de gobierno corporativo,
-                        negociación de contratos clave, gestión de riesgos y representación ante autoridades.
-                    </p>
-
-                    <p class="text-gray-300 leading-relaxed">
-                        Asesoro a empresas de diversos sectores, entre ellos pesquero y acuícola, inmobiliario,
-                        cacaotero, eléctrico y transporte, acompañándolas en decisiones estratégicas que requieren
-                        solidez legal y visión práctica.
-                    </p>
-
-                    <!-- Bullets destacados -->
-                    <div class="bg-navy-light/40 rounded-xl p-6 border-l-4 border-blue-corp space-y-4">
-                        <div class="flex items-start">
-                            <div
-                                class="w-8 h-8 bg-blue-corp rounded-full flex items-center justify-center flex-shrink-0 mr-4 mt-1">
-                                <i class="fas fa-check text-navy text-sm"></i>
-                            </div>
-                            <p class="text-gray-300 leading-relaxed">Rigor legal + criterio empresarial</p>
-                        </div>
-                        <div class="flex items-start">
-                            <div
-                                class="w-8 h-8 bg-blue-corp rounded-full flex items-center justify-center flex-shrink-0 mr-4 mt-1">
-                                <i class="fas fa-check text-navy text-sm"></i>
-                            </div>
-                            <p class="text-gray-300 leading-relaxed">Enfoque preventivo y orientado a resultados</p>
-                        </div>
-                        <div class="flex items-start">
-                            <div
-                                class="w-8 h-8 bg-blue-corp rounded-full flex items-center justify-center flex-shrink-0 mr-4 mt-1">
-                                <i class="fas fa-check text-navy text-sm"></i>
-                            </div>
-                            <p class="text-gray-300 leading-relaxed">Experiencia multisectorial y representación
-                                corporativa</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Imagen 2 - Derecha -->
-                <div data-aos="fade-left">
-                    <div class="relative group">
-                        <div
-                            class="absolute -inset-4 bg-gradient-to-l from-blue-corp to-blue-corp-dark rounded-2xl opacity-20 group-hover:opacity-30 blur-xl transition-all duration-500">
-                        </div>
-                        <div class="relative overflow-hidden rounded-2xl shadow-2xl">
-                            <img src="/assets/images/david2.jpg" alt="David Celi Lupera - Perfil Profesional"
-                                class="w-full h-[500px] object-cover transition-all duration-700 group-hover:scale-110">
-                            <div
-                                class="absolute inset-0 bg-gradient-to-t from-navy via-navy/30 to-transparent opacity-60">
-                            </div>
-                        </div>
-
-                        <!-- Elemento decorativo -->
-                        <div
-                            class="absolute -bottom-6 -right-6 w-32 h-32 border-4 border-blue-corp rounded-full opacity-20">
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- BLOQUE 3: Enfoque y CTA centrado -->
-            <div class="max-w-4xl mx-auto text-center space-y-8 mb-20" data-aos="fade-up">
-                <div class="w-20 h-1 bg-blue-corp mx-auto mb-6"></div>
-                <h2 class="text-3xl lg:text-4xl font-sans font-light text-white mb-4">
-                    Mi Enfoque
-                </h2>
-
-                <p class="text-lg text-gray-300 leading-relaxed">
-                    Mi enfoque es directo y orientado a resultados: comprender el modelo de negocio, anticipar
-                    contingencias y diseñar soluciones a medida que garanticen continuidad operativa, seguridad
-                    jurídica y confianza en la toma de decisiones.
+            <!-- BLOQUE ENFOQUE: centrado -->
+            <div class="max-w-3xl mx-auto text-center mb-24 reveal">
+                <p class="text-xs uppercase tracking-[0.25em] text-[#C9A35C] font-medium mb-4 flex items-center justify-center gap-3">
+                    <span class="w-4 h-px bg-[#C9A35C]"></span>Mi enfoque<span class="w-4 h-px bg-[#C9A35C]"></span>
                 </p>
-
-                <!-- CTA destacado -->
-                <div class="pt-8">
-                    <a href="https://wa.me/593998128476?text=Hola,%20necesito%20asesoría%20legal" target="_blank"
-                        class="inline-flex items-center bg-blue-corp text-white px-10 py-4 rounded-lg font-semibold hover:bg-blue-corp-dark transition-all shadow-xl hover:shadow-2xl transform hover:-translate-y-1 text-lg">
-                        <i class="fab fa-whatsapp mr-3 text-2xl"></i>
-                        Solicitar Asesoría
-                    </a>
-                </div>
+                <h2 class="font-serif text-3xl lg:text-4xl text-[#0E2F26] mb-8" style="font-weight:400;">
+                    Operaciones seguras,<br>
+                    <em style="font-weight:300; color:#C9A35C;">transparentes y alineadas al negocio</em>
+                </h2>
+                <p class="text-gray-600 font-light leading-relaxed text-base mb-12">
+                    Mi trabajo se enfoca en mantener operaciones seguras, transparentes y alineadas a los objetivos del negocio, con una asesoría cercana, clara y basada en prevención.
+                </p>
+                <a href="https://wa.me/593986261897?text=Hola,%20necesito%20asesoría%20legal" target="_blank"
+                    class="inline-flex items-center justify-center bg-[#C9A35C] text-[#0E2F26] px-10 py-4 rounded-full font-semibold text-sm tracking-wide shadow-xl hover:bg-[#B88A3C] transition-all hover:-translate-y-1">
+                    <i class="fab fa-whatsapp mr-3 text-lg"></i>
+                    Solicitar Asesoría
+                </a>
             </div>
 
-            <!-- Representación Legal (Empresas) -->
-            <div class="max-w-7xl mx-auto">
-                <div class="bg-gradient-to-br from-navy-dark via-navy to-navy-light rounded-2xl p-12 shadow-2xl">
-                    <div class="text-center mb-12">
-                        <div class="w-20 h-1 bg-blue-corp mx-auto mb-6"></div>
-                        <h2 class="text-3xl lg:text-4xl font-sans font-light text-white mb-4">
-                            Representación Legal
-                        </h2>
-                        <p class="text-gray-300 text-lg">
-                            Actualmente colaboro de forma directa con las siguientes compañías, ejerciendo su
-                            representación legal
+            <!-- REPRESENTACIÓN LEGAL -->
+            <div class="max-w-6xl mx-auto reveal">
+                <div class="bg-[#0E2F26] p-10 lg:p-16 relative overflow-hidden">
+                    <div class="absolute -top-32 -right-32 w-[400px] h-[400px] rounded-full bg-[#C9A35C]/5 pointer-events-none"></div>
+                    <div class="absolute left-10 bottom-0 font-serif text-[180px] leading-none text-white/3 select-none pointer-events-none hidden lg:block">§</div>
+
+                    <div class="text-center mb-12 relative z-10">
+                        <p class="text-xs uppercase tracking-[0.3em] text-[#C9A35C] font-medium mb-5 flex items-center justify-center gap-3">
+                            <span class="w-6 h-px bg-[#C9A35C]"></span>Clientes<span class="w-6 h-px bg-[#C9A35C]"></span>
+                        </p>
+                        <h2 class="font-serif text-3xl lg:text-4xl text-white mb-4" style="font-weight:300;">Representación Legal</h2>
+                        <p class="text-white/50 font-light text-sm max-w-xl mx-auto">
+                            Empresas con las que colaboro directamente, ejerciendo su representación y asesoría legal
                         </p>
                     </div>
 
-                    <!-- Lista de Empresas (Grid) -->
-                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4 relative z-10">
 
-                        <div
-                            class="bg-navy/5 backdrop-blur-sm rounded-xl p-6 border border-blue-corp/20 hover:border-blue-corp/50 transition-all group">
+                        <div class="company-card bg-white/5 border border-white/10 p-6 hover:bg-white/8 transition-all">
                             <div class="flex items-start space-x-4">
-                                <div
-                                    class="w-12 h-12 bg-blue-corp/10 rounded-full flex items-center justify-center flex-shrink-0 group-hover:bg-blue-corp transition-colors">
-                                    <i
-                                        class="fas fa-building text-blue-corp group-hover:text-navy transition-colors"></i>
+                                <div class="w-10 h-10 bg-[#C9A35C]/10 flex items-center justify-center flex-shrink-0">
+                                    <i class="fas fa-building text-[#C9A35C] text-sm"></i>
                                 </div>
                                 <div>
-                                    <p class="font-bold text-white text-base mb-1">CONSORCIO ECUATORIANO MUZA ECUAMUZA
-                                        S.A.S.</p>
-                                    <p class="text-sm text-gray-400">GERENTE GENERAL</p>
+                                    <p class="font-medium text-white text-sm mb-1 leading-snug">CONSORCIO ECUATORIANO MUZA ECUAMUZA S.A.S.</p>
+                                    <p class="text-xs text-[#C9A35C] uppercase tracking-widest font-light">Representación Legal</p>
                                 </div>
                             </div>
                         </div>
 
-                        <div
-                            class="bg-navy/5 backdrop-blur-sm rounded-xl p-6 border border-blue-corp/20 hover:border-blue-corp/50 transition-all group">
+                        <div class="company-card bg-white/5 border border-white/10 p-6 hover:bg-white/8 transition-all">
                             <div class="flex items-start space-x-4">
-                                <div
-                                    class="w-12 h-12 bg-blue-corp/10 rounded-full flex items-center justify-center flex-shrink-0 group-hover:bg-blue-corp transition-colors">
-                                    <i
-                                        class="fas fa-building text-blue-corp group-hover:text-navy transition-colors"></i>
+                                <div class="w-10 h-10 bg-[#C9A35C]/10 flex items-center justify-center flex-shrink-0">
+                                    <i class="fas fa-building text-[#C9A35C] text-sm"></i>
                                 </div>
                                 <div>
-                                    <p class="font-bold text-white text-base mb-1">DTA-MUZA S.A.S.</p>
-                                    <p class="text-sm text-gray-400">GERENTE GENERAL</p>
+                                    <p class="font-medium text-white text-sm mb-1 leading-snug">DTA-MUZA S.A.S.</p>
+                                    <p class="text-xs text-[#C9A35C] uppercase tracking-widest font-light">Representación Legal</p>
                                 </div>
                             </div>
                         </div>
 
-                        <div
-                            class="bg-navy/5 backdrop-blur-sm rounded-xl p-6 border border-blue-corp/20 hover:border-blue-corp/50 transition-all group">
+                        <div class="company-card bg-white/5 border border-white/10 p-6 hover:bg-white/8 transition-all">
                             <div class="flex items-start space-x-4">
-                                <div
-                                    class="w-12 h-12 bg-blue-corp/10 rounded-full flex items-center justify-center flex-shrink-0 group-hover:bg-blue-corp transition-colors">
-                                    <i
-                                        class="fas fa-building text-blue-corp group-hover:text-navy transition-colors"></i>
+                                <div class="w-10 h-10 bg-[#C9A35C]/10 flex items-center justify-center flex-shrink-0">
+                                    <i class="fas fa-building text-[#C9A35C] text-sm"></i>
                                 </div>
                                 <div>
-                                    <p class="font-bold text-white text-base mb-1">UNIVERSAL DE COMERCIO S.A. UNICORSA
-                                    </p>
-                                    <p class="text-sm text-gray-400">GERENTE GENERAL</p>
+                                    <p class="font-medium text-white text-sm mb-1 leading-snug">UNIVERSAL DE COMERCIO S.A. UNICORSA</p>
+                                    <p class="text-xs text-[#C9A35C] uppercase tracking-widest font-light">Representación Legal</p>
                                 </div>
                             </div>
                         </div>
 
-                        <div
-                            class="bg-navy/5 backdrop-blur-sm rounded-xl p-6 border border-blue-corp/20 hover:border-blue-corp/50 transition-all group">
+                        <div class="company-card bg-white/5 border border-white/10 p-6 hover:bg-white/8 transition-all">
                             <div class="flex items-start space-x-4">
-                                <div
-                                    class="w-12 h-12 bg-blue-corp/10 rounded-full flex items-center justify-center flex-shrink-0 group-hover:bg-blue-corp transition-colors">
-                                    <i
-                                        class="fas fa-building text-blue-corp group-hover:text-navy transition-colors"></i>
+                                <div class="w-10 h-10 bg-[#C9A35C]/10 flex items-center justify-center flex-shrink-0">
+                                    <i class="fas fa-building text-[#C9A35C] text-sm"></i>
                                 </div>
                                 <div>
-                                    <p class="font-bold text-white text-base mb-1">MAQUINARIA ALEMANA ECUADOR MQA-E
-                                        S.A.S</p>
-                                    <p class="text-sm text-gray-400">GERENTE GENERAL</p>
+                                    <p class="font-medium text-white text-sm mb-1 leading-snug">MAQUINARIA ALEMANA ECUADOR MQA-E S.A.S</p>
+                                    <p class="text-xs text-[#C9A35C] uppercase tracking-widest font-light">Representación Legal</p>
                                 </div>
                             </div>
                         </div>
 
-                        <div
-                            class="bg-navy/5 backdrop-blur-sm rounded-xl p-6 border border-blue-corp/20 hover:border-blue-corp/50 transition-all group">
+                        <div class="company-card bg-white/5 border border-white/10 p-6 hover:bg-white/8 transition-all">
                             <div class="flex items-start space-x-4">
-                                <div
-                                    class="w-12 h-12 bg-blue-corp/10 rounded-full flex items-center justify-center flex-shrink-0 group-hover:bg-blue-corp transition-colors">
-                                    <i
-                                        class="fas fa-building text-blue-corp group-hover:text-navy transition-colors"></i>
+                                <div class="w-10 h-10 bg-[#C9A35C]/10 flex items-center justify-center flex-shrink-0">
+                                    <i class="fas fa-building text-[#C9A35C] text-sm"></i>
                                 </div>
                                 <div>
-                                    <p class="font-bold text-white text-base mb-1">CONSULTORA EMPRESARIAL COEM S.A.S.
-                                    </p>
-                                    <p class="text-sm text-gray-400">GERENTE GENERAL</p>
+                                    <p class="font-medium text-white text-sm mb-1 leading-snug">CONSULTORA EMPRESARIAL COEM S.A.S.</p>
+                                    <p class="text-xs text-[#C9A35C] uppercase tracking-widest font-light">Representación Legal</p>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- Empresa Pendiente
-                        <div
-                            class="bg-navy/5 backdrop-blur-sm rounded-xl p-6 border border-blue-corp/20 hover:border-blue-corp/50 transition-all group opacity-60">
+                        <div class="company-card bg-white/5 border border-white/10 p-6 hover:bg-white/8 transition-all">
                             <div class="flex items-start space-x-4">
-                                <div
-                                    class="w-12 h-12 bg-blue-corp/10 rounded-full flex items-center justify-center flex-shrink-0 group-hover:bg-blue-corp transition-colors">
-                                    <i class="fas fa-clock text-blue-corp group-hover:text-navy transition-colors"></i>
+                                <div class="w-10 h-10 bg-[#C9A35C]/10 flex items-center justify-center flex-shrink-0">
+                                    <i class="fas fa-building text-[#C9A35C] text-sm"></i>
                                 </div>
                                 <div>
-                                    <p class="font-bold text-white text-base mb-1">INFORMACIÓN PENDIENTE</p>
-                                    <p class="text-sm text-gray-400">PRÓXIMAMENTE</p>
-                                </div>
-                            </div>
-                        </div> -->
-                        <div
-                            class="bg-navy/5 backdrop-blur-sm rounded-xl p-6 border border-blue-corp/20 hover:border-blue-corp/50 transition-all group">
-                            <div class="flex items-start space-x-4">
-                                <div
-                                    class="w-12 h-12 bg-blue-corp/10 rounded-full flex items-center justify-center flex-shrink-0 group-hover:bg-blue-corp transition-colors">
-                                    <i
-                                        class="fas fa-building text-blue-corp group-hover:text-navy transition-colors"></i>
-                                </div>
-                                <div>
-                                    <p class="font-bold text-white text-base mb-1">EXTRA RÁPIDA LOS MOTILONES S.A.S.
-                                    </p>
-                                    <p class="text-sm text-gray-400">GERENTE GENERAL</p>
+                                    <p class="font-medium text-white text-sm mb-1 leading-snug">EXTRA RÁPIDA LOS MOTILONES S.A.S.</p>
+                                    <p class="text-xs text-[#C9A35C] uppercase tracking-widest font-light">Representación Legal</p>
                                 </div>
                             </div>
                         </div>
+
                     </div>
                 </div>
             </div>
@@ -480,70 +338,73 @@
         </div>
     </section>
 
+    <!-- CTA FINAL
+    <section class="py-24 lg:py-32 bg-[#0E2F26] relative overflow-hidden">
+        <div class="absolute -top-48 -right-48 w-[700px] h-[700px] rounded-full bg-[#C9A35C]/5 pointer-events-none"></div>
+        <div class="absolute left-12 top-1/2 -translate-y-1/2 font-serif text-[220px] leading-none text-white/3 select-none pointer-events-none hidden lg:block">§</div>
+
+        <div class="container mx-auto px-8 sm:px-6 lg:px-12 relative z-10">
+            <div class="max-w-2xl mx-auto text-center reveal">
+                <p class="text-xs uppercase tracking-[0.3em] text-[#C9A35C] font-medium mb-8 flex items-center justify-center gap-3">
+                    <span class="w-6 h-px bg-[#C9A35C]"></span>Contacto<span class="w-6 h-px bg-[#C9A35C]"></span>
+                </p>
+                <h2 class="font-serif text-4xl lg:text-5xl text-white mb-6 leading-tight" style="font-weight:300;">
+                    ¿Necesitas asesoría<br>
+                    <em style="color:#C9A35C; font-weight:300;">legal corporativa?</em>
+                </h2>
+                <p class="text-white/50 font-light mb-12 text-base leading-relaxed">
+                    Conversemos sobre tu caso.<br>Primera consulta sin compromiso.
+                </p>
+                <a href="https://wa.me/593986261897?text=Hola,%20necesito%20asesoría%20legal" target="_blank"
+                    class="inline-flex items-center justify-center bg-[#C9A35C] text-[#0E2F26] px-10 py-4 rounded-full font-semibold text-sm tracking-wide shadow-2xl hover:bg-[#B88A3C] transition-all hover:-translate-y-1">
+                    <i class="fab fa-whatsapp mr-3 text-xl"></i>
+                    Contactar por WhatsApp
+                </a>
+            </div>
+        </div>
+    </section> -->
+
     <!-- FOOTER -->
-    <footer class="bg-navy-dark border-t border-navy-lighter/30">
+    <footer class="bg-pine-dark border-t border-pine-lighter/30">
         <div class="container mx-auto px-8 sm:px-6 lg:px-12 py-12 lg:py-16">
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12 mb-12 max-w-5xl mx-auto">
-                <!-- Columna 1: Logo y descripción -->
                 <div>
                     <div class="flex items-center space-x-3 mb-6">
-                        <img src="/assets/images/David_LOGO_7.png" alt="David Celi Lupera Logo"
-                            class="h-8 sm:h-10 lg:h-12 w-auto">
+                        <img src="/assets/images/Carla_LOGO_2.png" alt="Carla Álvarez Manrique" class="w-72 h-auto object-contain">
                     </div>
-                    <p class="text-gray-400 text-sm leading-relaxed font-light">
-                        Asesoría legal corporativa especializada en Guayaquil, Ecuador.
-                    </p>
+                    <p class="text-gray-400 text-sm leading-relaxed font-light">Asesoría legal corporativa especializada en Guayaquil, Ecuador.</p>
                 </div>
-                <!-- Columna 2: Contacto -->
                 <div>
                     <h4 class="text-base font-sans font-normal text-white mb-4">Contacto</h4>
                     <div class="space-y-3">
                         <div class="flex items-center text-gray-400 text-sm font-light">
-                            <i class="fas fa-map-marker-alt text-blue-corp mr-3 w-5"></i>
+                            <i class="fas fa-map-marker-alt text-sage mr-3 w-5"></i>
                             <span>Guayaquil, Ecuador</span>
                         </div>
                         <div class="flex items-center text-gray-400 text-sm font-light">
-                            <i class="fas fa-envelope text-blue-corp mr-3 w-5"></i>
-                            <a href="mailto:info@davidcelilupera.ec"
-                                class="hover:text-white transition-colors">info@davidcelilupera.ec</a>
+                            <i class="fas fa-envelope text-sage mr-3 w-5"></i>
+                            <span>info@carlaalvarezmanrique.ec</span>
                         </div>
                         <div class="flex items-center text-gray-400 text-sm font-light">
-                            <i class="fab fa-whatsapp text-blue-corp mr-3 w-5"></i>
-                            <a href="https://wa.me/593998128476" target="_blank"
-                                class="hover:text-white transition-colors">+593 998 128 476</a>
+                            <i class="fab fa-whatsapp text-sage mr-3 w-5"></i>
+                            <span>+593 98 626 1897</span>
                         </div>
                     </div>
                 </div>
-                <!-- Columna 3: Redes Sociales -->
                 <div>
                     <h4 class="text-base font-sans font-normal text-white mb-4">Redes Sociales</h4>
                     <div class="flex space-x-4">
-                        <a href="https://www.linkedin.com/in/davidcelilupera/" target="_blank"
-                            class="w-10 h-10 border border-navy-lighter rounded flex items-center justify-center hover:bg-blue-corp hover:border-blue-corp group transition-all">
+                        <a href="https://www.linkedin.com/in/carlaalvarezm/" target="_blank"
+                            class="w-10 h-10 border border-pine-lighter rounded flex items-center justify-center hover:bg-sage hover:border-sage group transition-all">
                             <i class="fab fa-linkedin-in text-gray-400 group-hover:text-white transition-colors"></i>
-                        </a>
-                        <a href="https://www.instagram.com/davidcelilupera/" target="_blank"
-                            class="w-10 h-10 border border-navy-lighter rounded flex items-center justify-center hover:bg-blue-corp hover:border-blue-corp group transition-all">
-                            <i class="fab fa-instagram text-gray-400 group-hover:text-white transition-colors"></i>
-                        </a>
-                        <a href="https://x.com/davidcelilupera" target="_blank"
-                            class="w-10 h-10 border border-navy-lighter rounded flex items-center justify-center hover:bg-blue-corp hover:border-blue-corp group transition-all">
-                            <svg class="w-5 h-5 text-gray-400 group-hover:text-white transition-colors"
-                                fill="currentColor" viewBox="0 0 24 24">
-                                <path
-                                    d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-                            </svg>
                         </a>
                     </div>
                 </div>
             </div>
-            <div
-                class="border-t border-navy-lighter/30 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-500 font-light">
-                <p>© 2025 David Celi Lupera. Todos los derechos reservados.</p>
+            <div class="border-t border-pine-lighter/30 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-500 font-light">
+                <p>© 2026 Carla Álvarez Manrique. Todos los derechos reservados.</p>
                 <div class="flex gap-6">
-                    <a href="/politica-privacidad" class="hover:text-gray-300 transition-colors">Política de
-                        Privacidad</a>
-                    <!-- <a href="#" class="hover:text-gray-300 transition-colors">Términos y Condiciones</a> -->
+                    <a href="/politica-privacidad" class="hover:text-gray-300 transition-colors">Política de Privacidad</a>
                     <button id="manageCookies" class="hover:text-gray-300 transition-colors">Configurar Cookies</button>
                 </div>
             </div>
@@ -551,45 +412,61 @@
     </footer>
 
     <!-- WhatsApp Float Button -->
-    <a href="https://wa.me/593998128476?text=Hola,%20necesito%20asesoría%20legal" target="_blank"
+    <a href="https://wa.me/593986261897?text=Hola,%20necesito%20asesoría%20legal" target="_blank"
         class="fixed bottom-6 right-6 bg-green-500 text-white w-14 h-14 lg:w-16 lg:h-16 rounded-full flex items-center justify-center shadow-2xl hover:bg-green-600 hover:scale-105 transition-all z-50 group">
         <i class="fab fa-whatsapp text-2xl lg:text-3xl"></i>
-        <span
-            class="absolute right-full mr-3 bg-blue-corp text-white px-4 py-2 rounded text-sm whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity shadow-lg hidden lg:block font-light">¿Necesita
-            asesoría?</span>
+        <span class="absolute right-full mr-3 bg-sage text-white px-4 py-2 rounded text-sm whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity shadow-lg hidden lg:block font-light">¿Necesita asesoría?</span>
     </a>
 
-    <!-- JavaScript -->
     <script>
-
-        // ==========================================
-        // PAGE LOADER - Ocultar cuando la página cargue
-        // ==========================================
-        window.addEventListener('load', function () {
+        // PAGE LOADER
+        function hideLoader() {
             const loader = document.getElementById('pageLoader');
-            // Agregar clase para fade out
+            if (!loader || loader.style.display === 'none') return;
             loader.style.opacity = '0';
-            // Remover del DOM después de la animación
-            setTimeout(() => {
-                loader.style.display = 'none';
-            }, 500);
-        });
+            setTimeout(() => { loader.style.display = 'none'; }, 500);
+        }
+        window.addEventListener('load', hideLoader);
+        setTimeout(hideLoader, 2500);
 
+        // COOKIE BANNER
+        const cookieBanner = document.getElementById('cookieBanner');
+        document.getElementById('acceptCookies').addEventListener('click', () => {
+            localStorage.setItem('cookieConsent', 'accepted');
+            cookieBanner.classList.add('hidden');
+        });
+        document.getElementById('rejectCookies').addEventListener('click', () => {
+            localStorage.setItem('cookieConsent', 'rejected');
+            cookieBanner.classList.add('hidden');
+        });
+        document.getElementById('manageCookies').addEventListener('click', () => {
+            localStorage.removeItem('cookieConsent');
+            cookieBanner.classList.remove('hidden');
+        });
+        if (!localStorage.getItem('cookieConsent')) {
+            setTimeout(() => cookieBanner.classList.remove('hidden'), 1000);
+        }
+
+        // MOBILE MENU
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
-        mobileMenuBtn.addEventListener('click', () => { mobileMenu.classList.toggle('hidden'); });
-        const navbar = document.getElementById('navbar');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) { navbar.classList.add('glass', 'border-b', 'border-navy-lighter/30'); }
-            else { navbar.classList.remove('glass', 'border-b', 'border-navy-lighter/30'); }
-        });
+        mobileMenuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
         document.addEventListener('click', (e) => {
-            if (!mobileMenuBtn.contains(e.target) && !mobileMenu.contains(e.target)) { mobileMenu.classList.add('hidden'); }
+            if (!mobileMenuBtn.contains(e.target) && !mobileMenu.contains(e.target)) {
+                mobileMenu.classList.add('hidden');
+            }
         });
-        mobileMenu.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => { mobileMenu.classList.add('hidden'); });
-        });
-    </script>
-</body>
+        mobileMenu.querySelectorAll('a').forEach(l => l.addEventListener('click', () => mobileMenu.classList.add('hidden')));
 
+        // SCROLL REVEAL
+        const revealEls = document.querySelectorAll('.reveal');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        }, { threshold: 0.1 });
+        revealEls.forEach(el => observer.observe(el));
+    </script>
+
+</body>
 </html>
