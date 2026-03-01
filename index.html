@@ -33,18 +33,33 @@
     <link rel="icon" type="image/x-icon" href="/assets/icons/favicon.ico">
     <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png">
 
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <!-- Google Fonts -->
+    <!-- Google Fonts: preconnect + preload para no bloquear render -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:wght@300;400;500;600&family=Montserrat:wght@300;400;500;600&display=swap"
-        rel="stylesheet">
+    <link rel="preload" as="style"
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap"
+        onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap"></noscript>
+
+    <!-- Font Awesome: diferido, solo solid + brands -->
+    <link rel="preload" as="style"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/fontawesome.min.css"
+        onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" as="style"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/solid.min.css"
+        onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" as="style"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/brands.min.css"
+        onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/fontawesome.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/solid.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/brands.min.css">
+    </noscript>
+
+    <!-- Tailwind CSS: DEBE ser síncrono para que tailwind.config funcione correctamente -->
+    <script src="https://cdn.tailwindcss.com"></script>
 
     <!-- Tailwind Config -->
     <script>
@@ -71,7 +86,7 @@
 
     <style>
         html {
-            scroll-behavior: smooth;
+            scroll-behavior: auto; /* Se activa smooth por JS después de load para evitar scroll al recargar */
         }
 
         :root {
@@ -83,6 +98,9 @@
             --gold-dark: #B88A3C;
             --gold-light: rgba(201, 163, 92, 0.12);
         }
+
+        /* Fix font-display para evitar FOIT */
+        @font-face { font-display: swap; }
 
         /* Custom scrollbar */
         ::-webkit-scrollbar {
@@ -438,7 +456,7 @@
             <!-- Logo CAM animado -->
             <div class="mb-6 mx-auto">
                 <img src="/assets/images/Carla_LOGO_2.webp" alt="Carla Álvarez Manrique"
-                    class="w-48 sm:w-60 h-auto object-contain mx-auto animate-pulse">
+                    class="w-48 sm:w-60 h-auto object-contain mx-auto animate-pulse" width="240" height="160" fetchpriority="low">
             </div>
             <!-- Spinner -->
             <div
@@ -464,7 +482,7 @@
                     </div>
                     <div class="flex items-center gap-3 flex-shrink-0">
                         <button id="acceptCookies"
-                            class="bg-sage text-white px-6 py-2.5 rounded font-normal text-sm hover:bg-sage-light transition-all whitespace-nowrap">
+                            class="bg-[#7C6130] text-white px-6 py-2.5 rounded font-normal text-sm hover:bg-[#5c4820] transition-all whitespace-nowrap">
                             Aceptar
                         </button>
                         <button id="rejectCookies"
@@ -485,7 +503,8 @@
                 <!-- Logo -->
                 <a href="#inicio" class="flex items-center">
                     <img src="/assets/images/Carla_LOGO_2.webp" alt="Carla Álvarez Manrique"
-                        class="w-56 sm:w-64 lg:w-72 h-auto object-contain">
+                        class="w-56 sm:w-64 lg:w-72 h-auto object-contain"
+                        fetchpriority="high" width="288" height="192" decoding="sync">
                 </a>
 
                 <!-- Desktop Menu -->
@@ -506,7 +525,7 @@
                 </div>
 
                 <!-- Mobile Menu Button -->
-                <button id="mobile-menu-btn" class="lg:hidden text-white focus:outline-none">
+                <button id="mobile-menu-btn" class="lg:hidden text-white focus:outline-none" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="mobile-menu">
                     <i class="fas fa-bars text-2xl"></i>
                 </button>
             </div>
@@ -535,7 +554,15 @@
 
         <!-- Background Image -->
         <div class="absolute inset-0">
-            <img src="https://images.unsplash.com/photo-1554469384-e58fac16e23a?w=1920&q=80" alt="Edificio corporativo"
+            <img src="https://images.unsplash.com/photo-1554469384-e58fac16e23a?w=960&q=75&fm=webp"
+                srcset="https://images.unsplash.com/photo-1554469384-e58fac16e23a?w=640&q=70&fm=webp 640w,
+                        https://images.unsplash.com/photo-1554469384-e58fac16e23a?w=960&q=75&fm=webp 960w,
+                        https://images.unsplash.com/photo-1554469384-e58fac16e23a?w=1280&q=75&fm=webp 1280w"
+                sizes="100vw"
+                alt="Edificio corporativo"
+                width="960" height="1440"
+                fetchpriority="high"
+                decoding="async"
                 class="w-full h-full object-cover" style="animation: zoomSlow 28s ease-in-out infinite alternate;">
             <!-- Overlay verde oscuro a transparente -->
             <div class="absolute inset-0"
@@ -788,49 +815,50 @@
                         <div
                             class="w-40 lg:w-52 h-16 lg:h-24 flex items-center justify-center flex-shrink-0 px-6 lg:px-8">
                             <img src="/assets/images/LOGOS/logo5.webp" alt="LOGIS TRV"
-                                class="client-logo-item opacity-60 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300">
+                                class="client-logo-item opacity-60 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300"
+                                width="160" height="55" loading="lazy">
                         </div>
                         <div
                             class="w-40 lg:w-52 h-16 lg:h-24 flex items-center justify-center flex-shrink-0 px-6 lg:px-8">
                             <img src="/assets/images/LOGOS/logo3.webp" alt="FEDES"
-                                class="client-logo-item opacity-60 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300">
+                                class="client-logo-item opacity-60 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300" width="160" height="55" loading="lazy">
                         </div>
                         <div
                             class="w-40 lg:w-52 h-16 lg:h-24 flex items-center justify-center flex-shrink-0 px-6 lg:px-8">
                             <img src="/assets/images/LOGOS/logo8.webp" alt="MUZA"
-                                class="client-logo-item opacity-60 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300">
+                                class="client-logo-item opacity-60 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300" width="160" height="55" loading="lazy">
                         </div>
                         <div
                             class="w-40 lg:w-52 h-16 lg:h-24 flex items-center justify-center flex-shrink-0 px-6 lg:px-8">
                             <img src="/assets/images/LOGOS/logo9.webp" alt="UNICORSA"
-                                class="client-logo-item opacity-60 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300">
+                                class="client-logo-item opacity-60 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300" width="160" height="55" loading="lazy">
                         </div>
                         <div class="flex items-center gap-6 lg:gap-8 pr-6 lg:pr-8 flex-shrink-0">
                             <div
                                 class="w-40 lg:w-52 h-16 lg:h-24 flex items-center justify-center flex-shrink-0 px-6 lg:px-8">
                                 <img src="/assets/images/LOGOS/logo1.webp" alt="COEM"
-                                    class="client-logo-item opacity-60 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300">
+                                    class="client-logo-item opacity-60 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300" width="160" height="55" loading="lazy">
                             </div>
                             <div
                                 class="w-40 lg:w-52 h-16 lg:h-24 flex items-center justify-center flex-shrink-0 px-6 lg:px-8">
                                 <img src="/assets/images/LOGOS/logo2.webp" alt="DTA"
-                                    class="client-logo-item opacity-60 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300">
+                                    class="client-logo-item opacity-60 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300" width="160" height="55" loading="lazy">
                             </div>
 
                             <div
                                 class="w-40 lg:w-52 h-16 lg:h-24 flex items-center justify-center flex-shrink-0 px-6 lg:px-8">
                                 <img src="/assets/images/LOGOS/logo4.webp" alt="IBP"
-                                    class="client-logo-item opacity-60 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300">
+                                    class="client-logo-item opacity-60 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300" width="160" height="55" loading="lazy">
                             </div>
                             <div
                                 class="w-40 lg:w-52 h-16 lg:h-24 flex items-center justify-center flex-shrink-0 px-6 lg:px-8">
                                 <img src="/assets/images/LOGOS/logo6.webp" alt="LUA"
-                                    class="client-logo-item opacity-60 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300">
+                                    class="client-logo-item opacity-60 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300" width="160" height="55" loading="lazy">
                             </div>
                             <div
                                 class="w-40 lg:w-52 h-16 lg:h-24 flex items-center justify-center flex-shrink-0 px-6 lg:px-8">
                                 <img src="/assets/images/LOGOS/logo7.webp" alt="MQA"
-                                    class="client-logo-item opacity-60 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300">
+                                    class="client-logo-item opacity-60 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300" width="160" height="55" loading="lazy">
                             </div>
                         </div>
                     </div>
@@ -881,7 +909,7 @@
                 <div>
                     <div class="flex items-center space-x-3 mb-6">
                         <img src="/assets/images/Carla_LOGO_2.webp" alt="Carla Álvarez Manrique"
-                            class="w-72 h-auto object-contain">
+                            class="w-72 h-auto object-contain" width="288" height="192" loading="lazy">
                     </div>
                     <p class="text-gray-400 text-sm leading-relaxed font-light">
                         Asesoría legal corporativa especializada en Guayaquil, Ecuador.
@@ -890,7 +918,7 @@
 
                 <!-- Columna 2: Contacto -->
                 <div>
-                    <h4 class="text-base font-sans font-normal text-white mb-4">Contacto</h4>
+                    <h3 class="text-base font-sans font-normal text-white mb-4">Contacto</h3>
                     <div class="space-y-3">
                         <div class="flex items-center text-gray-400 text-sm font-light">
                             <i class="fas fa-map-marker-alt text-sage mr-3 w-5"></i>
@@ -910,9 +938,10 @@
 
                 <!-- Columna 3: Redes Sociales -->
                 <div>
-                    <h4 class="text-base font-sans font-normal text-white mb-4">Redes Sociales</h4>
+                    <h3 class="text-base font-sans font-normal text-white mb-4">Redes Sociales</h3>
                     <div class="flex space-x-4">
-                        <a href="https://www.linkedin.com/in/carlaalvarezm/" target="_blank"
+                        <a href="https://www.linkedin.com/in/carlaalvarezm/" target="_blank" rel="noopener"
+                            aria-label="LinkedIn de Carla Álvarez Manrique"
                             class="w-10 h-10 border border-pine-lighter rounded flex items-center justify-center hover:bg-sage hover:border-sage group transition-all">
                             <i class="fab fa-linkedin-in text-gray-400 group-hover:text-white transition-colors"></i>
                         </a>
@@ -934,12 +963,12 @@
 
             <!-- Bottom Bar -->
             <div
-                class="border-t border-pine-lighter/30 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-500 font-light">
+                class="border-t border-pine-lighter/30 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-300 font-light">
                 <p>© 2026 Carla Álvarez Manrique. Todos los derechos reservados.</p>
                 <div class="flex gap-6">
-                    <a href="/politica-privacidad" class="hover:text-gray-300 transition-colors">Política de
+                    <a href="/politica-privacidad" class="hover:text-white transition-colors">Política de
                         Privacidad</a>
-                    <button id="manageCookies" class="hover:text-gray-300 transition-colors">Configurar
+                    <button id="manageCookies" class="hover:text-white transition-colors">Configurar
                         Cookies</button>
                 </div>
             </div>
@@ -947,7 +976,8 @@
     </footer>
 
     <!-- WhatsApp Float Button -->
-    <a href="https://wa.me/593986261897?text=Hola,%20necesito%20asesoría%20legal" target="_blank"
+    <a href="https://wa.me/593986261897?text=Hola,%20necesito%20asesoría%20legal" target="_blank" rel="noopener"
+        aria-label="Contactar por WhatsApp"
         class="fixed bottom-6 right-6 bg-green-500 text-white w-14 h-14 lg:w-16 lg:h-16 rounded-full flex items-center justify-center shadow-2xl hover:bg-green-600 hover:scale-105 transition-all z-50 group">
         <i class="fab fa-whatsapp text-2xl lg:text-3xl"></i>
         <span
@@ -959,6 +989,21 @@
     <!-- JavaScript -->
     <!-- <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script> -->
     <script>
+        // Restaurar scroll-behavior smooth DESPUÉS de que el browser ya posicionó la página
+        // Esto evita el scroll animado molesto al recargar
+        window.addEventListener('load', function() {
+            document.documentElement.style.scrollBehavior = 'smooth';
+        });
+
+        // Si la URL tiene hash, eliminar el scroll automático del browser en reload
+        if (history.scrollRestoration) {
+            history.scrollRestoration = 'manual';
+        }
+        // Si no hay hash en la URL, asegurarse de empezar arriba del todo
+        if (!window.location.hash) {
+            window.scrollTo(0, 0);
+        }
+
         // ==========================================
         // PAGE LOADER
         // ==========================================
@@ -1086,7 +1131,9 @@
         const mobileMenu = document.getElementById('mobile-menu');
 
         mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
+            const isHidden = mobileMenu.classList.toggle('hidden');
+            mobileMenuBtn.setAttribute('aria-expanded', !isHidden);
+            mobileMenuBtn.setAttribute('aria-label', isHidden ? 'Abrir menú de navegación' : 'Cerrar menú de navegación');
         });
 
         // Navbar Scroll Effect
