@@ -42,47 +42,80 @@
     <noscript><link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap"></noscript>
 
-    <!-- Font Awesome: diferido, solo solid + brands -->
+    <!-- Font Awesome: un solo archivo diferido -->
     <link rel="preload" as="style"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/fontawesome.min.css"
-        onload="this.onload=null;this.rel='stylesheet'">
-    <link rel="preload" as="style"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/solid.min.css"
-        onload="this.onload=null;this.rel='stylesheet'">
-    <link rel="preload" as="style"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/brands.min.css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
         onload="this.onload=null;this.rel='stylesheet'">
     <noscript>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/fontawesome.min.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/solid.min.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/brands.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     </noscript>
 
-    <!-- Tailwind CSS: DEBE ser síncrono para que tailwind.config funcione correctamente -->
-    <script src="https://cdn.tailwindcss.com"></script>
-
-    <!-- Tailwind Config -->
+    <!-- Tailwind CSS: async para no bloquear FCP. El config se inyecta cuando carga. -->
     <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'pine-dark': '#0E2F26',
-                        'pine': '#12372C',
-                        'pine-light': '#1a4035',
-                        'pine-lighter': '#2a5245',
-                        'sage': '#C9A35C',
-                        'sage-light': '#B88A3C',
-                        'cool-bg': '#EAF3EE',
-                    },
-                    fontFamily: {
-                        'sans': ['Inter', 'sans-serif'],
-                        'serif': ['Cormorant Garamond', 'serif'],
+        (function(){
+            var s = document.createElement('script');
+            s.src = 'https://cdn.tailwindcss.com';
+            // Cuando Tailwind cargue, aplicar el config de colores custom
+            s.onload = function() {
+                tailwind.config = {
+                    theme: {
+                        extend: {
+                            colors: {
+                                'pine-dark': '#0E2F26',
+                                'pine': '#12372C',
+                                'pine-light': '#1a4035',
+                                'pine-lighter': '#2a5245',
+                                'sage': '#C9A35C',
+                                'sage-light': '#B88A3C',
+                                'cool-bg': '#EAF3EE',
+                            },
+                            fontFamily: {
+                                'sans': ['Inter', 'sans-serif'],
+                                'serif': ['Cormorant Garamond', 'serif'],
+                            }
+                        }
                     }
-                }
-            }
-        }
+                };
+            };
+            document.head.appendChild(s);
+        })();
     </script>
+
+    <!-- CSS CRÍTICO INLINE: asegura que el layout/colores above-the-fold funcionen
+         ANTES de que Tailwind termine de cargar (evita FOUC en navbar y footer) -->
+
+    <style>
+        /* === CRITICAL CSS INLINE === evita FOUC antes de que Tailwind cargue === */
+
+        /* Layout base */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        body { background-color: #F7F3EE; color: #1f2937; font-family: Inter, sans-serif; -webkit-font-smoothing: antialiased; }
+
+        /* Navbar */
+        #navbar { position: fixed; width: 100%; top: 0; z-index: 50; transition: background .4s, border-color .4s, box-shadow .4s; }
+        #navbar .container { max-width: 1280px; margin: 0 auto; padding: 0 1rem; }
+        #navbar .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 5rem; }
+
+        /* Footer fondo */
+        footer { background-color: #0E2F26; border-top: 1px solid rgba(42,82,69,.3); }
+
+        /* Hero mínimo para que no haya flash blanco */
+        #inicio { position: relative; min-height: 100vh; display: flex; align-items: center; overflow: hidden; }
+        #inicio > .absolute { position: absolute; inset: 0; }
+
+        /* Page loader */
+        #pageLoader { position: fixed; inset: 0; background: #0A0A0A; z-index: 200; display: flex; align-items: center; justify-content: center; transition: opacity .5s; }
+
+        /* Cookie banner */
+        #cookieBanner { position: fixed; bottom: 0; left: 0; right: 0; z-index: 100; }
+        #cookieBanner .cookie-inner { background: #12372C; border-top: 1px solid rgba(42,82,69,.3); }
+
+        /* CTA section */
+        .cta-section { background-color: #0E2F26; }
+
+        /* WhatsApp float */
+        .wa-float { position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 50; }
+    </style>
 
     <style>
         html {
@@ -554,10 +587,10 @@
 
         <!-- Background Image -->
         <div class="absolute inset-0">
-            <img src="https://images.unsplash.com/photo-1554469384-e58fac16e23a?w=960&q=75&fm=webp"
-                srcset="https://images.unsplash.com/photo-1554469384-e58fac16e23a?w=640&q=70&fm=webp 640w,
-                        https://images.unsplash.com/photo-1554469384-e58fac16e23a?w=960&q=75&fm=webp 960w,
-                        https://images.unsplash.com/photo-1554469384-e58fac16e23a?w=1280&q=75&fm=webp 1280w"
+            <img src="https://images.unsplash.com/photo-1554469384-e58fac16e23a?w=960&q=55&fm=webp&fit=crop"
+                srcset="https://images.unsplash.com/photo-1554469384-e58fac16e23a?w=640&q=50&fm=webp&fit=crop 640w,
+                        https://images.unsplash.com/photo-1554469384-e58fac16e23a?w=960&q=55&fm=webp&fit=crop 960w,
+                        https://images.unsplash.com/photo-1554469384-e58fac16e23a?w=1280&q=60&fm=webp&fit=crop 1280w"
                 sizes="100vw"
                 alt="Edificio corporativo"
                 width="960" height="1440"
@@ -909,7 +942,7 @@
                 <div>
                     <div class="flex items-center space-x-3 mb-6">
                         <img src="/assets/images/Carla_LOGO_2.webp" alt="Carla Álvarez Manrique"
-                            class="w-72 h-auto object-contain" width="288" height="192" loading="lazy">
+                            class="w-72 h-auto object-contain" width="288" height="192">
                     </div>
                     <p class="text-gray-400 text-sm leading-relaxed font-light">
                         Asesoría legal corporativa especializada en Guayaquil, Ecuador.
