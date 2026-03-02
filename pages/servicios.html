@@ -60,11 +60,19 @@
     </script>
 
     <style>
-        html { scroll-behavior: smooth; }
+        html {
+            scroll-behavior: smooth;
+        }
 
         /* Offset para anchors: navbar (96px) + subnav (48px) + margen (16px) */
         section[id] {
-            scroll-margin-top: 160px;
+            scroll-margin-top: 148px;
+        }
+
+        @media (min-width: 1024px) {
+            section[id] {
+                scroll-margin-top: 160px;
+            }
         }
 
         :root {
@@ -74,33 +82,54 @@
             --gold-dark: #B88A3C;
         }
 
-        ::-webkit-scrollbar { width: 5px; }
-        ::-webkit-scrollbar-track { background: var(--cream); }
-        ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 10px; }
+        ::-webkit-scrollbar {
+            width: 5px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--cream);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--gold);
+            border-radius: 10px;
+        }
 
         /* Navbar siempre sólida en páginas interiores */
         #navbar {
             background: rgba(14, 47, 38, 0.97);
-            border-bottom: 1px solid rgba(201,163,92,0.2);
-            box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+            border-bottom: 1px solid rgba(201, 163, 92, 0.2);
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.18);
         }
 
         /* Mobile Menu */
         #mobile-menu {
             background: var(--pine-dark);
-            border-top: 1px solid rgba(201,163,92,0.2);
+            border-top: 1px solid rgba(201, 163, 92, 0.2);
         }
+
         @keyframes slideDown {
-            from { opacity: 0; transform: translateY(-8px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(-8px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
-        #mobile-menu:not(.hidden) { animation: slideDown 0.25s ease-out; }
+
+        #mobile-menu:not(.hidden) {
+            animation: slideDown 0.25s ease-out;
+        }
 
         /* Sticky subnav */
         #subnav {
             background: white;
             border-bottom: 1px solid #e5e7eb;
         }
+
         #subnav a.active {
             color: var(--gold);
             border-bottom: 2px solid var(--gold);
@@ -113,23 +142,39 @@
             transition: opacity 0.65s ease, transform 0.65s ease;
             pointer-events: none;
         }
+
         .reveal.visible {
             opacity: 1;
             transform: translateY(0);
             pointer-events: auto;
         }
-        .reveal-delay-1 { transition-delay: 0.1s; }
-        .reveal-delay-2 { transition-delay: 0.2s; }
-        .reveal-delay-3 { transition-delay: 0.3s; }
+
+        .reveal-delay-1 {
+            transition-delay: 0.1s;
+        }
+
+        .reveal-delay-2 {
+            transition-delay: 0.2s;
+        }
+
+        .reveal-delay-3 {
+            transition-delay: 0.3s;
+        }
 
         /* Servicio section alternado */
-        .service-section-alt { background: white; }
-        .service-section-base { background: #F7F3EE; }
+        .service-section-alt {
+            background: white;
+        }
+
+        .service-section-base {
+            background: #F7F3EE;
+        }
 
         /* Check items */
         .check-item {
             transition: transform 0.2s ease;
         }
+
         .check-item:hover {
             transform: translateX(4px);
         }
@@ -141,10 +186,20 @@
 
         /* Cookie Banner */
         @keyframes slideUp {
-            from { transform: translateY(100%); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
+            from {
+                transform: translateY(100%);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
         }
-        .cookie-banner-enter { animation: slideUp 0.5s ease-out; }
+
+        .cookie-banner-enter {
+            animation: slideUp 0.5s ease-out;
+        }
     </style>
 </head>
 
@@ -158,7 +213,9 @@
                 <img src="/assets/images/Carla_LOGO_2.webp" alt="Carla Álvarez Manrique"
                     class="w-48 sm:w-60 h-auto object-contain mx-auto animate-pulse">
             </div>
-            <div class="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-[#C9A35C] border-r-transparent"></div>
+            <div
+                class="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-[#C9A35C] border-r-transparent">
+            </div>
         </div>
     </div>
 
@@ -198,7 +255,7 @@
                         class="w-56 sm:w-64 lg:w-72 h-auto object-contain">
                 </a>
                 <div class="hidden lg:flex items-center space-x-8">
-                    <a href="#inicio"
+                    <a href="/"
                         class="text-white hover:text-sage transition-colors font-light text-sm tracking-wide">Inicio</a>
                     <!-- <a href="/pages/servicios.html"
                         class="text-gray-300 hover:text-sage transition-colors font-light text-sm tracking-wide">Servicios</a> -->
@@ -222,8 +279,10 @@
             <div class="container mx-auto px-8 sm:px-6 py-6 space-y-4">
                 <a href="/" class="block text-white hover:text-sage transition-colors font-light py-2">Inicio</a>
                 <!-- <a href="/servicios" class="block text-sage font-light py-2">Servicios</a> -->
-                <a href="/pages/sobre-mi.html" class="block text-gray-300 hover:text-sage transition-colors font-light py-2">Sobre mí</a>
-                <a href="/pages/publicaciones.html" class="block text-gray-300 hover:text-sage transition-colors font-light py-2">Publicaciones</a>
+                <a href="/pages/sobre-mi.html"
+                    class="block text-gray-300 hover:text-sage transition-colors font-light py-2">Sobre mí</a>
+                <a href="/pages/publicaciones.html"
+                    class="block text-gray-300 hover:text-sage transition-colors font-light py-2">Publicaciones</a>
                 <a href="https://wa.me/593986261897?text=Hola,%20necesito%20asesoría%20legal" target="_blank"
                     class="block bg-sage text-pine-dark text-center px-6 py-2.5 rounded font-semibold text-sm hover:bg-sage-light transition-all">
                     Contactar
@@ -234,24 +293,29 @@
 
     <!-- HERO SECTION -->
     <section class="pt-36 lg:pt-44 pb-20 lg:pb-28 bg-[#0E2F26] relative overflow-hidden">
-        <div class="absolute -top-40 -right-40 w-[600px] h-[600px] rounded-full bg-[#C9A35C]/5 pointer-events-none"></div>
+        <div class="absolute -top-40 -right-40 w-[600px] h-[600px] rounded-full bg-[#C9A35C]/5 pointer-events-none">
+        </div>
         <div class="absolute -bottom-20 -left-20 w-[300px] h-[300px] rounded-full bg-white/3 pointer-events-none"></div>
 
         <div class="container mx-auto px-8 sm:px-6 lg:px-12 relative z-10">
             <div class="max-w-3xl mx-auto text-center">
 
                 <!-- Breadcrumb -->
-                <div class="flex items-center justify-center space-x-2 text-xs text-white/40 font-light mb-8 tracking-widest uppercase">
+                <div
+                    class="flex items-center justify-center space-x-2 text-xs text-white/40 font-light mb-8 tracking-widest uppercase">
                     <a href="/" class="hover:text-sage transition-colors">Inicio</a>
                     <i class="fas fa-chevron-right text-[10px]"></i>
                     <span class="text-sage">Servicios</span>
                 </div>
 
-                <p class="text-xs uppercase tracking-[0.3em] text-[#C9A35C] font-medium mb-6 flex items-center justify-center gap-3">
-                    <span class="w-6 h-px bg-[#C9A35C]"></span>Áreas de Práctica<span class="w-6 h-px bg-[#C9A35C]"></span>
+                <p
+                    class="text-xs uppercase tracking-[0.3em] text-[#C9A35C] font-medium mb-6 flex items-center justify-center gap-3">
+                    <span class="w-6 h-px bg-[#C9A35C]"></span>Áreas de Práctica<span
+                        class="w-6 h-px bg-[#C9A35C]"></span>
                 </p>
 
-                <h1 class="font-serif text-4xl lg:text-5xl xl:text-6xl text-white leading-tight mb-6" style="font-weight:300;">
+                <h1 class="font-serif text-4xl lg:text-5xl xl:text-6xl text-white leading-tight mb-6"
+                    style="font-weight:300;">
                     Asesoría Legal<br>
                     <em style="color:#C9A35C; font-weight:300;">Corporativa</em>
                 </h1>
@@ -279,15 +343,21 @@
     </section>
 
     <!-- STICKY SUBNAV -->
-    <div id="subnav" class="sticky top-20 lg:top-24 z-40 shadow-sm">
+    <div id="subnav" class="sticky top-20 lg:top-24 z-50 shadow-sm">
         <div class="container mx-auto px-8 sm:px-6 lg:px-12">
             <nav class="flex overflow-x-auto gap-6 lg:gap-10 py-4 text-xs tracking-widest uppercase">
-                <a href="#corporativo" class="text-gray-400 hover:text-[#C9A35C] whitespace-nowrap transition-colors font-medium pb-0.5">Corporativo</a>
-                <a href="#contratos" class="text-gray-400 hover:text-[#C9A35C] whitespace-nowrap transition-colors font-medium pb-0.5">Contratos</a>
-                <a href="#laboral" class="text-gray-400 hover:text-[#C9A35C] whitespace-nowrap transition-colors font-medium pb-0.5">Laboral</a>
-                <a href="#pesquero" class="text-gray-400 hover:text-[#C9A35C] whitespace-nowrap transition-colors font-medium pb-0.5">Pesquero</a>
-                <a href="#compliance" class="text-gray-400 hover:text-[#C9A35C] whitespace-nowrap transition-colors font-medium pb-0.5">Compliance</a>
-                <a href="#maritimo" class="text-gray-400 hover:text-[#C9A35C] whitespace-nowrap transition-colors font-medium pb-0.5">Marítimo</a>
+                <a href="#corporativo"
+                    class="text-gray-400 hover:text-[#C9A35C] whitespace-nowrap transition-colors font-medium pb-0.5">Corporativo</a>
+                <a href="#contratos"
+                    class="text-gray-400 hover:text-[#C9A35C] whitespace-nowrap transition-colors font-medium pb-0.5">Contratos</a>
+                <a href="#laboral"
+                    class="text-gray-400 hover:text-[#C9A35C] whitespace-nowrap transition-colors font-medium pb-0.5">Laboral</a>
+                <a href="#pesquero"
+                    class="text-gray-400 hover:text-[#C9A35C] whitespace-nowrap transition-colors font-medium pb-0.5">Pesquero</a>
+                <a href="#compliance"
+                    class="text-gray-400 hover:text-[#C9A35C] whitespace-nowrap transition-colors font-medium pb-0.5">Compliance</a>
+                <a href="#maritimo"
+                    class="text-gray-400 hover:text-[#C9A35C] whitespace-nowrap transition-colors font-medium pb-0.5">Marítimo</a>
             </nav>
         </div>
     </div>
@@ -305,53 +375,64 @@
                     </div>
                     <div>
                         <p class="text-xs uppercase tracking-[0.25em] text-[#C9A35C] font-medium mb-1">01</p>
-                        <h2 class="font-serif text-3xl lg:text-4xl text-[#0E2F26]" style="font-weight:400;">Corporativo</h2>
+                        <h2 class="font-serif text-3xl lg:text-4xl text-[#0E2F26]" style="font-weight:400;">Corporativo
+                        </h2>
                     </div>
                 </div>
 
-                <p class="text-gray-500 font-light leading-relaxed mb-8 text-base lg:text-lg max-w-2xl reveal reveal-delay-1">
+                <p
+                    class="text-gray-500 font-light leading-relaxed mb-8 text-base lg:text-lg max-w-2xl reveal reveal-delay-1">
                     Acompañamiento legal integral en la vida societaria de tu empresa: desde su constitución hasta las
                     decisiones estratégicas que marcan su crecimiento y continuidad.
                 </p>
 
                 <div class="bg-white border border-gray-200 p-8 lg:p-10 mb-8 reveal reveal-delay-2">
-                    <h3 class="text-sm uppercase tracking-[0.2em] text-[#0E2F26] font-semibold mb-6 flex items-center gap-3">
+                    <h3
+                        class="text-sm uppercase tracking-[0.2em] text-[#0E2F26] font-semibold mb-6 flex items-center gap-3">
                         <span class="w-4 h-px bg-[#C9A35C]"></span>Alcance del servicio
                     </h3>
                     <ul class="space-y-4">
                         <li class="check-item flex items-start">
                             <i class="fas fa-chevron-right text-[#C9A35C] mr-3 mt-1 flex-shrink-0 text-xs"></i>
-                            <span class="text-gray-500 font-light text-sm leading-relaxed">Constitución de sociedades y diseño de la estructura corporativa</span>
+                            <span class="text-gray-500 font-light text-sm leading-relaxed">Constitución de sociedades y
+                                diseño de la estructura corporativa</span>
                         </li>
                         <li class="check-item flex items-start">
                             <i class="fas fa-chevron-right text-[#C9A35C] mr-3 mt-1 flex-shrink-0 text-xs"></i>
-                            <span class="text-gray-500 font-light text-sm leading-relaxed">Modificación y actualización de estatutos sociales</span>
+                            <span class="text-gray-500 font-light text-sm leading-relaxed">Modificación y actualización
+                                de estatutos sociales</span>
                         </li>
                         <li class="check-item flex items-start">
                             <i class="fas fa-chevron-right text-[#C9A35C] mr-3 mt-1 flex-shrink-0 text-xs"></i>
-                            <span class="text-gray-500 font-light text-sm leading-relaxed">Procesos de capitalización y aumento de capital</span>
+                            <span class="text-gray-500 font-light text-sm leading-relaxed">Procesos de capitalización y
+                                aumento de capital</span>
                         </li>
                         <li class="check-item flex items-start">
                             <i class="fas fa-chevron-right text-[#C9A35C] mr-3 mt-1 flex-shrink-0 text-xs"></i>
-                            <span class="text-gray-500 font-light text-sm leading-relaxed">Fusiones, escisiones, transformaciones y reorganizaciones empresariales</span>
+                            <span class="text-gray-500 font-light text-sm leading-relaxed">Fusiones, escisiones,
+                                transformaciones y reorganizaciones empresariales</span>
                         </li>
                         <li class="check-item flex items-start">
                             <i class="fas fa-chevron-right text-[#C9A35C] mr-3 mt-1 flex-shrink-0 text-xs"></i>
-                            <span class="text-gray-500 font-light text-sm leading-relaxed">Elaboración de actas, resoluciones, nombramientos y cumplimiento societario periódico</span>
+                            <span class="text-gray-500 font-light text-sm leading-relaxed">Elaboración de actas,
+                                resoluciones, nombramientos y cumplimiento societario periódico</span>
                         </li>
                         <li class="check-item flex items-start">
                             <i class="fas fa-chevron-right text-[#C9A35C] mr-3 mt-1 flex-shrink-0 text-xs"></i>
-                            <span class="text-gray-500 font-light text-sm leading-relaxed">Cesión y transferencia de participaciones o acciones</span>
+                            <span class="text-gray-500 font-light text-sm leading-relaxed">Cesión y transferencia de
+                                participaciones o acciones</span>
                         </li>
                         <li class="check-item flex items-start">
                             <i class="fas fa-chevron-right text-[#C9A35C] mr-3 mt-1 flex-shrink-0 text-xs"></i>
-                            <span class="text-gray-500 font-light text-sm leading-relaxed">Gestión ante la Superintendencia de Compañías, Valores y Seguros</span>
+                            <span class="text-gray-500 font-light text-sm leading-relaxed">Gestión ante la
+                                Superintendencia de Compañías, Valores y Seguros</span>
                         </li>
                     </ul>
                 </div>
 
                 <div class="reveal reveal-delay-3">
-                    <a href="https://wa.me/593986261897?text=Hola,%20me%20interesa%20el%20servicio%20corporativo" target="_blank"
+                    <a href="https://wa.me/593986261897?text=Hola,%20me%20interesa%20el%20servicio%20corporativo"
+                        target="_blank"
                         class="inline-flex items-center bg-[#0E2F26] text-white px-8 py-3.5 rounded-full font-semibold text-sm hover:bg-[#1a4035] transition-all hover:-translate-y-0.5 shadow-lg">
                         <i class="fab fa-whatsapp mr-2 text-base"></i>
                         Consultar sobre este servicio
@@ -376,53 +457,64 @@
                     </div>
                     <div>
                         <p class="text-xs uppercase tracking-[0.25em] text-[#C9A35C] font-medium mb-1">02</p>
-                        <h2 class="font-serif text-3xl lg:text-4xl text-[#0E2F26]" style="font-weight:400;">Contratos y Negociación</h2>
+                        <h2 class="font-serif text-3xl lg:text-4xl text-[#0E2F26]" style="font-weight:400;">Contratos y
+                            Negociación</h2>
                     </div>
                 </div>
 
-                <p class="text-gray-500 font-light leading-relaxed mb-8 text-base lg:text-lg max-w-2xl reveal reveal-delay-1">
+                <p
+                    class="text-gray-500 font-light leading-relaxed mb-8 text-base lg:text-lg max-w-2xl reveal reveal-delay-1">
                     Redacción estratégica y revisión de contratos comerciales, con participación activa en la
                     negociación para proteger tus intereses y reducir la exposición al riesgo.
                 </p>
 
                 <div class="bg-[#F7F3EE] border border-gray-200 p-8 lg:p-10 mb-8 reveal reveal-delay-2">
-                    <h3 class="text-sm uppercase tracking-[0.2em] text-[#0E2F26] font-semibold mb-6 flex items-center gap-3">
+                    <h3
+                        class="text-sm uppercase tracking-[0.2em] text-[#0E2F26] font-semibold mb-6 flex items-center gap-3">
                         <span class="w-4 h-px bg-[#C9A35C]"></span>Alcance del servicio
                     </h3>
                     <ul class="space-y-4">
                         <li class="check-item flex items-start">
                             <i class="fas fa-chevron-right text-[#C9A35C] mr-3 mt-1 flex-shrink-0 text-xs"></i>
-                            <span class="text-gray-500 font-light text-sm leading-relaxed">Contratos de servicios, compraventa y suministro de bienes</span>
+                            <span class="text-gray-500 font-light text-sm leading-relaxed">Contratos de servicios,
+                                compraventa y suministro de bienes</span>
                         </li>
                         <li class="check-item flex items-start">
                             <i class="fas fa-chevron-right text-[#C9A35C] mr-3 mt-1 flex-shrink-0 text-xs"></i>
-                            <span class="text-gray-500 font-light text-sm leading-relaxed">Acuerdos de confidencialidad y no divulgación (NDA)</span>
+                            <span class="text-gray-500 font-light text-sm leading-relaxed">Acuerdos de confidencialidad
+                                y no divulgación (NDA)</span>
                         </li>
                         <li class="check-item flex items-start">
                             <i class="fas fa-chevron-right text-[#C9A35C] mr-3 mt-1 flex-shrink-0 text-xs"></i>
-                            <span class="text-gray-500 font-light text-sm leading-relaxed">Contratos marco para relaciones comerciales de largo plazo</span>
+                            <span class="text-gray-500 font-light text-sm leading-relaxed">Contratos marco para
+                                relaciones comerciales de largo plazo</span>
                         </li>
                         <li class="check-item flex items-start">
                             <i class="fas fa-chevron-right text-[#C9A35C] mr-3 mt-1 flex-shrink-0 text-xs"></i>
-                            <span class="text-gray-500 font-light text-sm leading-relaxed">Acuerdos de exclusividad, distribución y licenciamiento</span>
+                            <span class="text-gray-500 font-light text-sm leading-relaxed">Acuerdos de exclusividad,
+                                distribución y licenciamiento</span>
                         </li>
                         <li class="check-item flex items-start">
                             <i class="fas fa-chevron-right text-[#C9A35C] mr-3 mt-1 flex-shrink-0 text-xs"></i>
-                            <span class="text-gray-500 font-light text-sm leading-relaxed">Contratos de inversión, joint ventures y alianzas estratégicas</span>
+                            <span class="text-gray-500 font-light text-sm leading-relaxed">Contratos de inversión, joint
+                                ventures y alianzas estratégicas</span>
                         </li>
                         <li class="check-item flex items-start">
                             <i class="fas fa-chevron-right text-[#C9A35C] mr-3 mt-1 flex-shrink-0 text-xs"></i>
-                            <span class="text-gray-500 font-light text-sm leading-relaxed">Análisis y revisión de contratos existentes</span>
+                            <span class="text-gray-500 font-light text-sm leading-relaxed">Análisis y revisión de
+                                contratos existentes</span>
                         </li>
                         <li class="check-item flex items-start">
                             <i class="fas fa-chevron-right text-[#C9A35C] mr-3 mt-1 flex-shrink-0 text-xs"></i>
-                            <span class="text-gray-500 font-light text-sm leading-relaxed">Soporte en mesas de negociación contractual</span>
+                            <span class="text-gray-500 font-light text-sm leading-relaxed">Soporte en mesas de
+                                negociación contractual</span>
                         </li>
                     </ul>
                 </div>
 
                 <div class="reveal reveal-delay-3">
-                    <a href="https://wa.me/593986261897?text=Hola,%20me%20interesa%20el%20servicio%20de%20contratos" target="_blank"
+                    <a href="https://wa.me/593986261897?text=Hola,%20me%20interesa%20el%20servicio%20de%20contratos"
+                        target="_blank"
                         class="inline-flex items-center bg-[#0E2F26] text-white px-8 py-3.5 rounded-full font-semibold text-sm hover:bg-[#1a4035] transition-all hover:-translate-y-0.5 shadow-lg">
                         <i class="fab fa-whatsapp mr-2 text-base"></i>
                         Consultar sobre este servicio
@@ -447,49 +539,59 @@
                     </div>
                     <div>
                         <p class="text-xs uppercase tracking-[0.25em] text-[#C9A35C] font-medium mb-1">03</p>
-                        <h2 class="font-serif text-3xl lg:text-4xl text-[#0E2F26]" style="font-weight:400;">Gestión Laboral</h2>
+                        <h2 class="font-serif text-3xl lg:text-4xl text-[#0E2F26]" style="font-weight:400;">Gestión
+                            Laboral</h2>
                     </div>
                 </div>
 
-                <p class="text-gray-500 font-light leading-relaxed mb-8 text-base lg:text-lg max-w-2xl reveal reveal-delay-1">
+                <p
+                    class="text-gray-500 font-light leading-relaxed mb-8 text-base lg:text-lg max-w-2xl reveal reveal-delay-1">
                     Asesoría preventiva y operativa en materia laboral para que la relación entre la empresa
                     y su equipo humano se desarrolle dentro del marco legal vigente.
                 </p>
 
                 <div class="bg-white border border-gray-200 p-8 lg:p-10 mb-8 reveal reveal-delay-2">
-                    <h3 class="text-sm uppercase tracking-[0.2em] text-[#0E2F26] font-semibold mb-6 flex items-center gap-3">
+                    <h3
+                        class="text-sm uppercase tracking-[0.2em] text-[#0E2F26] font-semibold mb-6 flex items-center gap-3">
                         <span class="w-4 h-px bg-[#C9A35C]"></span>Alcance del servicio
                     </h3>
                     <ul class="space-y-4">
                         <li class="check-item flex items-start">
                             <i class="fas fa-chevron-right text-[#C9A35C] mr-3 mt-1 flex-shrink-0 text-xs"></i>
-                            <span class="text-gray-500 font-light text-sm leading-relaxed">Elaboración de contratos laborales (indefinidos, a plazo, por obra, ocasionales)</span>
+                            <span class="text-gray-500 font-light text-sm leading-relaxed">Elaboración de contratos
+                                laborales (indefinidos, a plazo, por obra, ocasionales)</span>
                         </li>
                         <li class="check-item flex items-start">
                             <i class="fas fa-chevron-right text-[#C9A35C] mr-3 mt-1 flex-shrink-0 text-xs"></i>
-                            <span class="text-gray-500 font-light text-sm leading-relaxed">Diseño y registro de reglamentos internos de trabajo</span>
+                            <span class="text-gray-500 font-light text-sm leading-relaxed">Diseño y registro de
+                                reglamentos internos de trabajo</span>
                         </li>
                         <li class="check-item flex items-start">
                             <i class="fas fa-chevron-right text-[#C9A35C] mr-3 mt-1 flex-shrink-0 text-xs"></i>
-                            <span class="text-gray-500 font-light text-sm leading-relaxed">Políticas internas sobre confidencialidad, uso de recursos y no competencia</span>
+                            <span class="text-gray-500 font-light text-sm leading-relaxed">Políticas internas sobre
+                                confidencialidad, uso de recursos y no competencia</span>
                         </li>
                         <li class="check-item flex items-start">
                             <i class="fas fa-chevron-right text-[#C9A35C] mr-3 mt-1 flex-shrink-0 text-xs"></i>
-                            <span class="text-gray-500 font-light text-sm leading-relaxed">Gestión de desvinculaciones, cálculo de liquidaciones y finiquitos</span>
+                            <span class="text-gray-500 font-light text-sm leading-relaxed">Gestión de desvinculaciones,
+                                cálculo de liquidaciones y finiquitos</span>
                         </li>
                         <li class="check-item flex items-start">
                             <i class="fas fa-chevron-right text-[#C9A35C] mr-3 mt-1 flex-shrink-0 text-xs"></i>
-                            <span class="text-gray-500 font-light text-sm leading-relaxed">Auditorías de cumplimiento de obligaciones patronales</span>
+                            <span class="text-gray-500 font-light text-sm leading-relaxed">Auditorías de cumplimiento de
+                                obligaciones patronales</span>
                         </li>
                         <li class="check-item flex items-start">
                             <i class="fas fa-chevron-right text-[#C9A35C] mr-3 mt-1 flex-shrink-0 text-xs"></i>
-                            <span class="text-gray-500 font-light text-sm leading-relaxed">Gestión de controversias y reclamaciones laborales</span>
+                            <span class="text-gray-500 font-light text-sm leading-relaxed">Gestión de controversias y
+                                reclamaciones laborales</span>
                         </li>
                     </ul>
                 </div>
 
                 <div class="reveal reveal-delay-3">
-                    <a href="https://wa.me/593986261897?text=Hola,%20me%20interesa%20el%20servicio%20de%20gestión%20laboral" target="_blank"
+                    <a href="https://wa.me/593986261897?text=Hola,%20me%20interesa%20el%20servicio%20de%20gestión%20laboral"
+                        target="_blank"
                         class="inline-flex items-center bg-[#0E2F26] text-white px-8 py-3.5 rounded-full font-semibold text-sm hover:bg-[#1a4035] transition-all hover:-translate-y-0.5 shadow-lg">
                         <i class="fab fa-whatsapp mr-2 text-base"></i>
                         Consultar sobre este servicio
@@ -514,49 +616,59 @@
                     </div>
                     <div>
                         <p class="text-xs uppercase tracking-[0.25em] text-[#C9A35C] font-medium mb-1">04</p>
-                        <h2 class="font-serif text-3xl lg:text-4xl text-[#0E2F26]" style="font-weight:400;">Pesquero y Regulatorio</h2>
+                        <h2 class="font-serif text-3xl lg:text-4xl text-[#0E2F26]" style="font-weight:400;">Pesquero y
+                            Regulatorio</h2>
                     </div>
                 </div>
 
-                <p class="text-gray-500 font-light leading-relaxed mb-8 text-base lg:text-lg max-w-2xl reveal reveal-delay-1">
+                <p
+                    class="text-gray-500 font-light leading-relaxed mb-8 text-base lg:text-lg max-w-2xl reveal reveal-delay-1">
                     Conocimiento profundo del marco normativo que rige la actividad pesquera en Ecuador, con atención
                     directa a los requisitos regulatorios y operativos del sector.
                 </p>
 
                 <div class="bg-[#F7F3EE] border border-gray-200 p-8 lg:p-10 mb-8 reveal reveal-delay-2">
-                    <h3 class="text-sm uppercase tracking-[0.2em] text-[#0E2F26] font-semibold mb-6 flex items-center gap-3">
+                    <h3
+                        class="text-sm uppercase tracking-[0.2em] text-[#0E2F26] font-semibold mb-6 flex items-center gap-3">
                         <span class="w-4 h-px bg-[#C9A35C]"></span>Alcance del servicio
                     </h3>
                     <ul class="space-y-4">
                         <li class="check-item flex items-start">
                             <i class="fas fa-chevron-right text-[#C9A35C] mr-3 mt-1 flex-shrink-0 text-xs"></i>
-                            <span class="text-gray-500 font-light text-sm leading-relaxed">Interpretación y aplicación práctica de la normativa pesquera vigente</span>
+                            <span class="text-gray-500 font-light text-sm leading-relaxed">Interpretación y aplicación
+                                práctica de la normativa pesquera vigente</span>
                         </li>
                         <li class="check-item flex items-start">
                             <i class="fas fa-chevron-right text-[#C9A35C] mr-3 mt-1 flex-shrink-0 text-xs"></i>
-                            <span class="text-gray-500 font-light text-sm leading-relaxed">Obtención de permisos, concesiones y licencias ante autoridades pesqueras</span>
+                            <span class="text-gray-500 font-light text-sm leading-relaxed">Obtención de permisos,
+                                concesiones y licencias ante autoridades pesqueras</span>
                         </li>
                         <li class="check-item flex items-start">
                             <i class="fas fa-chevron-right text-[#C9A35C] mr-3 mt-1 flex-shrink-0 text-xs"></i>
-                            <span class="text-gray-500 font-light text-sm leading-relaxed">Seguimiento y gestión de procedimientos administrativos sectoriales</span>
+                            <span class="text-gray-500 font-light text-sm leading-relaxed">Seguimiento y gestión de
+                                procedimientos administrativos sectoriales</span>
                         </li>
                         <li class="check-item flex items-start">
                             <i class="fas fa-chevron-right text-[#C9A35C] mr-3 mt-1 flex-shrink-0 text-xs"></i>
-                            <span class="text-gray-500 font-light text-sm leading-relaxed">Diagnósticos de cumplimiento regulatorio para empresas del sector</span>
+                            <span class="text-gray-500 font-light text-sm leading-relaxed">Diagnósticos de cumplimiento
+                                regulatorio para empresas del sector</span>
                         </li>
                         <li class="check-item flex items-start">
                             <i class="fas fa-chevron-right text-[#C9A35C] mr-3 mt-1 flex-shrink-0 text-xs"></i>
-                            <span class="text-gray-500 font-light text-sm leading-relaxed">Redacción y revisión de contratos vinculados a la actividad pesquera</span>
+                            <span class="text-gray-500 font-light text-sm leading-relaxed">Redacción y revisión de
+                                contratos vinculados a la actividad pesquera</span>
                         </li>
                         <li class="check-item flex items-start">
                             <i class="fas fa-chevron-right text-[#C9A35C] mr-3 mt-1 flex-shrink-0 text-xs"></i>
-                            <span class="text-gray-500 font-light text-sm leading-relaxed">Asesoría en operaciones de compraventa de cuotas, permisos y activos del sector</span>
+                            <span class="text-gray-500 font-light text-sm leading-relaxed">Asesoría en operaciones de
+                                compraventa de cuotas, permisos y activos del sector</span>
                         </li>
                     </ul>
                 </div>
 
                 <div class="reveal reveal-delay-3">
-                    <a href="https://wa.me/593986261897?text=Hola,%20me%20interesa%20el%20servicio%20pesquero%20y%20regulatorio" target="_blank"
+                    <a href="https://wa.me/593986261897?text=Hola,%20me%20interesa%20el%20servicio%20pesquero%20y%20regulatorio"
+                        target="_blank"
                         class="inline-flex items-center bg-[#0E2F26] text-white px-8 py-3.5 rounded-full font-semibold text-sm hover:bg-[#1a4035] transition-all hover:-translate-y-0.5 shadow-lg">
                         <i class="fab fa-whatsapp mr-2 text-base"></i>
                         Consultar sobre este servicio
@@ -581,53 +693,64 @@
                     </div>
                     <div>
                         <p class="text-xs uppercase tracking-[0.25em] text-[#C9A35C] font-medium mb-1">05</p>
-                        <h2 class="font-serif text-3xl lg:text-4xl text-[#0E2F26]" style="font-weight:400;">Compliance</h2>
+                        <h2 class="font-serif text-3xl lg:text-4xl text-[#0E2F26]" style="font-weight:400;">Compliance
+                        </h2>
                     </div>
                 </div>
 
-                <p class="text-gray-500 font-light leading-relaxed mb-8 text-base lg:text-lg max-w-2xl reveal reveal-delay-1">
+                <p
+                    class="text-gray-500 font-light leading-relaxed mb-8 text-base lg:text-lg max-w-2xl reveal reveal-delay-1">
                     Diseño e implementación de marcos de cumplimiento normativo que protejan a la empresa frente
                     a riesgos legales, regulatorios y reputacionales.
                 </p>
 
                 <div class="bg-white border border-gray-200 p-8 lg:p-10 mb-8 reveal reveal-delay-2">
-                    <h3 class="text-sm uppercase tracking-[0.2em] text-[#0E2F26] font-semibold mb-6 flex items-center gap-3">
+                    <h3
+                        class="text-sm uppercase tracking-[0.2em] text-[#0E2F26] font-semibold mb-6 flex items-center gap-3">
                         <span class="w-4 h-px bg-[#C9A35C]"></span>Alcance del servicio
                     </h3>
                     <ul class="space-y-4">
                         <li class="check-item flex items-start">
                             <i class="fas fa-chevron-right text-[#C9A35C] mr-3 mt-1 flex-shrink-0 text-xs"></i>
-                            <span class="text-gray-500 font-light text-sm leading-relaxed">Estructuración e implementación de programas de cumplimiento normativo</span>
+                            <span class="text-gray-500 font-light text-sm leading-relaxed">Estructuración e
+                                implementación de programas de cumplimiento normativo</span>
                         </li>
                         <li class="check-item flex items-start">
                             <i class="fas fa-chevron-right text-[#C9A35C] mr-3 mt-1 flex-shrink-0 text-xs"></i>
-                            <span class="text-gray-500 font-light text-sm leading-relaxed">Políticas de prevención de corrupción y lavado de activos</span>
+                            <span class="text-gray-500 font-light text-sm leading-relaxed">Políticas de prevención de
+                                corrupción y lavado de activos</span>
                         </li>
                         <li class="check-item flex items-start">
                             <i class="fas fa-chevron-right text-[#C9A35C] mr-3 mt-1 flex-shrink-0 text-xs"></i>
-                            <span class="text-gray-500 font-light text-sm leading-relaxed">Elaboración de códigos de ética y conducta empresarial</span>
+                            <span class="text-gray-500 font-light text-sm leading-relaxed">Elaboración de códigos de
+                                ética y conducta empresarial</span>
                         </li>
                         <li class="check-item flex items-start">
                             <i class="fas fa-chevron-right text-[#C9A35C] mr-3 mt-1 flex-shrink-0 text-xs"></i>
-                            <span class="text-gray-500 font-light text-sm leading-relaxed">Implementación de canales internos de denuncia y alerta</span>
+                            <span class="text-gray-500 font-light text-sm leading-relaxed">Implementación de canales
+                                internos de denuncia y alerta</span>
                         </li>
                         <li class="check-item flex items-start">
                             <i class="fas fa-chevron-right text-[#C9A35C] mr-3 mt-1 flex-shrink-0 text-xs"></i>
-                            <span class="text-gray-500 font-light text-sm leading-relaxed">Auditorías de cumplimiento interno y revisiones periódicas</span>
+                            <span class="text-gray-500 font-light text-sm leading-relaxed">Auditorías de cumplimiento
+                                interno y revisiones periódicas</span>
                         </li>
                         <li class="check-item flex items-start">
                             <i class="fas fa-chevron-right text-[#C9A35C] mr-3 mt-1 flex-shrink-0 text-xs"></i>
-                            <span class="text-gray-500 font-light text-sm leading-relaxed">Due diligence legal sobre clientes, socios y proveedores</span>
+                            <span class="text-gray-500 font-light text-sm leading-relaxed">Due diligence legal sobre
+                                clientes, socios y proveedores</span>
                         </li>
                         <li class="check-item flex items-start">
                             <i class="fas fa-chevron-right text-[#C9A35C] mr-3 mt-1 flex-shrink-0 text-xs"></i>
-                            <span class="text-gray-500 font-light text-sm leading-relaxed">Formación y sensibilización del equipo en materia de riesgos legales</span>
+                            <span class="text-gray-500 font-light text-sm leading-relaxed">Formación y sensibilización
+                                del equipo en materia de riesgos legales</span>
                         </li>
                     </ul>
                 </div>
 
                 <div class="reveal reveal-delay-3">
-                    <a href="https://wa.me/593986261897?text=Hola,%20me%20interesa%20el%20servicio%20de%20compliance" target="_blank"
+                    <a href="https://wa.me/593986261897?text=Hola,%20me%20interesa%20el%20servicio%20de%20compliance"
+                        target="_blank"
                         class="inline-flex items-center bg-[#0E2F26] text-white px-8 py-3.5 rounded-full font-semibold text-sm hover:bg-[#1a4035] transition-all hover:-translate-y-0.5 shadow-lg">
                         <i class="fab fa-whatsapp mr-2 text-base"></i>
                         Consultar sobre este servicio
@@ -652,49 +775,59 @@
                     </div>
                     <div>
                         <p class="text-xs uppercase tracking-[0.25em] text-[#C9A35C] font-medium mb-1">06</p>
-                        <h2 class="font-serif text-3xl lg:text-4xl text-[#0E2F26]" style="font-weight:400;">Marítimo y Portuario</h2>
+                        <h2 class="font-serif text-3xl lg:text-4xl text-[#0E2F26]" style="font-weight:400;">Marítimo y
+                            Portuario</h2>
                     </div>
                 </div>
 
-                <p class="text-gray-500 font-light leading-relaxed mb-8 text-base lg:text-lg max-w-2xl reveal reveal-delay-1">
+                <p
+                    class="text-gray-500 font-light leading-relaxed mb-8 text-base lg:text-lg max-w-2xl reveal reveal-delay-1">
                     Asesoría especializada en derecho marítimo internacional y operaciones portuarias, con
                     experiencia en el entorno logístico y comercial del Ecuador.
                 </p>
 
                 <div class="bg-[#F7F3EE] border border-gray-200 p-8 lg:p-10 mb-8 reveal reveal-delay-2">
-                    <h3 class="text-sm uppercase tracking-[0.2em] text-[#0E2F26] font-semibold mb-6 flex items-center gap-3">
+                    <h3
+                        class="text-sm uppercase tracking-[0.2em] text-[#0E2F26] font-semibold mb-6 flex items-center gap-3">
                         <span class="w-4 h-px bg-[#C9A35C]"></span>Alcance del servicio
                     </h3>
                     <ul class="space-y-4">
                         <li class="check-item flex items-start">
                             <i class="fas fa-chevron-right text-[#C9A35C] mr-3 mt-1 flex-shrink-0 text-xs"></i>
-                            <span class="text-gray-500 font-light text-sm leading-relaxed">Contratos de transporte marítimo (conocimientos de embarque y pólizas de fletamento)</span>
+                            <span class="text-gray-500 font-light text-sm leading-relaxed">Contratos de transporte
+                                marítimo (conocimientos de embarque y pólizas de fletamento)</span>
                         </li>
                         <li class="check-item flex items-start">
                             <i class="fas fa-chevron-right text-[#C9A35C] mr-3 mt-1 flex-shrink-0 text-xs"></i>
-                            <span class="text-gray-500 font-light text-sm leading-relaxed">Reclamaciones por averías y gestión de seguros marítimos</span>
+                            <span class="text-gray-500 font-light text-sm leading-relaxed">Reclamaciones por averías y
+                                gestión de seguros marítimos</span>
                         </li>
                         <li class="check-item flex items-start">
                             <i class="fas fa-chevron-right text-[#C9A35C] mr-3 mt-1 flex-shrink-0 text-xs"></i>
-                            <span class="text-gray-500 font-light text-sm leading-relaxed">Constitución, registro y transferencia de embarcaciones</span>
+                            <span class="text-gray-500 font-light text-sm leading-relaxed">Constitución, registro y
+                                transferencia de embarcaciones</span>
                         </li>
                         <li class="check-item flex items-start">
                             <i class="fas fa-chevron-right text-[#C9A35C] mr-3 mt-1 flex-shrink-0 text-xs"></i>
-                            <span class="text-gray-500 font-light text-sm leading-relaxed">Normativa aduanera aplicable y trámites en recintos portuarios</span>
+                            <span class="text-gray-500 font-light text-sm leading-relaxed">Normativa aduanera aplicable
+                                y trámites en recintos portuarios</span>
                         </li>
                         <li class="check-item flex items-start">
                             <i class="fas fa-chevron-right text-[#C9A35C] mr-3 mt-1 flex-shrink-0 text-xs"></i>
-                            <span class="text-gray-500 font-light text-sm leading-relaxed">Representación y gestión ante autoridades marítimas y portuarias</span>
+                            <span class="text-gray-500 font-light text-sm leading-relaxed">Representación y gestión ante
+                                autoridades marítimas y portuarias</span>
                         </li>
                         <li class="check-item flex items-start">
                             <i class="fas fa-chevron-right text-[#C9A35C] mr-3 mt-1 flex-shrink-0 text-xs"></i>
-                            <span class="text-gray-500 font-light text-sm leading-relaxed">Contratos de concesión y prestación de servicios portuarios</span>
+                            <span class="text-gray-500 font-light text-sm leading-relaxed">Contratos de concesión y
+                                prestación de servicios portuarios</span>
                         </li>
                     </ul>
                 </div>
 
                 <div class="reveal reveal-delay-3">
-                    <a href="https://wa.me/593986261897?text=Hola,%20me%20interesa%20el%20servicio%20marítimo%20y%20portuario" target="_blank"
+                    <a href="https://wa.me/593986261897?text=Hola,%20me%20interesa%20el%20servicio%20marítimo%20y%20portuario"
+                        target="_blank"
                         class="inline-flex items-center bg-[#0E2F26] text-white px-8 py-3.5 rounded-full font-semibold text-sm hover:bg-[#1a4035] transition-all hover:-translate-y-0.5 shadow-lg">
                         <i class="fab fa-whatsapp mr-2 text-base"></i>
                         Consultar sobre este servicio
@@ -706,13 +839,17 @@
 
     <!-- CTA FINAL -->
     <section class="py-24 lg:py-32 bg-[#0E2F26] relative overflow-hidden">
-        <div class="absolute -top-48 -right-48 w-[700px] h-[700px] rounded-full bg-[#C9A35C]/5 pointer-events-none"></div>
+        <div class="absolute -top-48 -right-48 w-[700px] h-[700px] rounded-full bg-[#C9A35C]/5 pointer-events-none">
+        </div>
         <div class="absolute -bottom-32 -left-32 w-[400px] h-[400px] rounded-full bg-white/3 pointer-events-none"></div>
-        <div class="absolute left-12 top-1/2 -translate-y-1/2 font-serif text-[220px] leading-none text-white/3 select-none pointer-events-none hidden lg:block">§</div>
+        <div
+            class="absolute left-12 top-1/2 -translate-y-1/2 font-serif text-[220px] leading-none text-white/3 select-none pointer-events-none hidden lg:block">
+            §</div>
 
         <div class="container mx-auto px-8 sm:px-6 lg:px-12 relative z-10">
             <div class="max-w-2xl mx-auto text-center">
-                <p class="text-xs uppercase tracking-[0.3em] text-[#C9A35C] font-medium mb-8 flex items-center justify-center gap-3">
+                <p
+                    class="text-xs uppercase tracking-[0.3em] text-[#C9A35C] font-medium mb-8 flex items-center justify-center gap-3">
                     <span class="w-6 h-px bg-[#C9A35C]"></span>Contacto<span class="w-6 h-px bg-[#C9A35C]"></span>
                 </p>
                 <h2 class="font-serif text-4xl lg:text-5xl text-white mb-6 leading-tight" style="font-weight:300;">
@@ -753,7 +890,8 @@
                         </div>
                         <div class="flex items-center text-gray-400 text-sm font-light">
                             <i class="fas fa-envelope text-sage mr-3 w-5"></i>
-                            <span><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="70191e161f301311021c11111c061102150a1d111e02190105155e1513">[email&#160;protected]</a></span>
+                            <span><a href="/cdn-cgi/l/email-protection" class="__cf_email__"
+                                    data-cfemail="70191e161f301311021c11111c061102150a1d111e02190105155e1513">[email&#160;protected]</a></span>
                         </div>
                         <div class="flex items-center text-gray-400 text-sm font-light">
                             <i class="fab fa-whatsapp text-sage mr-3 w-5"></i>
@@ -771,10 +909,12 @@
                     </div>
                 </div>
             </div>
-            <div class="border-t border-pine-lighter/30 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-500 font-light">
+            <div
+                class="border-t border-pine-lighter/30 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-500 font-light">
                 <p>© 2026 Carla Álvarez Manrique. Todos los derechos reservados.</p>
                 <div class="flex gap-6">
-                    <a href="/politica-privacidad" class="hover:text-gray-300 transition-colors">Política de Privacidad</a>
+                    <a href="/politica-privacidad" class="hover:text-gray-300 transition-colors">Política de
+                        Privacidad</a>
                     <button id="manageCookies" class="hover:text-gray-300 transition-colors">Configurar Cookies</button>
                 </div>
             </div>
@@ -785,12 +925,14 @@
     <a href="https://wa.me/593986261897?text=Hola,%20necesito%20asesoría%20legal" target="_blank"
         class="fixed bottom-6 right-6 bg-green-500 text-white w-14 h-14 lg:w-16 lg:h-16 rounded-full flex items-center justify-center shadow-2xl hover:bg-green-600 hover:scale-105 transition-all z-50 group">
         <i class="fab fa-whatsapp text-2xl lg:text-3xl"></i>
-        <span class="absolute right-full mr-3 bg-sage text-white px-4 py-2 rounded text-sm whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity shadow-lg hidden lg:block font-light">
+        <span
+            class="absolute right-full mr-3 bg-sage text-white px-4 py-2 rounded text-sm whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity shadow-lg hidden lg:block font-light">
             ¿Necesita asesoría?
         </span>
     </a>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+    <script>
         // PAGE LOADER
         function hideLoader() {
             const loader = document.getElementById('pageLoader');
@@ -800,6 +942,18 @@
         }
         window.addEventListener('load', hideLoader);
         setTimeout(hideLoader, 2500);
+
+        // Al inicio del script, calcula el offset real
+        function updateScrollMargins() {
+            const navbar = document.getElementById('navbar');
+            const subnav = document.getElementById('subnav');
+            const offset = (navbar?.offsetHeight || 0) + (subnav?.offsetHeight || 0) + 16;
+            document.querySelectorAll('section[id]').forEach(s => {
+                s.style.scrollMarginTop = offset + 'px';
+            });
+        }
+        updateScrollMargins();
+        window.addEventListener('resize', updateScrollMargins);
 
         // COOKIE BANNER
         const cookieBanner = document.getElementById('cookieBanner');
@@ -872,7 +1026,24 @@
                 if (link.getAttribute('href') === '#' + current) link.classList.add('active');
             });
         });
+
+        // SUBNAV CLICK SCROLL
+        document.querySelectorAll('#subnav a').forEach(link => {
+            link.addEventListener('click', function (e) {
+                e.preventDefault();
+                const id = this.getAttribute('href').substring(1);
+                const target = document.getElementById(id);
+                if (!target) return;
+                const navbar = document.getElementById('navbar');
+                const subnav = document.getElementById('subnav');
+                const offset = (navbar?.offsetHeight || 0) + (subnav?.offsetHeight || 0) + 16;
+                const top = target.getBoundingClientRect().top + window.scrollY - offset;
+                window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
+            });
+        });
+
     </script>
 
 </body>
+
 </html>
