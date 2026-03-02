@@ -42,19 +42,33 @@
     <noscript><link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap"></noscript>
 
-    <!-- Font Awesome: un solo archivo diferido -->
+    <!-- Font Awesome: solo solid + brands (evita cargar all.min.css con iconos que no usas) -->
     <link rel="preload" as="style"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/solid.min.css"
+        onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" as="style"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/brands.min.css"
+        onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" as="style"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/fontawesome.min.css"
         onload="this.onload=null;this.rel='stylesheet'">
     <noscript>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/solid.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/brands.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/fontawesome.min.css">
     </noscript>
 
-    <!-- Tailwind CSS: async para no bloquear FCP. El config se inyecta cuando carga. -->
-    <script>
+    <!-- ⚠️ TAILWIND CDN: Solo para desarrollo. En producción usa el CSS compilado.
+         Para compilar: npm install -D tailwindcss && npx tailwindcss -o tailwind.css --minify
+         Luego reemplaza este bloque por: <link rel="stylesheet" href="/tailwind.css">
+    -->
+    <link rel="stylesheet" href="/tailwind.css">
+
+    <script defer>
         (function(){
             var s = document.createElement('script');
             s.src = 'https://cdn.tailwindcss.com';
+            s.defer = true;
             // Cuando Tailwind cargue, aplicar el config de colores custom
             s.onload = function() {
                 tailwind.config = {
@@ -103,8 +117,10 @@
         #inicio { position: relative; min-height: 100vh; display: flex; align-items: center; overflow: hidden; }
         #inicio > .absolute { position: absolute; inset: 0; }
 
-        /* Page loader */
-        #pageLoader { position: fixed; inset: 0; background: #0A0A0A; z-index: 200; display: flex; align-items: center; justify-content: center; transition: opacity .5s; }
+        /* Page loader - SOLO visibilidad, el contenido debajo ya ocupa su espacio */
+        #pageLoader { position: fixed; inset: 0; background: #0A0A0A; z-index: 200; display: flex; align-items: center; justify-content: center; transition: opacity .4s ease; pointer-events: none; }
+        /* El contenido debajo del loader ya existe en el DOM en su posición final */
+        /* Esto evita el CLS cuando el loader desaparece */
 
         /* Cookie banner */
         #cookieBanner { position: fixed; bottom: 0; left: 0; right: 0; z-index: 100; }
@@ -132,8 +148,9 @@
             --gold-light: rgba(201, 163, 92, 0.12);
         }
 
-        /* Fix font-display para evitar FOIT */
-        @font-face { font-display: swap; }
+        /* Fix font-display para evitar FOIT - aplicado a todas las fuentes cargadas */
+        /* Google Fonts ya incluye display=swap en la URL, esto cubre fuentes locales */
+        @font-face { font-display: swap; src: local(''); }
 
         /* Custom scrollbar */
         ::-webkit-scrollbar {
@@ -243,8 +260,14 @@
         /* ---- SCROLL REVEAL ---- */
         .reveal {
             opacity: 0;
-            transform: translateY(28px);
+            /* IMPORTANTE: usar solo opacity, NO transform translateY en hero
+               translateY causa CLS porque mueve elementos y dispara recálculo de layout */
             transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+
+        /* Para elementos hero (above the fold), solo fade - sin translate */
+        #inicio .reveal {
+            transform: none !important;
         }
 
         .reveal.visible {
@@ -1047,9 +1070,11 @@
         // ==========================================
         function hideLoader() {
             const loader = document.getElementById('pageLoader');
-            if (!loader || loader.style.display === 'none') return;
+            if (!loader || loader.dataset.hidden) return;
+            loader.dataset.hidden = '1';
             loader.style.opacity = '0';
-            setTimeout(() => { loader.style.display = 'none'; }, 500);
+            // Remover del DOM después del fade para que no bloquee eventos
+            setTimeout(() => { loader.remove(); }, 450);
         }
         window.addEventListener('load', hideLoader);
         setTimeout(hideLoader, 2500);
