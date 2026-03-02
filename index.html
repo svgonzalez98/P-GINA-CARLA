@@ -57,43 +57,8 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/brands.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/fontawesome.min.css">
     </noscript>
-
-    <!-- ⚠️ TAILWIND CDN: Solo para desarrollo. En producción usa el CSS compilado.
-         Para compilar: npm install -D tailwindcss && npx tailwindcss -o tailwind.css --minify
-         Luego reemplaza este bloque por: <link rel="stylesheet" href="/tailwind.css">
-    -->
+    
     <link rel="stylesheet" href="/tailwind.css">
-
-    <script defer>
-        (function(){
-            var s = document.createElement('script');
-            s.src = 'https://cdn.tailwindcss.com';
-            s.defer = true;
-            // Cuando Tailwind cargue, aplicar el config de colores custom
-            s.onload = function() {
-                tailwind.config = {
-                    theme: {
-                        extend: {
-                            colors: {
-                                'pine-dark': '#0E2F26',
-                                'pine': '#12372C',
-                                'pine-light': '#1a4035',
-                                'pine-lighter': '#2a5245',
-                                'sage': '#C9A35C',
-                                'sage-light': '#B88A3C',
-                                'cool-bg': '#EAF3EE',
-                            },
-                            fontFamily: {
-                                'sans': ['Inter', 'sans-serif'],
-                                'serif': ['Cormorant Garamond', 'serif'],
-                            }
-                        }
-                    }
-                };
-            };
-            document.head.appendChild(s);
-        })();
-    </script>
 
     <!-- CSS CRÍTICO INLINE: asegura que el layout/colores above-the-fold funcionen
          ANTES de que Tailwind termine de cargar (evita FOUC en navbar y footer) -->
@@ -931,10 +896,6 @@
         <!-- Large decorative circles -->
         <div class="bg-shape w-[700px] h-[700px] bg-[#C9A35C]/5 -top-48 -right-48"></div>
         <div class="bg-shape w-[400px] h-[400px] bg-white/3 -bottom-32 -left-32"></div>
-        <!-- Decorative § -->
-        <div
-            class="absolute left-12 top-1/2 -translate-y-1/2 font-serif text-[220px] leading-none text-white/3 select-none pointer-events-none hidden lg:block">
-            §</div>
 
         <div class="container mx-auto px-8 sm:px-6 lg:px-12 relative z-10">
             <div class="max-w-3xl mx-auto text-center">
