@@ -39,15 +39,17 @@
     <link rel="preload" as="style"
         href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap"
         onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap"></noscript>
+    <noscript>
+        <link rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap">
+    </noscript>
+
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
 
     <!-- Font Awesome: solo solid + brands (evita cargar all.min.css con iconos que no usas) -->
-    <link rel="preload" as="style"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/solid.min.css"
+    <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/solid.min.css"
         onload="this.onload=null;this.rel='stylesheet'">
-    <link rel="preload" as="style"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/brands.min.css"
+    <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/brands.min.css"
         onload="this.onload=null;this.rel='stylesheet'">
     <link rel="preload" as="style"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/fontawesome.min.css"
@@ -57,8 +59,9 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/brands.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/fontawesome.min.css">
     </noscript>
-    
+
     <link rel="stylesheet" href="/tailwind.css">
+
 
     <!-- CSS CRÍTICO INLINE: asegura que el layout/colores above-the-fold funcionen
          ANTES de que Tailwind termine de cargar (evita FOUC en navbar y footer) -->
@@ -67,40 +70,115 @@
         /* === CRITICAL CSS INLINE === evita FOUC antes de que Tailwind cargue === */
 
         /* Layout base */
-        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-        body { background-color: #F7F3EE; color: #1f2937; font-family: Inter, sans-serif; -webkit-font-smoothing: antialiased; }
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #F7F3EE;
+            color: #1f2937;
+            font-family: Inter, sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
 
         /* Navbar */
-        #navbar { position: fixed; width: 100%; top: 0; z-index: 50; transition: background .4s, border-color .4s, box-shadow .4s; }
-        #navbar .container { max-width: 1280px; margin: 0 auto; padding: 0 1rem; }
-        #navbar .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 5rem; }
+        #navbar {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 50;
+            transition: background .4s, border-color .4s, box-shadow .4s;
+        }
+
+        #navbar .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        #navbar .nav-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 5rem;
+        }
 
         /* Footer fondo */
-        footer { background-color: #0E2F26; border-top: 1px solid rgba(42,82,69,.3); }
+        footer {
+            background-color: #0E2F26;
+            border-top: 1px solid rgba(42, 82, 69, .3);
+        }
 
         /* Hero mínimo para que no haya flash blanco */
-        #inicio { position: relative; min-height: 100vh; display: flex; align-items: center; overflow: hidden; }
-        #inicio > .absolute { position: absolute; inset: 0; }
+        #inicio {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        #inicio>.absolute {
+            position: absolute;
+            inset: 0;
+        }
+
+        main {
+            display: block;
+        }
 
         /* Page loader - SOLO visibilidad, el contenido debajo ya ocupa su espacio */
-        #pageLoader { position: fixed; inset: 0; background: #0A0A0A; z-index: 200; display: flex; align-items: center; justify-content: center; transition: opacity .4s ease; pointer-events: none; }
+        #pageLoader {
+            position: fixed;
+            inset: 0;
+            background: #0A0A0A;
+            z-index: 200;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: opacity .4s ease;
+            pointer-events: none;
+        }
+
         /* El contenido debajo del loader ya existe en el DOM en su posición final */
         /* Esto evita el CLS cuando el loader desaparece */
 
         /* Cookie banner */
-        #cookieBanner { position: fixed; bottom: 0; left: 0; right: 0; z-index: 100; }
-        #cookieBanner .cookie-inner { background: #12372C; border-top: 1px solid rgba(42,82,69,.3); }
+        #cookieBanner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+        }
+
+        #cookieBanner .cookie-inner {
+            background: #12372C;
+            border-top: 1px solid rgba(42, 82, 69, .3);
+        }
 
         /* CTA section */
-        .cta-section { background-color: #0E2F26; }
+        .cta-section {
+            background-color: #0E2F26;
+        }
 
         /* WhatsApp float */
-        .wa-float { position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 50; }
+        .wa-float {
+            position: fixed;
+            bottom: 1.5rem;
+            right: 1.5rem;
+            z-index: 50;
+        }
     </style>
 
     <style>
         html {
-            scroll-behavior: auto; /* Se activa smooth por JS después de load para evitar scroll al recargar */
+            scroll-behavior: auto;
+            /* Se activa smooth por JS después de load para evitar scroll al recargar */
         }
 
         :root {
@@ -115,7 +193,10 @@
 
         /* Fix font-display para evitar FOIT - aplicado a todas las fuentes cargadas */
         /* Google Fonts ya incluye display=swap en la URL, esto cubre fuentes locales */
-        @font-face { font-display: swap; src: local(''); }
+        @font-face {
+            font-display: swap;
+            src: local('');
+        }
 
         /* Custom scrollbar */
         ::-webkit-scrollbar {
@@ -478,7 +559,8 @@
             <!-- Logo CAM animado -->
             <div class="mb-6 mx-auto">
                 <img src="/assets/images/Carla_LOGO_2.webp" alt="Carla Álvarez Manrique"
-                    class="w-48 sm:w-60 h-auto object-contain mx-auto animate-pulse" width="240" height="160" fetchpriority="low">
+                    class="w-48 sm:w-60 h-auto object-contain mx-auto animate-pulse" width="240" height="160"
+                    fetchpriority="low">
             </div>
             <!-- Spinner -->
             <div
@@ -525,8 +607,7 @@
                 <!-- Logo -->
                 <a href="#inicio" class="flex items-center">
                     <img src="/assets/images/Carla_LOGO_2.webp" alt="Carla Álvarez Manrique"
-                        class="w-56 sm:w-64 lg:w-72 h-auto object-contain"
-                        style="aspect-ratio: 3/2;"
+                        class="w-56 sm:w-64 lg:w-72 h-auto object-contain" style="aspect-ratio: 3/2;"
                         fetchpriority="high" width="288" height="192" decoding="sync">
                 </a>
 
@@ -548,7 +629,8 @@
                 </div>
 
                 <!-- Mobile Menu Button -->
-                <button id="mobile-menu-btn" class="lg:hidden text-white focus:outline-none" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="mobile-menu">
+                <button id="mobile-menu-btn" class="lg:hidden text-white focus:outline-none"
+                    aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="mobile-menu">
                     <i class="fas fa-bars text-2xl"></i>
                 </button>
             </div>
@@ -572,354 +654,378 @@
         </div>
     </nav>
 
-    <!-- HERO SECTION -->
-    <section id="inicio" class="relative min-h-screen flex items-center overflow-hidden">
+    <main>
 
-        <!-- Background Image -->
-        <div class="absolute inset-0">
-            <img src="https://images.unsplash.com/photo-1554469384-e58fac16e23a?w=960&q=55&fm=webp&fit=crop"
-                srcset="https://images.unsplash.com/photo-1554469384-e58fac16e23a?w=640&q=50&fm=webp&fit=crop 640w,
-                        https://images.unsplash.com/photo-1554469384-e58fac16e23a?w=960&q=55&fm=webp&fit=crop 960w,
+        <!-- HERO SECTION -->
+        <section id="inicio" class="relative min-h-screen flex items-center overflow-hidden">
+
+            <!-- Background Image -->
+            <div class="absolute inset-0" style="pointer-events: none;">
+                <img src="https://images.unsplash.com/photo-1554469384-e58fac16e23a?w=960&q=25&fm=webp&fit=crop" srcset="https://images.unsplash.com/photo-1554469384-e58fac16e23a?w=640&q=50&fm=webp&fit=crop 640w,
+                        https://images.unsplash.com/photo-1554469384-e58fac16e23a?w=960&q=25&fm=webp&fit=crop 960w,
                         https://images.unsplash.com/photo-1554469384-e58fac16e23a?w=1280&q=60&fm=webp&fit=crop 1280w"
-                sizes="100vw"
-                alt="Edificio corporativo"
-                width="960" height="1440"
-                fetchpriority="high"
-                decoding="async"
-                class="w-full h-full object-cover" style="animation: zoomSlow 28s ease-in-out infinite alternate;"
-                media="(max-width:640px)">
-            <!-- Overlay verde oscuro a transparente -->
-            <div class="absolute inset-0"
-                style="background: linear-gradient(105deg, rgba(14,47,38,0.92) 0%, rgba(14,47,38,0.75) 50%, rgba(14,47,38,0.35) 100%);">
+                    sizes="100vw" alt="Edificio corporativo" width="960" height="1440" fetchpriority="high"
+                    decoding="async" class="w-full h-full object-cover"
+                    style="animation: zoomSlow 28s ease-in-out infinite alternate;" media="(max-width:640px)">
+                <!-- Overlay verde oscuro a transparente -->
+                <div class="absolute inset-0"
+                    style="background: linear-gradient(105deg, rgba(14,47,38,0.92) 0%, rgba(14,47,38,0.75) 50%, rgba(14,47,38,0.35) 100%); pointer-events: none;">
+                </div>
             </div>
-        </div>
 
-        <!-- Decorative corner accents -->
-        <!-- <div class="absolute top-8 left-8 w-16 h-16 border-l-2 border-t-2 border-[#C9A35C]/50 hidden lg:block z-10"></div>
+            <!-- Decorative corner accents -->
+            <!-- <div class="absolute top-8 left-8 w-16 h-16 border-l-2 border-t-2 border-[#C9A35C]/50 hidden lg:block z-10"></div>
         <div class="absolute bottom-8 right-8 w-16 h-16 border-r-2 border-b-2 border-[#C9A35C]/50 hidden lg:block z-10"></div> -->
 
-        <!-- Content -->
-        <div class="relative z-10 container mx-auto px-8 sm:px-6 lg:px-12 py-32 lg:py-0">
-            <div class="max-w-2xl">
+            <!-- Content -->
+            <div class="relative z-10 container mx-auto px-8 sm:px-6 lg:px-12 py-32 lg:py-0">
+                <div class="max-w-2xl">
 
-                <!-- Eyebrow -->
-                <div class="flex items-center gap-3 mb-8 reveal">
-                    <div class="w-8 h-px bg-[#C9A35C]"></div>
-                    <!-- <p class="text-xs uppercase tracking-[0.3em] text-[#C9A35C] font-medium">
+                    <!-- Eyebrow -->
+                    <div class="flex items-center gap-3 mb-8 reveal">
+                        <div class="w-8 h-px bg-[#C9A35C]"></div>
+                        <!-- <p class="text-xs uppercase tracking-[0.3em] text-[#C9A35C] font-medium">
                         Abogada Corporativa · Guayaquil, Ecuador
                     </p> -->
-                </div>
+                    </div>
 
-                <!-- Título -->
-                <h1 class="font-sans text-5xl sm:text-6xl lg:text-7xl text-white leading-[1.05] mb-8 reveal reveal-delay-1"
-                    style="font-weight:200; letter-spacing:0.04em;">
-                    Asesoría Legal<br>
-                    <span style="color:#C9A35C; font-weight:200;">Corporativa</span>
-                </h1>
+                    <!-- Título -->
+                    <h1 class="font-sans text-5xl sm:text-6xl lg:text-7xl text-white leading-[1.05] mb-8 reveal reveal-delay-1"
+                        style="font-weight:200; letter-spacing:0.04em;">
+                        Asesoría Legal<br>
+                        <span style="color:#C9A35C; font-weight:200;">Corporativa</span>
+                    </h1>
 
-                <!-- Subtítulo -->
-                <p
-                    class="text-base lg:text-lg text-white/70 font-light leading-relaxed mb-10 max-w-lg reveal reveal-delay-2">
-                    Soluciones jurídicas claras y ejecutables para empresas que buscan crecer con seguridad legal.
-                </p>
-
-                <!-- Buttons -->
-                <div class="flex flex-col sm:flex-row gap-4 reveal reveal-delay-3">
-                    <a href="https://wa.me/593986261897?text=Hola,%20necesito%20asesoría%20legal" target="_blank"
-                        class="btn-primary inline-flex items-center justify-center bg-[#C9A35C] text-[#0E2F26] px-8 py-4 rounded-full font-semibold text-sm tracking-wide shadow-xl">
-                        <i class="fab fa-whatsapp mr-2 text-lg"></i>
-                        Agendar Consulta
-                    </a>
-                    <a href="#servicios"
-                        class="btn-outline inline-flex items-center justify-center border border-white/30 text-white px-8 py-4 rounded-full font-light text-sm tracking-wide hover:border-[#C9A35C] hover:text-[#C9A35C]">
-                        Ver Servicios
-                        <i class="fas fa-arrow-right ml-2 text-xs"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <!-- Scroll indicator -->
-        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 hidden lg:block z-10">
-            <div class="animate-bounce text-white/40">
-                <i class="fas fa-chevron-down text-lg"></i>
-            </div>
-        </div>
-    </section>
-
-    <!-- ENFOQUE SECTION -->
-    <section class="py-24 lg:py-32 bg-white relative overflow-hidden">
-        <!-- Decorative large letter -->
-        <!-- <div class="absolute right-8 top-8 font-serif text-[180px] leading-none text-[#0E2F26]/3 select-none pointer-events-none hidden lg:block">§</div> -->
-
-        <div class="container mx-auto px-8 sm:px-6 lg:px-12 relative z-10">
-            <div class="flex flex-col lg:flex-row lg:items-end justify-between mb-20 gap-8">
-                <div class="reveal">
+                    <!-- Subtítulo -->
                     <p
-                        class="text-xs uppercase tracking-[0.3em] text-[#C9A35C] font-medium mb-5 flex items-center gap-3">
-                        <span class="w-6 h-px bg-[#C9A35C]"></span>Mi Enfoque
+                        class="text-base lg:text-lg text-white/70 font-light leading-relaxed mb-10 max-w-lg reveal reveal-delay-2">
+                        Soluciones jurídicas claras y ejecutables para empresas que buscan crecer con seguridad legal.
                     </p>
-                    <h2 class="font-serif text-4xl lg:text-5xl xl:text-6xl text-[#0E2F26] leading-tight">
-                        Cuatro pilares que<br>
-                        <em class="font-light" style="color:#C9A35C;">guían mi trabajo</em>
-                    </h2>
+
+                    <!-- Buttons -->
+                    <div class="flex flex-col sm:flex-row gap-4 reveal reveal-delay-3">
+                        <a href="https://wa.me/593986261897?text=Hola,%20necesito%20asesoría%20legal" target="_blank"
+                            class="btn-primary inline-flex items-center justify-center bg-[#C9A35C] text-[#0E2F26] px-8 py-4 rounded-full font-semibold text-sm tracking-wide shadow-xl">
+                            <i class="fab fa-whatsapp mr-2 text-lg"></i>
+                            Agendar Consulta
+                        </a>
+                        <a href="#servicios"
+                            class="btn-outline inline-flex items-center justify-center border border-white/30 text-white px-8 py-4 rounded-full font-light text-sm tracking-wide hover:border-[#C9A35C] hover:text-[#C9A35C]">
+                            Ver Servicios
+                            <i class="fas fa-arrow-right ml-2 text-xs"></i>
+                        </a>
+                    </div>
                 </div>
-                <!-- <p class="text-gray-400 font-light max-w-xs text-sm leading-relaxed lg:text-right reveal reveal-delay-1">
+            </div>
+
+            <!-- Scroll indicator -->
+            <div class="absolute bottom-8 left-1/2 -translate-x-1/2 hidden lg:block z-10" style="pointer-events: none;">
+                <div class="animate-bounce text-white/40">
+                    <i class="fas fa-chevron-down text-lg"></i>
+                </div>
+            </div>
+        </section>
+
+        <!-- ENFOQUE SECTION -->
+        <section class="py-24 lg:py-32 bg-white relative overflow-hidden">
+            <!-- Decorative large letter -->
+            <!-- <div class="absolute right-8 top-8 font-serif text-[180px] leading-none text-[#0E2F26]/3 select-none pointer-events-none hidden lg:block">§</div> -->
+
+            <div class="container mx-auto px-8 sm:px-6 lg:px-12 relative z-10">
+                <div class="flex flex-col lg:flex-row lg:items-end justify-between mb-20 gap-8">
+                    <div class="reveal">
+                        <p
+                            class="text-xs uppercase tracking-[0.3em] text-[#C9A35C] font-medium mb-5 flex items-center gap-3">
+                            <span class="w-6 h-px bg-[#C9A35C]"></span>Mi Enfoque
+                        </p>
+                        <h2 class="font-serif text-4xl lg:text-5xl xl:text-6xl text-[#0E2F26] leading-tight">
+                            Cuatro pilares que<br>
+                            <em class="font-light" style="color:#C9A35C;">guían mi trabajo</em>
+                        </h2>
+                    </div>
+                    <!-- <p class="text-gray-400 font-light max-w-xs text-sm leading-relaxed lg:text-right reveal reveal-delay-1">
                     Metodología clara y comunicación directa en cada proceso.
                 </p> -->
-            </div>
-
-            <div class="grid grid-cols-2 lg:grid-cols-4 gap-px bg-[#F7F3EE]">
-                <div class="pilar-card bg-white p-8 lg:p-10 reveal">
-                    <div
-                        class="w-12 h-12 rounded-full bg-[#C9A35C]/10 flex items-center justify-center mb-6 transition-all duration-300">
-                        <i class="fas fa-lightbulb text-[#C9A35C]"></i>
-                    </div>
-                    <h3 class="font-sans font-semibold text-[#0E2F26] mb-3 text-base tracking-wide">Claridad</h3>
-                    <p class="text-sm text-gray-400 font-light leading-relaxed">Soluciones comprensibles, sin
-                        tecnicismos innecesarios.</p>
                 </div>
-                <div class="pilar-card bg-white p-8 lg:p-10 reveal reveal-delay-1">
-                    <div
-                        class="w-12 h-12 rounded-full bg-[#C9A35C]/10 flex items-center justify-center mb-6 transition-all duration-300">
-                        <i class="fas fa-balance-scale text-[#C9A35C]"></i>
-                    </div>
-                    <h3 class="font-sans font-semibold text-[#0E2F26] mb-3 text-base tracking-wide">Rigor Legal</h3>
-                    <p class="text-sm text-gray-400 font-light leading-relaxed">Análisis fundamentado en cada decisión
-                        jurídica.</p>
-                </div>
-                <div class="pilar-card bg-white p-8 lg:p-10 reveal reveal-delay-2">
-                    <div
-                        class="w-12 h-12 rounded-full bg-[#C9A35C]/10 flex items-center justify-center mb-6 transition-all duration-300">
-                        <i class="fas fa-eye text-[#C9A35C]"></i>
-                    </div>
-                    <h3 class="font-sans font-semibold text-[#0E2F26] mb-3 text-base tracking-wide">Transparencia</h3>
-                    <p class="text-sm text-gray-400 font-light leading-relaxed">Comunicación directa en cada etapa del
-                        proceso.</p>
-                </div>
-                <div class="pilar-card bg-white p-8 lg:p-10 reveal reveal-delay-3">
-                    <div
-                        class="w-12 h-12 rounded-full bg-[#C9A35C]/10 flex items-center justify-center mb-6 transition-all duration-300">
-                        <i class="fas fa-handshake text-[#C9A35C]"></i>
-                    </div>
-                    <h3 class="font-sans font-semibold text-[#0E2F26] mb-3 text-base tracking-wide">Compromiso</h3>
-                    <p class="text-sm text-gray-400 font-light leading-relaxed">El objetivo de mi cliente es mi
-                        objetivo.</p>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- SERVICIOS SECTION -->
-    <section id="servicios" class="py-24 lg:py-32 bg-[#F7F3EE] relative overflow-hidden">
-        <div class="bg-shape w-[600px] h-[600px] bg-[#C9A35C]/4 -top-48 -right-48 hidden lg:block"></div>
-
-        <div class="container mx-auto px-8 sm:px-6 lg:px-12 relative z-10">
-            <div class="text-center mb-20 reveal">
-                <p
-                    class="text-xs uppercase tracking-[0.3em] text-[#C9A35C] font-medium mb-5 flex items-center justify-center gap-3">
-                    <span class="w-6 h-px bg-[#C9A35C]"></span>Áreas de Práctica<span
-                        class="w-6 h-px bg-[#C9A35C]"></span>
-                </p>
-                <h2 class="font-serif text-4xl lg:text-5xl xl:text-6xl text-[#0E2F26]">
-                    Lo que <em class="font-light" style="color:#C9A35C;">ofrezco</em>
-                </h2>
-            </div>
-
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-                <a href="/pages/servicios.html#corporativo" class="service-card bg-white p-8 block reveal">
-                    <div class="icon-wrap w-12 h-12 rounded-full bg-[#C9A35C]/10 flex items-center justify-center mb-6">
-                        <i class="fas fa-building text-[#C9A35C]"></i>
-                    </div>
-                    <h3 class="font-sans font-semibold text-[#0E2F26] text-base mb-2 tracking-wide">Corporativo</h3>
-                    <p class="text-gray-400 text-sm font-light leading-relaxed mb-6">Estructuración y gestión legal de
-                        empresas en todas sus etapas.</p>
-                    <span
-                        class="text-[#C9A35C] text-xs font-semibold tracking-widest uppercase inline-flex items-center gap-2">
-                        Ver más <i class="fas fa-arrow-right text-[10px]"></i>
-                    </span>
-                </a>
-
-                <a href="/pages/servicios.html#contratos" class="service-card bg-white p-8 block reveal reveal-delay-1">
-                    <div class="icon-wrap w-12 h-12 rounded-full bg-[#C9A35C]/10 flex items-center justify-center mb-6">
-                        <i class="fas fa-file-contract text-[#C9A35C]"></i>
-                    </div>
-                    <h3 class="font-sans font-semibold text-[#0E2F26] text-base mb-2 tracking-wide">Contratos</h3>
-                    <p class="text-gray-400 text-sm font-light leading-relaxed mb-6">Redacción y negociación estratégica
-                        de contratos comerciales.</p>
-                    <span
-                        class="text-[#C9A35C] text-xs font-semibold tracking-widest uppercase inline-flex items-center gap-2">
-                        Ver más <i class="fas fa-arrow-right text-[10px]"></i>
-                    </span>
-                </a>
-
-                <a href="/pages/servicios.html#laboral" class="service-card bg-white p-8 block reveal reveal-delay-2">
-                    <div class="icon-wrap w-12 h-12 rounded-full bg-[#C9A35C]/10 flex items-center justify-center mb-6">
-                        <i class="fas fa-users text-[#C9A35C]"></i>
-                    </div>
-                    <h3 class="font-sans font-semibold text-[#0E2F26] text-base mb-2 tracking-wide">Gestión Laboral</h3>
-                    <p class="text-gray-400 text-sm font-light leading-relaxed mb-6">Asesoría integral en relaciones
-                        laborales corporativas.</p>
-                    <span
-                        class="text-[#C9A35C] text-xs font-semibold tracking-widest uppercase inline-flex items-center gap-2">
-                        Ver más <i class="fas fa-arrow-right text-[10px]"></i>
-                    </span>
-                </a>
-
-                <a href="/pages/servicios.html#pesquero" class="service-card bg-white p-8 block reveal reveal-delay-1">
-                    <div class="icon-wrap w-12 h-12 rounded-full bg-[#C9A35C]/10 flex items-center justify-center mb-6">
-                        <i class="fas fa-fish text-[#C9A35C]"></i>
-                    </div>
-                    <h3 class="font-sans font-semibold text-[#0E2F26] text-base mb-2 tracking-wide">Pesquero y
-                        Regulatorio</h3>
-                    <p class="text-gray-400 text-sm font-light leading-relaxed mb-6">Especialización en normativa
-                        sectorial y cumplimiento regulatorio.</p>
-                    <span
-                        class="text-[#C9A35C] text-xs font-semibold tracking-widest uppercase inline-flex items-center gap-2">
-                        Ver más <i class="fas fa-arrow-right text-[10px]"></i>
-                    </span>
-                </a>
-
-                <a href="/pages/servicios.html#compliance"
-                    class="service-card bg-white p-8 block reveal reveal-delay-2">
-                    <div class="icon-wrap w-12 h-12 rounded-full bg-[#C9A35C]/10 flex items-center justify-center mb-6">
-                        <i class="fas fa-shield-alt text-[#C9A35C]"></i>
-                    </div>
-                    <h3 class="font-sans font-semibold text-[#0E2F26] text-base mb-2 tracking-wide">Compliance</h3>
-                    <p class="text-gray-400 text-sm font-light leading-relaxed mb-6">Programas de cumplimiento normativo
-                        empresarial.</p>
-                    <span
-                        class="text-[#C9A35C] text-xs font-semibold tracking-widest uppercase inline-flex items-center gap-2">
-                        Ver más <i class="fas fa-arrow-right text-[10px]"></i>
-                    </span>
-                </a>
-
-                <a href="/pages/servicios.html#maritimo" class="service-card bg-white p-8 block reveal reveal-delay-3">
-                    <div class="icon-wrap w-12 h-12 rounded-full bg-[#C9A35C]/10 flex items-center justify-center mb-6">
-                        <i class="fas fa-ship text-[#C9A35C]"></i>
-                    </div>
-                    <h3 class="font-sans font-semibold text-[#0E2F26] text-base mb-2 tracking-wide">Marítimo y Portuario
-                    </h3>
-                    <p class="text-gray-400 text-sm font-light leading-relaxed mb-6">Asesoría especializada en derecho
-                        marítimo internacional.</p>
-                    <span
-                        class="text-[#C9A35C] text-xs font-semibold tracking-widest uppercase inline-flex items-center gap-2">
-                        Ver más <i class="fas fa-arrow-right text-[10px]"></i>
-                    </span>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- CLIENTES / MARCAS -->
-    <section class="py-16 lg:py-20 bg-white border-t border-gray-200 overflow-hidden">
-        <div class="container mx-auto px-8 sm:px-6 lg:px-12">
-
-            <!-- Título -->
-            <div class="text-center mb-10">
-                <p class="text-sm text-gray-500 uppercase tracking-widest font-medium">
-                    Confían en mí
-                </p>
-            </div>
-
-            <!-- Carrusel -->
-            <div class="w-full">
-                <div class="overflow-hidden relative py-4">
-                    <!-- Gradientes laterales para efecto fade -->
-                    <div
-                        class="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none">
-                    </div>
-                    <div
-                        class="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none">
-                    </div>
-
-                    <div class="flex animate-scroll-clients items-center logo-container">
-
-                        <!-- Set 1 - Original -->
+                <div class="grid grid-cols-2 lg:grid-cols-4 gap-px bg-[#F7F3EE]">
+                    <div class="pilar-card bg-white p-8 lg:p-10 reveal">
                         <div
-                            class="w-40 lg:w-52 h-16 lg:h-24 flex items-center justify-center flex-shrink-0 px-6 lg:px-8">
-                            <img src="/assets/images/LOGOS/logo5.webp" alt="LOGIS TRV"
-                                class="client-logo-item opacity-60 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300"
-                                width="160" height="55" loading="lazy">
+                            class="w-12 h-12 rounded-full bg-[#C9A35C]/10 flex items-center justify-center mb-6 transition-all duration-300">
+                            <i class="fas fa-lightbulb text-[#C9A35C]"></i>
                         </div>
+                        <h3 class="font-sans font-semibold text-[#0E2F26] mb-3 text-base tracking-wide">Claridad</h3>
+                        <p class="text-sm text-gray-400 font-light leading-relaxed">Soluciones comprensibles, sin
+                            tecnicismos innecesarios.</p>
+                    </div>
+                    <div class="pilar-card bg-white p-8 lg:p-10 reveal reveal-delay-1">
                         <div
-                            class="w-40 lg:w-52 h-16 lg:h-24 flex items-center justify-center flex-shrink-0 px-6 lg:px-8">
-                            <img src="/assets/images/LOGOS/logo3.webp" alt="FEDES"
-                                class="client-logo-item opacity-60 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300" width="160" height="55" loading="lazy">
+                            class="w-12 h-12 rounded-full bg-[#C9A35C]/10 flex items-center justify-center mb-6 transition-all duration-300">
+                            <i class="fas fa-balance-scale text-[#C9A35C]"></i>
                         </div>
+                        <h3 class="font-sans font-semibold text-[#0E2F26] mb-3 text-base tracking-wide">Rigor Legal</h3>
+                        <p class="text-sm text-gray-400 font-light leading-relaxed">Análisis fundamentado en cada
+                            decisión
+                            jurídica.</p>
+                    </div>
+                    <div class="pilar-card bg-white p-8 lg:p-10 reveal reveal-delay-2">
                         <div
-                            class="w-40 lg:w-52 h-16 lg:h-24 flex items-center justify-center flex-shrink-0 px-6 lg:px-8">
-                            <img src="/assets/images/LOGOS/logo8.webp" alt="MUZA"
-                                class="client-logo-item opacity-60 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300" width="160" height="55" loading="lazy">
+                            class="w-12 h-12 rounded-full bg-[#C9A35C]/10 flex items-center justify-center mb-6 transition-all duration-300">
+                            <i class="fas fa-eye text-[#C9A35C]"></i>
+                        </div>
+                        <h3 class="font-sans font-semibold text-[#0E2F26] mb-3 text-base tracking-wide">Transparencia
+                        </h3>
+                        <p class="text-sm text-gray-400 font-light leading-relaxed">Comunicación directa en cada etapa
+                            del
+                            proceso.</p>
+                    </div>
+                    <div class="pilar-card bg-white p-8 lg:p-10 reveal reveal-delay-3">
+                        <div
+                            class="w-12 h-12 rounded-full bg-[#C9A35C]/10 flex items-center justify-center mb-6 transition-all duration-300">
+                            <i class="fas fa-handshake text-[#C9A35C]"></i>
+                        </div>
+                        <h3 class="font-sans font-semibold text-[#0E2F26] mb-3 text-base tracking-wide">Compromiso</h3>
+                        <p class="text-sm text-gray-400 font-light leading-relaxed">El objetivo de mi cliente es mi
+                            objetivo.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SERVICIOS SECTION -->
+        <section id="servicios" class="py-24 lg:py-32 bg-[#F7F3EE] relative overflow-hidden">
+            <div class="bg-shape w-[600px] h-[600px] bg-[#C9A35C]/4 -top-48 -right-48 hidden lg:block"></div>
+
+            <div class="container mx-auto px-8 sm:px-6 lg:px-12 relative z-10">
+                <div class="text-center mb-20 reveal">
+                    <p
+                        class="text-xs uppercase tracking-[0.3em] text-[#C9A35C] font-medium mb-5 flex items-center justify-center gap-3">
+                        <span class="w-6 h-px bg-[#C9A35C]"></span>Áreas de Práctica<span
+                            class="w-6 h-px bg-[#C9A35C]"></span>
+                    </p>
+                    <h2 class="font-serif text-4xl lg:text-5xl xl:text-6xl text-[#0E2F26]">
+                        Lo que <em class="font-light" style="color:#C9A35C;">ofrezco</em>
+                    </h2>
+                </div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+                    <a href="/pages/servicios.html#corporativo" class="service-card bg-white p-8 block reveal">
+                        <div
+                            class="icon-wrap w-12 h-12 rounded-full bg-[#C9A35C]/10 flex items-center justify-center mb-6">
+                            <i class="fas fa-building text-[#C9A35C]"></i>
+                        </div>
+                        <h3 class="font-sans font-semibold text-[#0E2F26] text-base mb-2 tracking-wide">Corporativo</h3>
+                        <p class="text-gray-400 text-sm font-light leading-relaxed mb-6">Estructuración y gestión legal
+                            de
+                            empresas en todas sus etapas.</p>
+                        <span
+                            class="text-[#C9A35C] text-xs font-semibold tracking-widest uppercase inline-flex items-center gap-2">
+                            Ver más <i class="fas fa-arrow-right text-[10px]"></i>
+                        </span>
+                    </a>
+
+                    <a href="/pages/servicios.html#contratos"
+                        class="service-card bg-white p-8 block reveal reveal-delay-1">
+                        <div
+                            class="icon-wrap w-12 h-12 rounded-full bg-[#C9A35C]/10 flex items-center justify-center mb-6">
+                            <i class="fas fa-file-contract text-[#C9A35C]"></i>
+                        </div>
+                        <h3 class="font-sans font-semibold text-[#0E2F26] text-base mb-2 tracking-wide">Contratos</h3>
+                        <p class="text-gray-400 text-sm font-light leading-relaxed mb-6">Redacción y negociación
+                            estratégica
+                            de contratos comerciales.</p>
+                        <span
+                            class="text-[#C9A35C] text-xs font-semibold tracking-widest uppercase inline-flex items-center gap-2">
+                            Ver más <i class="fas fa-arrow-right text-[10px]"></i>
+                        </span>
+                    </a>
+
+                    <a href="/pages/servicios.html#laboral"
+                        class="service-card bg-white p-8 block reveal reveal-delay-2">
+                        <div
+                            class="icon-wrap w-12 h-12 rounded-full bg-[#C9A35C]/10 flex items-center justify-center mb-6">
+                            <i class="fas fa-users text-[#C9A35C]"></i>
+                        </div>
+                        <h3 class="font-sans font-semibold text-[#0E2F26] text-base mb-2 tracking-wide">Gestión Laboral
+                        </h3>
+                        <p class="text-gray-400 text-sm font-light leading-relaxed mb-6">Asesoría integral en relaciones
+                            laborales corporativas.</p>
+                        <span
+                            class="text-[#C9A35C] text-xs font-semibold tracking-widest uppercase inline-flex items-center gap-2">
+                            Ver más <i class="fas fa-arrow-right text-[10px]"></i>
+                        </span>
+                    </a>
+
+                    <a href="/pages/servicios.html#pesquero"
+                        class="service-card bg-white p-8 block reveal reveal-delay-1">
+                        <div
+                            class="icon-wrap w-12 h-12 rounded-full bg-[#C9A35C]/10 flex items-center justify-center mb-6">
+                            <i class="fas fa-fish text-[#C9A35C]"></i>
+                        </div>
+                        <h3 class="font-sans font-semibold text-[#0E2F26] text-base mb-2 tracking-wide">Pesquero y
+                            Regulatorio</h3>
+                        <p class="text-gray-400 text-sm font-light leading-relaxed mb-6">Especialización en normativa
+                            sectorial y cumplimiento regulatorio.</p>
+                        <span
+                            class="text-[#C9A35C] text-xs font-semibold tracking-widest uppercase inline-flex items-center gap-2">
+                            Ver más <i class="fas fa-arrow-right text-[10px]"></i>
+                        </span>
+                    </a>
+
+                    <a href="/pages/servicios.html#compliance"
+                        class="service-card bg-white p-8 block reveal reveal-delay-2">
+                        <div
+                            class="icon-wrap w-12 h-12 rounded-full bg-[#C9A35C]/10 flex items-center justify-center mb-6">
+                            <i class="fas fa-shield-alt text-[#C9A35C]"></i>
+                        </div>
+                        <h3 class="font-sans font-semibold text-[#0E2F26] text-base mb-2 tracking-wide">Compliance</h3>
+                        <p class="text-gray-400 text-sm font-light leading-relaxed mb-6">Programas de cumplimiento
+                            normativo
+                            empresarial.</p>
+                        <span
+                            class="text-[#C9A35C] text-xs font-semibold tracking-widest uppercase inline-flex items-center gap-2">
+                            Ver más <i class="fas fa-arrow-right text-[10px]"></i>
+                        </span>
+                    </a>
+
+                    <a href="/pages/servicios.html#maritimo"
+                        class="service-card bg-white p-8 block reveal reveal-delay-3">
+                        <div
+                            class="icon-wrap w-12 h-12 rounded-full bg-[#C9A35C]/10 flex items-center justify-center mb-6">
+                            <i class="fas fa-ship text-[#C9A35C]"></i>
+                        </div>
+                        <h3 class="font-sans font-semibold text-[#0E2F26] text-base mb-2 tracking-wide">Marítimo y
+                            Portuario
+                        </h3>
+                        <p class="text-gray-400 text-sm font-light leading-relaxed mb-6">Asesoría especializada en
+                            derecho
+                            marítimo internacional.</p>
+                        <span
+                            class="text-[#C9A35C] text-xs font-semibold tracking-widest uppercase inline-flex items-center gap-2">
+                            Ver más <i class="fas fa-arrow-right text-[10px]"></i>
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- CLIENTES / MARCAS
+        <section class="py-16 lg:py-20 bg-white border-t border-gray-200 overflow-hidden">
+            <div class="container mx-auto px-8 sm:px-6 lg:px-12">
+
+                Título
+                <div class="text-center mb-10">
+                    <p class="text-sm text-gray-500 uppercase tracking-widest font-medium">
+                        Confían en mí
+                    </p>
+                </div>
+
+                <-- Carrusel -->
+        <!-- <div class="w-full">
+                    <div class="overflow-hidden relative py-4"> -->
+        <!-- Gradientes laterales para efecto fade -->
+        <!-- <div
+                            class="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none">
                         </div>
                         <div
-                            class="w-40 lg:w-52 h-16 lg:h-24 flex items-center justify-center flex-shrink-0 px-6 lg:px-8">
-                            <img src="/assets/images/LOGOS/logo9.webp" alt="UNICORSA"
-                                class="client-logo-item opacity-60 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300" width="160" height="55" loading="lazy">
+                            class="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none">
                         </div>
-                        <div class="flex items-center gap-6 lg:gap-8 pr-6 lg:pr-8 flex-shrink-0">
-                            <div
-                                class="w-40 lg:w-52 h-16 lg:h-24 flex items-center justify-center flex-shrink-0 px-6 lg:px-8">
-                                <img src="/assets/images/LOGOS/logo1.webp" alt="COEM"
-                                    class="client-logo-item opacity-60 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300" width="160" height="55" loading="lazy">
-                            </div>
-                            <div
-                                class="w-40 lg:w-52 h-16 lg:h-24 flex items-center justify-center flex-shrink-0 px-6 lg:px-8">
-                                <img src="/assets/images/LOGOS/logo2.webp" alt="DTA"
-                                    class="client-logo-item opacity-60 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300" width="160" height="55" loading="lazy">
-                            </div>
 
+                        <div class="flex animate-scroll-clients items-center logo-container"> -->
+
+        <!-- Set 1 - Original
                             <div
                                 class="w-40 lg:w-52 h-16 lg:h-24 flex items-center justify-center flex-shrink-0 px-6 lg:px-8">
-                                <img src="/assets/images/LOGOS/logo4.webp" alt="IBP"
-                                    class="client-logo-item opacity-60 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300" width="160" height="55" loading="lazy">
+                                <img src="/assets/images/LOGOS/logo5.webp" alt="LOGIS TRV"
+                                    class="client-logo-item opacity-60 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300"
+                                    width="160" height="55" loading="lazy">
                             </div>
                             <div
                                 class="w-40 lg:w-52 h-16 lg:h-24 flex items-center justify-center flex-shrink-0 px-6 lg:px-8">
-                                <img src="/assets/images/LOGOS/logo6.webp" alt="LUA"
-                                    class="client-logo-item opacity-60 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300" width="160" height="55" loading="lazy">
+                                <img src="/assets/images/LOGOS/logo3.webp" alt="FEDES"
+                                    class="client-logo-item opacity-60 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300"
+                                    width="160" height="55" loading="lazy">
                             </div>
                             <div
                                 class="w-40 lg:w-52 h-16 lg:h-24 flex items-center justify-center flex-shrink-0 px-6 lg:px-8">
-                                <img src="/assets/images/LOGOS/logo7.webp" alt="MQA"
-                                    class="client-logo-item opacity-60 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300" width="160" height="55" loading="lazy">
+                                <img src="/assets/images/LOGOS/logo8.webp" alt="MUZA"
+                                    class="client-logo-item opacity-60 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300"
+                                    width="160" height="55" loading="lazy">
                             </div>
-                        </div>
+                            <div
+                                class="w-40 lg:w-52 h-16 lg:h-24 flex items-center justify-center flex-shrink-0 px-6 lg:px-8">
+                                <img src="/assets/images/LOGOS/logo9.webp" alt="UNICORSA"
+                                    class="client-logo-item opacity-60 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300"
+                                    width="160" height="55" loading="lazy">
+                            </div>
+                            <div class="flex items-center gap-6 lg:gap-8 pr-6 lg:pr-8 flex-shrink-0">
+                                <div
+                                    class="w-40 lg:w-52 h-16 lg:h-24 flex items-center justify-center flex-shrink-0 px-6 lg:px-8">
+                                    <img src="/assets/images/LOGOS/logo1.webp" alt="COEM"
+                                        class="client-logo-item opacity-60 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300"
+                                        width="160" height="55" loading="lazy">
+                                </div>
+                                <div
+                                    class="w-40 lg:w-52 h-16 lg:h-24 flex items-center justify-center flex-shrink-0 px-6 lg:px-8">
+                                    <img src="/assets/images/LOGOS/logo2.webp" alt="DTA"
+                                        class="client-logo-item opacity-60 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300"
+                                        width="160" height="55" loading="lazy">
+                                </div>
+
+                                <div
+                                    class="w-40 lg:w-52 h-16 lg:h-24 flex items-center justify-center flex-shrink-0 px-6 lg:px-8">
+                                    <img src="/assets/images/LOGOS/logo4.webp" alt="IBP"
+                                        class="client-logo-item opacity-60 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300"
+                                        width="160" height="55" loading="lazy">
+                                </div>
+                                <div
+                                    class="w-40 lg:w-52 h-16 lg:h-24 flex items-center justify-center flex-shrink-0 px-6 lg:px-8">
+                                    <img src="/assets/images/LOGOS/logo6.webp" alt="LUA"
+                                        class="client-logo-item opacity-60 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300"
+                                        width="160" height="55" loading="lazy">
+                                </div>
+                                <div
+                                    class="w-40 lg:w-52 h-16 lg:h-24 flex items-center justify-center flex-shrink-0 px-6 lg:px-8">
+                                    <img src="/assets/images/LOGOS/logo7.webp" alt="MQA"
+                                        class="client-logo-item opacity-60 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300"
+                                        width="160" height="55" loading="lazy">
+                                </div>
+                            </div> -->
+        <!-- </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section> -->
 
-    <!-- CTA SECTION -->
-    <section class="py-24 lg:py-32 bg-[#0E2F26] relative overflow-hidden">
-        <!-- Large decorative circles -->
-        <div class="bg-shape w-[700px] h-[700px] bg-[#C9A35C]/5 -top-48 -right-48"></div>
-        <div class="bg-shape w-[400px] h-[400px] bg-white/3 -bottom-32 -left-32"></div>
+        <!-- CTA SECTION -->
+        <section class="py-24 lg:py-32 bg-[#0E2F26] relative overflow-hidden">
+            <!-- Large decorative circles -->
+            <div class="bg-shape w-[700px] h-[700px] bg-[#C9A35C]/5 -top-48 -right-48"></div>
+            <div class="bg-shape w-[400px] h-[400px] bg-white/3 -bottom-32 -left-32"></div>
 
-        <div class="container mx-auto px-8 sm:px-6 lg:px-12 relative z-10">
-            <div class="max-w-3xl mx-auto text-center">
-                <p
-                    class="text-xs uppercase tracking-[0.3em] text-[#C9A35C] font-medium mb-8 flex items-center justify-center gap-3 reveal">
-                    <span class="w-6 h-px bg-[#C9A35C]"></span>Contacto<span class="w-6 h-px bg-[#C9A35C]"></span>
-                </p>
-                <h2
-                    class="font-serif text-4xl lg:text-5xl xl:text-6xl text-white mb-6 leading-tight reveal reveal-delay-1">
-                    ¿Necesitas asesoría<br>
-                    <em class="font-light" style="color:#C9A35C;">legal corporativa?</em>
-                </h2>
-                <p class="text-gray-400 font-light mb-12 text-base leading-relaxed reveal reveal-delay-2">
-                    Conversemos sobre tu caso.<br>Primera consulta sin compromiso.
-                </p>
-                <a href="https://wa.me/593986261897?text=Hola,%20necesito%20asesoría%20legal" target="_blank"
-                    class="btn-primary inline-flex items-center justify-center bg-[#C9A35C] text-[#0E2F26] px-10 py-4 rounded-full font-semibold text-sm tracking-wide shadow-2xl reveal reveal-delay-3">
-                    <i class="fab fa-whatsapp mr-3 text-xl"></i>
-                    Contactar por WhatsApp
-                </a>
+            <div class="container mx-auto px-8 sm:px-6 lg:px-12 relative z-10">
+                <div class="max-w-3xl mx-auto text-center">
+                    <p
+                        class="text-xs uppercase tracking-[0.3em] text-[#C9A35C] font-medium mb-8 flex items-center justify-center gap-3 reveal">
+                        <span class="w-6 h-px bg-[#C9A35C]"></span>Contacto<span class="w-6 h-px bg-[#C9A35C]"></span>
+                    </p>
+                    <h2
+                        class="font-serif text-4xl lg:text-5xl xl:text-6xl text-white mb-6 leading-tight reveal reveal-delay-1">
+                        ¿Necesitas asesoría<br>
+                        <em class="font-light" style="color:#C9A35C;">legal corporativa?</em>
+                    </h2>
+                    <p class="text-gray-400 font-light mb-12 text-base leading-relaxed reveal reveal-delay-2">
+                        Conversemos sobre tu caso.<br>Primera consulta sin compromiso.
+                    </p>
+                    <a href="https://wa.me/593986261897?text=Hola,%20necesito%20asesoría%20legal" target="_blank"
+                        class="btn-primary inline-flex items-center justify-center bg-[#C9A35C] text-[#0E2F26] px-10 py-4 rounded-full font-semibold text-sm tracking-wide shadow-2xl reveal reveal-delay-3">
+                        <i class="fab fa-whatsapp mr-3 text-xl"></i>
+                        Contactar por WhatsApp
+                    </a>
+                </div>
             </div>
-        </div>
-    </section>
-
+        </section>
+    </main>
     <!-- FOOTER -->
     <footer class="bg-pine-dark border-t border-pine-lighter/30">
         <div class="container mx-auto px-8 sm:px-6 lg:px-12 py-12 lg:py-16">
@@ -929,9 +1035,7 @@
                 <div>
                     <div class="flex items-center space-x-3 mb-6">
                         <img src="/assets/images/Carla_LOGO_2.webp" alt="Carla Álvarez Manrique"
-                            class="w-72 h-auto object-contain"
-                            style="aspect-ratio: 3/2;"
-                            width="288" height="192">
+                            class="w-72 h-auto object-contain" style="aspect-ratio: 3/2;" width="288" height="192">
                     </div>
                     <p class="text-gray-400 text-sm leading-relaxed font-light">
                         Asesoría legal corporativa especializada en Guayaquil, Ecuador.
@@ -1013,7 +1117,7 @@
     <script>
         // Restaurar scroll-behavior smooth DESPUÉS de que el browser ya posicionó la página
         // Esto evita el scroll animado molesto al recargar
-        window.addEventListener('load', function() {
+        window.addEventListener('load', function () {
             document.documentElement.style.scrollBehavior = 'smooth';
         });
 
@@ -1084,72 +1188,62 @@
         let currentTranslate = 0;
         let prevTranslate = 0;
 
-        const getMaxTranslate = () => {
-            const viewportWidth = window.innerWidth;
-            const carouselWidth = carousel.scrollWidth;
-            if (viewportWidth < 768) {
-                return -(carouselWidth - viewportWidth + 80);
-            } else if (viewportWidth < 1024) {
-                return -(carouselWidth - viewportWidth + 100);
-            } else {
-                return -(carouselWidth - viewportWidth + 120);
+        if (carousel) {
+            const getMaxTranslate = () => {
+                const viewportWidth = window.innerWidth;
+                const carouselWidth = carousel.scrollWidth;
+                if (viewportWidth < 768) return -(carouselWidth - viewportWidth + 80);
+                else if (viewportWidth < 1024) return -(carouselWidth - viewportWidth + 100);
+                else return -(carouselWidth - viewportWidth + 120);
+            };
+
+            carousel.addEventListener('touchstart', touchStart, { passive: true });
+            carousel.addEventListener('touchmove', touchMove, { passive: true });
+            carousel.addEventListener('touchend', touchEnd);
+            carousel.addEventListener('mousedown', touchStart);
+            carousel.addEventListener('mousemove', touchMove);
+            carousel.addEventListener('mouseup', touchEnd);
+            carousel.addEventListener('mouseleave', touchEnd);
+
+            function touchStart(event) {
+                isDragging = true;
+                hasDragged = false;
+                startPos = getPositionX(event);
+                carousel.classList.add('dragging');
+                const style = window.getComputedStyle(carousel);
+                const matrix = new DOMMatrix(style.transform);
+                prevTranslate = matrix.m41;
+                currentTranslate = prevTranslate;
             }
-        };
 
-        carousel.addEventListener('touchstart', touchStart, { passive: true });
-        carousel.addEventListener('touchmove', touchMove, { passive: true });
-        carousel.addEventListener('touchend', touchEnd);
-        carousel.addEventListener('mousedown', touchStart);
-        carousel.addEventListener('mousemove', touchMove);
-        carousel.addEventListener('mouseup', touchEnd);
-        carousel.addEventListener('mouseleave', touchEnd);
-
-        function touchStart(event) {
-            isDragging = true;
-            hasDragged = false;
-            startPos = getPositionX(event);
-            carousel.classList.add('dragging');
-
-            const style = window.getComputedStyle(carousel);
-            const matrix = new DOMMatrix(style.transform);
-            prevTranslate = matrix.m41;
-            currentTranslate = prevTranslate;
-        }
-
-        function touchMove(event) {
-            if (!isDragging) return;
-
-            const currentPosition = getPositionX(event);
-            const diff = currentPosition - startPos;
-
-            if (Math.abs(diff) > 5) hasDragged = true;
-
-            currentTranslate = prevTranslate + diff;
-
-            const maxTranslate = getMaxTranslate();
-            if (currentTranslate > 0) currentTranslate = 0;
-            if (currentTranslate < maxTranslate) currentTranslate = maxTranslate;
-
-            carousel.style.transform = `translateX(${currentTranslate}px)`;
-        }
-
-        function touchEnd() {
-            if (!isDragging) return;
-            isDragging = false;
-            carousel.classList.remove('dragging');
-
-            if (hasDragged) {
-                prevTranslate = currentTranslate;
-            } else {
-                setTimeout(() => { carousel.style.transform = ''; }, 800);
+            function touchMove(event) {
+                if (!isDragging) return;
+                const currentPosition = getPositionX(event);
+                const diff = currentPosition - startPos;
+                if (Math.abs(diff) > 5) hasDragged = true;
+                currentTranslate = prevTranslate + diff;
+                const maxTranslate = getMaxTranslate();
+                if (currentTranslate > 0) currentTranslate = 0;
+                if (currentTranslate < maxTranslate) currentTranslate = maxTranslate;
+                carousel.style.transform = `translateX(${currentTranslate}px)`;
             }
-            hasDragged = false;
+
+            function touchEnd() {
+                if (!isDragging) return;
+                isDragging = false;
+                carousel.classList.remove('dragging');
+                if (hasDragged) {
+                    prevTranslate = currentTranslate;
+                } else {
+                    setTimeout(() => { carousel.style.transform = ''; }, 800);
+                }
+                hasDragged = false;
+            }
         }
 
         function getPositionX(event) {
             return event.type.includes('mouse') ? event.pageX : event.touches[0].clientX;
         }
-
         // Mobile Menu Toggle
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
